@@ -99,15 +99,15 @@
     body {
       display: flex;
       flex-direction: column;
-      min-height: 100dvh;
-      min-height: 100vh;
+      height: 100dvh;
+      height: 100vh;
       font-family: var(--font-sans);
       background: var(--bg);
       color: var(--text);
       line-height: 1.55;
       font-size: 15px;
       -webkit-font-smoothing: antialiased;
-      overflow-x: hidden;
+      overflow: hidden;
       transition: background-color 0.3s, color 0.3s;
     }
 
@@ -536,20 +536,20 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 8px 52px 60px;
+      padding: 4px 52px 52px;
       overflow: hidden;
       z-index: 1;
     }
 
     @media (max-width: 900px) {
       .book-viewport {
-        padding: 6px 6px 56px;
+        padding: 4px 6px 48px;
       }
     }
 
     @media (max-width: 720px) {
       .book-viewport {
-        padding: 4px 4px 52px;
+        padding: 4px 4px 46px;
       }
     }
 
@@ -561,12 +561,12 @@
       display: flex;
       justify-content: space-between;
       align-items: stretch;
-      padding: 8% 52px 20%;
+      padding: 6% 52px 15%;
     }
 
     @media (max-width: 900px) {
       .book-click-zones {
-        padding: 6% 4px 20%;
+        padding: 6% 4px 15%;
       }
     }
 
@@ -622,7 +622,7 @@
       flex-direction: column;
       width: 100%;
       height: 100%;
-      padding: 24px 24px 32px;
+      padding: 20px 24px 32px;
       position: relative;
       overflow: hidden;
       overflow: clip;
@@ -638,7 +638,7 @@
 
     @media (max-width: 640px) {
       .page-content {
-        padding: 14px 12px 24px;
+        padding: 14px 12px 28px;
       }
     }
 
@@ -736,7 +736,7 @@
 
     .page-header {
       flex-shrink: 0;
-      margin-bottom: 10px;
+      margin-bottom: 8px;
     }
 
     .page-title {
@@ -749,7 +749,7 @@
     }
 
     .page-sub {
-      font-size: 0.74rem;
+      font-size: 0.78rem;
       color: var(--text-muted);
       font-weight: 500;
       line-height: 1.4;
@@ -780,19 +780,19 @@
 
     .flip-arrows-bottom {
       position: absolute;
-      bottom: 12px;
+      bottom: 8px;
       left: 50%;
       transform: translateX(-50%);
       display: flex;
-      gap: 20px;
+      gap: 16px;
       z-index: 25;
       align-items: center;
       justify-content: center;
     }
 
     .flip-arrow {
-      width: 44px;
-      height: 44px;
+      width: 42px;
+      height: 42px;
       border-radius: 50%;
       background: var(--surface);
       border: 2px solid var(--accent);
@@ -816,81 +816,26 @@
     }
 
     .flip-arrow:disabled {
-      opacity: 0.25;
+      opacity: 0.3;
       cursor: not-allowed;
     }
 
     @media (max-width: 900px) {
       .flip-arrow {
-        width: 40px;
-        height: 40px;
+        width: 38px;
+        height: 38px;
         font-size: 1.1rem;
         background: rgba(255, 255, 255, 0.95);
       }
 
       .flip-arrows-bottom {
-        gap: 16px;
-        bottom: 10px;
+        gap: 14px;
+        bottom: 6px;
       }
     }
 
     [data-theme="dark"] .flip-arrow {
       background: rgba(42, 24, 16, 0.95);
-    }
-
-    .book-nav {
-      flex-shrink: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 8px;
-      padding: 10px 16px calc(12px + env(safe-area-inset-bottom));
-      position: relative;
-      z-index: 10;
-    }
-
-    .book-dot {
-      width: 9px;
-      height: 9px;
-      border-radius: 50%;
-      background: var(--border);
-      border: none;
-      cursor: pointer;
-      transition: all 0.3s;
-      padding: 0;
-      position: relative;
-    }
-
-    .book-dot::before {
-      content: '';
-      position: absolute;
-      inset: -6px;
-    }
-
-    .book-dot:hover {
-      background: var(--accent-border);
-    }
-
-    .book-dot.active {
-      background: var(--accent);
-      width: 22px;
-      border-radius: 5px;
-    }
-
-    @media (max-width: 520px) {
-      .book-dot {
-        width: 10px;
-        height: 10px;
-      }
-
-      .book-dot.active {
-        width: 24px;
-      }
-
-      .book-nav {
-        gap: 10px;
-        padding: 12px 16px calc(14px + env(safe-area-inset-bottom));
-      }
     }
 
     .cover-content {
@@ -1186,24 +1131,25 @@
     .story-mini {
       display: flex;
       flex-direction: column;
-      justify-content: center;
+      justify-content: flex-start;
       height: 100%;
+      padding-top: 2px;
     }
 
     .story-mini p {
-      font-size: 0.84rem;
-      line-height: 1.5;
+      font-size: 0.86rem;
+      line-height: 1.55;
       color: var(--text);
-      margin-bottom: 6px;
+      margin-bottom: 8px;
       font-weight: 500;
     }
 
     .story-mini p:first-child::first-letter {
       font-family: var(--font-display);
-      font-size: 2rem;
+      font-size: 1.9rem;
       float: left;
       line-height: 0.9;
-      margin: 4px 6px 0 0;
+      margin: 2px 6px 0 0;
       color: var(--accent);
       font-weight: 900;
     }
@@ -1243,7 +1189,7 @@
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 5px;
-      margin-top: 4px;
+      margin-top: 6px;
     }
 
     .story-tag {
@@ -1261,6 +1207,18 @@
 
     [data-theme="dark"] .story-tag {
       background: var(--surface);
+    }
+
+    @media (max-width: 640px) {
+      .story-mini p {
+        font-size: 0.82rem;
+        line-height: 1.5;
+        margin-bottom: 6px;
+      }
+
+      .story-mini p:first-child::first-letter {
+        font-size: 1.6rem;
+      }
     }
 
     .moments-grid {
@@ -1480,6 +1438,7 @@
       transform: rotateY(180deg);
     }
 
+    /* FIX: Sin translateZ, sin transform-style flat. Toggle pointer-events para clicks */
     .donate-card .flip-front,
     .donate-card .flip-back {
       position: absolute;
@@ -1497,8 +1456,22 @@
       border: 2px solid var(--border);
       transition: border-color 0.3s;
       overflow: hidden;
-      -webkit-transform: translateZ(0.1px);
-      transform: translateZ(0.1px);
+    }
+
+    .donate-card .flip-front {
+      pointer-events: auto;
+    }
+
+    .donate-card .flip-back {
+      pointer-events: none;
+    }
+
+    .donate-card.flipped .flip-front {
+      pointer-events: none;
+    }
+
+    .donate-card.flipped .flip-back {
+      pointer-events: auto;
     }
 
     .donate-card:hover .flip-front,
@@ -1620,22 +1593,24 @@
       width: 100%;
       margin-top: auto;
       flex-wrap: wrap;
+      position: relative;
+      z-index: 3;
     }
 
     .donate-card .back-actions a {
       flex: 1;
       min-width: 0;
-      min-height: 34px;
+      min-height: 40px;
       display: inline-flex;
       align-items: center;
       justify-content: center;
       gap: 3px;
-      padding: 6px 6px;
+      padding: 8px 6px;
       background: var(--accent-contrast);
       color: var(--accent);
       border: 2px solid var(--accent-contrast);
       border-radius: 6px;
-      font-size: 0.66rem;
+      font-size: 0.7rem;
       font-weight: 800;
       cursor: pointer;
       text-decoration: none;
@@ -1690,14 +1665,10 @@
         font-size: 0.6rem;
       }
 
-      .donate-card .back-actions {
-        gap: 4px;
-      }
-
       .donate-card .back-actions a {
-        font-size: 0.62rem;
-        padding: 5px 4px;
-        min-height: 32px;
+        font-size: 0.66rem;
+        padding: 6px 4px;
+        min-height: 38px;
       }
     }
 
@@ -2147,24 +2118,39 @@
             <p class="page-sub">Dale play, aunque sea unos segundos. Vale la pena.</p>
           </div>
           <div class="video-grid flex-fill">
-            <div class="video-card" data-video="img/videos/video-01.mp4"><video preload="metadata" muted playsinline
-                poster="img/videos/video-01-thumb.jpg.jpeg" src="img/videos/video-01.mp4#t=0.1"></video>
+            <div class="video-card" data-video="videos/video-01.mp4">
+              <video preload="metadata" muted playsinline poster="img/videos/video-01-thumb.jpg.jpeg">
+                <source src="videos/video-01.mp4" type="video/mp4">
+                <source src="img/videos/video-01.mp4" type="video/mp4">
+              </video>
               <div class="video-play"></div>
             </div>
-            <div class="video-card" data-video="img/videos/video-02.mp4"><video preload="metadata" muted playsinline
-                poster="img/videos/video-02-thumb.jpg.jpeg" src="img/videos/video-02.mp4#t=0.1"></video>
+            <div class="video-card" data-video="videos/video-02.mp4">
+              <video preload="metadata" muted playsinline poster="img/videos/video-02-thumb.jpg.jpeg">
+                <source src="videos/video-02.mp4" type="video/mp4">
+                <source src="img/videos/video-02.mp4" type="video/mp4">
+              </video>
               <div class="video-play"></div>
             </div>
-            <div class="video-card" data-video="img/videos/video-03.mp4"><video preload="metadata" muted playsinline
-                poster="img/videos/video-03-thumb.jpg.jpeg" src="img/videos/video-03.mp4#t=0.1"></video>
+            <div class="video-card" data-video="videos/video-03.mp4">
+              <video preload="metadata" muted playsinline poster="img/videos/video-03-thumb.jpg.jpeg">
+                <source src="videos/video-03.mp4" type="video/mp4">
+                <source src="img/videos/video-03.mp4" type="video/mp4">
+              </video>
               <div class="video-play"></div>
             </div>
-            <div class="video-card" data-video="img/videos/video-04.mp4"><video preload="metadata" muted playsinline
-                poster="img/videos/video-04-thumb.jpg.jpeg" src="img/videos/video-04.mp4#t=0.1"></video>
+            <div class="video-card" data-video="videos/video-04.mp4">
+              <video preload="metadata" muted playsinline poster="img/videos/video-04-thumb.jpg.jpeg">
+                <source src="videos/video-04.mp4" type="video/mp4">
+                <source src="img/videos/video-04.mp4" type="video/mp4">
+              </video>
               <div class="video-play"></div>
             </div>
-            <div class="video-card" data-video="img/videos/video-05.mp4"><video preload="metadata" muted playsinline
-                poster="img/videos/video-05-thumb.jpg.jpeg" src="img/videos/video-05.mp4#t=0.1"></video>
+            <div class="video-card" data-video="videos/video-05.mp4">
+              <video preload="metadata" muted playsinline poster="img/videos/video-05-thumb.jpg.jpeg">
+                <source src="videos/video-05.mp4" type="video/mp4">
+                <source src="img/videos/video-05.mp4" type="video/mp4">
+              </video>
               <div class="video-play"></div>
             </div>
           </div>
@@ -2197,7 +2183,7 @@
                       alt="QR Nequi @ERP133" class="qr-big" data-qr>
                     <div class="back-actions">
                       <a href="https://wa.me/573014100913?text=Hola%2C%20quiero%20donar%20a%20Canas%20con%20Dignidad"
-                        target="_blank" rel="noopener noreferrer" data-donar>💬 WhatsApp</a>
+                        target="_blank" rel="noopener noreferrer" data-wa>💬 WhatsApp</a>
                     </div>
                   </div>
                 </div>
@@ -2218,7 +2204,7 @@
                     <p class="back-note">Escribe por WhatsApp para coordinar tu visita un sábado.</p>
                     <div class="back-actions">
                       <a href="https://wa.me/573014100913?text=Hola%2C%20quiero%20donar%20y%20servir%20con%20Canas%20con%20Dignidad"
-                        target="_blank" rel="noopener noreferrer" data-donar>💬 WhatsApp</a>
+                        target="_blank" rel="noopener noreferrer" data-wa>💬 WhatsApp</a>
                     </div>
                   </div>
                 </div>
@@ -2264,15 +2250,6 @@
       <button type="button" class="flip-arrow" id="bookPrev" aria-label="Página anterior">‹</button>
       <button type="button" class="flip-arrow" id="bookNext" aria-label="Página siguiente">›</button>
     </div>
-  </div>
-
-  <div class="book-nav" id="bookDots" aria-label="Indicador de página">
-    <button type="button" class="book-dot active" data-page="0" aria-label="Portada"></button>
-    <button type="button" class="book-dot" data-page="1" aria-label="Historia"></button>
-    <button type="button" class="book-dot" data-page="2" aria-label="Momentos"></button>
-    <button type="button" class="book-dot" data-page="3" aria-label="Videos"></button>
-    <button type="button" class="book-dot" data-page="4" aria-label="Donar"></button>
-    <button type="button" class="book-dot" data-page="5" aria-label="Cierre"></button>
   </div>
 
   <div class="modal-overlay" id="modal-privacidad" role="dialog" aria-modal="true">
@@ -2380,7 +2357,6 @@
     let isReady = false;
     const totalPages = 6;
     const bookEl = document.getElementById('book');
-    const dots = Array.from(document.querySelectorAll('.book-dot'));
     const prevBtn = document.getElementById('bookPrev');
     const nextBtn = document.getElementById('bookNext');
     const clickZonePrev = document.getElementById('clickZonePrev');
@@ -2403,7 +2379,6 @@
     };
 
     function updateUI(idx) {
-      dots.forEach(d => d.classList.toggle('active', parseInt(d.dataset.page) === idx));
       if (prevBtn) prevBtn.disabled = idx === 0 || isFlipping;
       if (nextBtn) nextBtn.disabled = idx === (totalPages - 1) || isFlipping;
     }
@@ -2415,25 +2390,31 @@
         window._flipSafetyTimer = setTimeout(() => {
           isFlipping = false;
           if (pageFlip) updateUI(pageFlip.getCurrentPageIndex());
-        }, 1500);
+        }, 2000);
       } else {
         clearTimeout(window._flipSafetyTimer);
       }
     }
 
+    /* FIX: Usar flipNext/flipPrev que FUERZAN animación de canvas.
+       Fallback a turnToNextPage/turnToPrevPage si falla. */
     function safeNext() {
       if (!pageFlip || isFlipping) return;
       try {
         if (pageFlip.getCurrentPageIndex() >= totalPages - 1) return;
         pageFlip.flipNext('bottom');
-      } catch (e) { }
+      } catch (e) {
+        try { pageFlip.turnToNextPage(); } catch (e2) { console.warn('Next failed:', e2); }
+      }
     }
     function safePrev() {
       if (!pageFlip || isFlipping) return;
       try {
         if (pageFlip.getCurrentPageIndex() <= 0) return;
         pageFlip.flipPrev('bottom');
-      } catch (e) { }
+      } catch (e) {
+        try { pageFlip.turnToPrevPage(); } catch (e2) { console.warn('Prev failed:', e2); }
+      }
     }
 
     function getBookConfig() {
@@ -2503,18 +2484,10 @@
 
         pageFlip.on('flip', (e) => {
           updateUI(e.data);
-          const dot = dots.find(d => parseInt(d.dataset.page) === e.data);
-          if (dot) spawnSparkles(dot, 6);
         });
 
         if (prevBtn) prevBtn.addEventListener('click', (e) => { e.stopPropagation(); spawnGiantHeartsFromEl(prevBtn, 5); safePrev(); });
         if (nextBtn) nextBtn.addEventListener('click', (e) => { e.stopPropagation(); spawnGiantHeartsFromEl(nextBtn, 5); safeNext(); });
-
-        dots.forEach(d => d.addEventListener('click', (e) => {
-          e.stopPropagation();
-          spawnGiantHeartsFromEl(d, 5);
-          window.goToPage(parseInt(d.dataset.page));
-        }));
 
         document.addEventListener('keydown', (e) => {
           if (document.querySelector('.modal-overlay.active')) return;
@@ -2573,7 +2546,7 @@
 
     document.addEventListener('pointerdown', (e) => {
       const target = e.target.closest('[data-go-to]');
-      if (!target || target.closest('[data-flip]')) return;
+      if (!target || target.closest('[data-flip]') || target.closest('[data-wa]')) return;
       const now = Date.now();
       if (now - lastNavTime < 250) return;
       lastNavTime = now;
@@ -2585,11 +2558,23 @@
     document.addEventListener('click', (e) => {
       if (window.PointerEvent) return;
       const target = e.target.closest('[data-go-to]');
-      if (!target || target.closest('[data-flip]')) return;
+      if (!target || target.closest('[data-flip]') || target.closest('[data-wa]')) return;
       const now = Date.now();
       if (now - lastNavTime < 250) return;
       lastNavTime = now;
       handleGoTo(target, e.clientX, e.clientY);
+    }, true);
+
+    /* ============ WHATSAPP — FORZAR NAVEGACIÓN ============ */
+    document.addEventListener('pointerup', (e) => {
+      const wa = e.target.closest('[data-wa]');
+      if (!wa) return;
+      const url = wa.getAttribute('href');
+      if (!url) return;
+      e.preventDefault();
+      e.stopPropagation();
+      window.open(url, '_blank', 'noopener,noreferrer');
+      spawnGiantHearts(e.clientX, e.clientY, 8);
     }, true);
 
     /* ============ MODALES ============ */
@@ -2600,7 +2585,7 @@
       if (closer) { e.preventDefault(); e.stopPropagation(); closeModal(closer.getAttribute('data-close-modal')); }
     }, true);
 
-    /* ============ FLIP CARDS ============ */
+    /* ============ FLIP CARDS (tarjetas de donación) ============ */
     function setupCardFlip(card) {
       let startX = 0, startY = 0, startTime = 0, isTap = true, activeId = null, lastToggle = 0;
 
@@ -2613,7 +2598,7 @@
       }
 
       card.addEventListener('pointerdown', (e) => {
-        if (e.target.closest('a, button, [data-qr]')) { activeId = null; return; }
+        if (e.target.closest('a, button, [data-qr], [data-wa], [data-copy]')) { activeId = null; return; }
         activeId = e.pointerId;
         startX = e.clientX; startY = e.clientY; startTime = Date.now(); isTap = true;
       }, { capture: true, passive: true });
@@ -2626,7 +2611,7 @@
       card.addEventListener('pointerup', (e) => {
         if (e.pointerId !== activeId) return;
         activeId = null;
-        if (e.target.closest('a, button, [data-qr]')) return;
+        if (e.target.closest('a, button, [data-qr], [data-wa], [data-copy]')) return;
         if (!isTap) return;
         if (Date.now() - startTime > 800) return;
         doFlip(e.clientX, e.clientY);
@@ -2636,7 +2621,7 @@
 
       card.addEventListener('touchstart', (e) => {
         if (window.PointerEvent) return;
-        if (e.target.closest('a, button, [data-qr]')) return;
+        if (e.target.closest('a, button, [data-qr], [data-wa], [data-copy]')) return;
         const t = e.touches[0];
         startX = t.clientX; startY = t.clientY; startTime = Date.now(); isTap = true;
       }, { capture: true, passive: true });
@@ -2651,7 +2636,7 @@
       card.addEventListener('touchend', (e) => {
         if (window.PointerEvent) return;
         if (!isTap) return;
-        if (e.target.closest('a, button, [data-qr]')) return;
+        if (e.target.closest('a, button, [data-qr], [data-wa], [data-copy]')) return;
         if (Date.now() - startTime > 800) return;
         const t = e.changedTouches[0];
         doFlip(t.clientX, t.clientY);
@@ -2663,15 +2648,41 @@
     }
     document.querySelectorAll('[data-flip]').forEach(setupCardFlip);
 
-    /* ============ VIDEO MODAL ============ */
+    /* ============ VIDEO MODAL (con diagnóstico mejorado) ============ */
     function openVideoModal(src) {
       const wrapper = document.getElementById('videoEmbedWrapper');
       if (/\.(mp4|webm|ogg)(\?|#|$)/i.test(src)) {
-        wrapper.innerHTML = '<video controls autoplay playsinline preload="auto" src="' + src + '"></video>';
+        const fallbackSrc = src.startsWith('videos/') ? src.replace('videos/', 'img/videos/') : src;
+        wrapper.innerHTML =
+          '<video controls autoplay muted playsinline preload="auto" style="background:#000;">' +
+          '<source src="' + src + '" type="video/mp4">' +
+          '<source src="' + fallbackSrc + '" type="video/mp4">' +
+          'Tu navegador no soporta video.' +
+          '</video>';
         const v = wrapper.querySelector('video');
         v.addEventListener('error', () => {
-          wrapper.innerHTML = '<div style="color:#FFF;padding:20px;text-align:center;font-family:sans-serif;font-size:0.9rem;">No se pudo cargar el video.<br><small style="opacity:0.7;">Verifica que el archivo exista en img/videos/</small></div>';
-        });
+          const err = v.error;
+          let reason = '';
+          let hint = '';
+          if (err) {
+            switch (err.code) {
+              case 1: reason = 'Carga abortada'; break;
+              case 2: reason = 'Error de red - el archivo no se encontró'; break;
+              case 3: reason = 'Error de decodificación - códec no soportado (necesita H.264)'; break;
+              case 4: reason = 'Archivo no encontrado o formato no soportado'; break;
+              default: reason = 'Error desconocido';
+            }
+          }
+          if (location.protocol === 'file:') {
+            hint = 'Estás abriendo el HTML con file://. Los videos NO cargan así por seguridad del navegador. Subí la página a un servidor (Netlify, live-server, etc.) o usá "npx serve" en la terminal.';
+          } else {
+            hint = 'Rutas intentadas: ' + src + ' y ' + fallbackSrc + '. Verificá que el archivo exista y sea MP4 con códec H.264.';
+          }
+          wrapper.innerHTML = '<div style="color:#FFF;padding:20px;text-align:center;font-family:sans-serif;font-size:0.85rem;line-height:1.5;">' +
+            '<strong style="display:block;margin-bottom:8px;">⚠ ' + reason + '</strong>' +
+            '<span style="opacity:0.85;">' + hint + '</span>' +
+            '</div>';
+        }, true);
       } else {
         wrapper.innerHTML = '<iframe src="' + src + '?autoplay=1&rel=0" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>';
       }
@@ -2700,8 +2711,10 @@
       if (e.target.closest('[data-qr]')) return;
       if (e.target.closest('[data-flip]')) return;
       if (e.target.closest('[data-go-to]')) return;
+      if (e.target.closest('[data-wa]')) return;
+      if (e.target.closest('[data-copy]')) return;
       if (e.target.closest('[data-donar]')) { spawnGiantHearts(e.clientX, e.clientY, 15); return; }
-      if (e.target.closest('button, a, .book-dot')) { spawnGiantHearts(e.clientX, e.clientY, 6); return; }
+      if (e.target.closest('button, a')) { spawnGiantHearts(e.clientX, e.clientY, 6); return; }
     });
 
     /* ============ THEME ============ */
@@ -2744,7 +2757,7 @@
       if (e.key === 'Escape') document.querySelectorAll('.modal-overlay.active').forEach(m => closeModal(m.id));
     });
 
-    /* ============ COPIAR LLAVE (tocar @ERP133) ============ */
+    /* ============ COPIAR LLAVE ============ */
     document.querySelectorAll('[data-copy]').forEach(btn => {
       btn.addEventListener('click', async (e) => {
         e.stopPropagation();
@@ -2756,7 +2769,6 @@
           spawnGiantHearts(e.clientX, e.clientY, 10);
           setTimeout(() => btn.textContent = orig, 1800);
         } catch (err) {
-          // Fallback para navegadores sin clipboard API
           const ta = document.createElement('textarea');
           ta.value = text;
           ta.style.position = 'fixed';
