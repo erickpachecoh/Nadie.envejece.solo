@@ -1,0 +1,2323 @@
+<!DOCTYPE html>
+<html lang="es-CO" data-theme="light">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Nadie Envejece Solo | Abuelitos en Las Cruces, Bogotá</title>
+  <meta name="description"
+    content="Cada semana, abuelitos en Las Cruces reciben un plato caliente, compañía y una sonrisa. Dona por Nequi al @3014100913.">
+  <meta name="theme-color" content="#FFF8F0" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#1A0E08" media="(prefers-color-scheme: dark)">
+  <meta name="color-scheme" content="light dark">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Inter:wght@400;500;700;800;900&family=JetBrains+Mono:wght@600;700&display=swap"
+    rel="stylesheet">
+
+  <script>
+    (function () {
+      try {
+        var s = localStorage.getItem('nes-theme');
+        if (s === 'light' || s === 'dark') document.documentElement.setAttribute('data-theme', s);
+      } catch (e) { }
+    })();
+  </script>
+
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    button,
+    a {
+      touch-action: manipulation;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    :root,
+    [data-theme="light"] {
+      --bg: #FFF8F0;
+      --bg-grad: rgba(255, 200, 150, 0.35);
+      --surface: #FFFFFF;
+      --surface-2: #FCEFE0;
+      --border: #F0D9C5;
+      --text: #4A2C1A;
+      --text-strong: #2C1810;
+      --text-muted: #8A6555;
+      --accent: #C4472B;
+      --accent-2: #FFE0C8;
+      --accent-contrast: #FFF8F0;
+      --accent-soft: rgba(255, 224, 200, 0.6);
+      --accent-border: rgba(196, 71, 43, 0.3);
+      --nav-bg: rgba(255, 248, 240, 0.92);
+      --modal-bg: rgba(44, 24, 16, 0.65);
+      --sparkle-color: #C4472B;
+    }
+
+    [data-theme="dark"] {
+      --bg: #1A0E08;
+      --bg-grad: rgba(212, 165, 116, 0.08);
+      --surface: #2A1810;
+      --surface-2: #3D2418;
+      --border: #4A2C1A;
+      --text: #F5E6D3;
+      --text-strong: #FFF;
+      --text-muted: #C9A888;
+      --accent: #F5A65B;
+      --accent-2: #F5D7B8;
+      --accent-contrast: #1A0E08;
+      --accent-soft: rgba(245, 215, 184, 0.1);
+      --accent-border: rgba(245, 215, 184, 0.25);
+      --nav-bg: rgba(26, 14, 8, 0.9);
+      --modal-bg: rgba(0, 0, 0, 0.8);
+      --sparkle-color: #F5A65B;
+    }
+
+    :root {
+      --font-display: 'Playfair Display', Georgia, serif;
+      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+      --nav-h: 56px;
+    }
+
+    html,
+    body {
+      height: 100%;
+      margin: 0;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      min-height: 100dvh;
+      min-height: 100vh;
+      font-family: var(--font-sans);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.55;
+      font-size: 15px;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+      height: auto;
+    }
+
+    button {
+      font-family: inherit;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      top: -50%;
+      right: -20%;
+      width: 80vw;
+      height: 80vw;
+      background: radial-gradient(circle, var(--bg-grad) 0%, transparent 60%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    [data-theme="light"] body::after {
+      content: '';
+      position: fixed;
+      bottom: -50%;
+      left: -20%;
+      width: 80vw;
+      height: 80vw;
+      background: radial-gradient(circle, rgba(255, 224, 200, 0.5) 0%, transparent 60%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .warm-title {
+      font-family: var(--font-display);
+      font-weight: 900;
+      letter-spacing: -0.5px;
+      color: var(--text-strong);
+      position: relative;
+      display: inline-block;
+    }
+
+    .warm-title::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(110deg, transparent 0%, transparent 35%, rgba(255, 255, 255, 0.85) 48%, rgba(212, 165, 116, 0.6) 52%, transparent 65%, transparent 100%);
+      background-size: 300% 100%;
+      background-position: 100% 0;
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: warmShimmer 7s ease-in-out infinite;
+      pointer-events: none;
+    }
+
+    @keyframes warmShimmer {
+
+      0%,
+      60% {
+        background-position: 100% 0;
+        opacity: 0;
+      }
+
+      70%,
+      80% {
+        background-position: -100% 0;
+        opacity: 1;
+      }
+
+      90%,
+      100% {
+        background-position: -100% 0;
+        opacity: 0;
+      }
+    }
+
+    .magic-sparkle {
+      position: fixed;
+      width: 10px;
+      height: 10px;
+      pointer-events: none;
+      z-index: 9999;
+      animation: sparkleBurst 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    .magic-sparkle::before {
+      content: '♥';
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--sparkle-color);
+      font-size: 14px;
+      text-shadow: 0 0 8px var(--sparkle-color), 0 0 15px rgba(255, 255, 255, 0.8);
+    }
+
+    @keyframes sparkleBurst {
+      0% {
+        transform: translate(0, 0) scale(0) rotate(0deg);
+        opacity: 1;
+      }
+
+      100% {
+        transform: translate(var(--dx), var(--dy)) scale(1.6) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+    .giant-heart {
+      position: fixed;
+      pointer-events: none;
+      z-index: 99999;
+      color: var(--accent);
+      font-weight: 900;
+      line-height: 1;
+      user-select: none;
+      text-shadow: 0 0 18px var(--accent), 0 0 40px rgba(255, 100, 100, 0.55), 0 4px 12px rgba(0, 0, 0, 0.15);
+      animation: giantHeartFloat 1.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      transform: translate(-50%, -50%);
+      will-change: transform, opacity;
+    }
+
+    @keyframes giantHeartFloat {
+      0% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.2) rotate(0deg);
+      }
+
+      20% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1.15) rotate(calc(var(--rot) * 0.3));
+      }
+
+      100% {
+        opacity: 0;
+        transform: translate(calc(-50% + var(--fx)), calc(-50% + var(--fy))) scale(0.7) rotate(var(--rot));
+      }
+    }
+
+    .nav {
+      position: relative;
+      flex-shrink: 0;
+      height: var(--nav-h);
+      background: var(--nav-bg);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      padding-top: env(safe-area-inset-top);
+    }
+
+    .nav-inner {
+      max-width: 1400px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 0 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .nav-brand {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 900;
+      color: var(--accent);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      white-space: nowrap;
+    }
+
+    .nav-brand span {
+      color: var(--text-strong);
+    }
+
+    .nav-brand .heart-icon {
+      font-size: 1rem;
+      animation: beat 2s ease-in-out infinite;
+    }
+
+    @keyframes beat {
+
+      0%,
+      100% {
+        transform: scale(1);
+      }
+
+      50% {
+        transform: scale(1.2);
+      }
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .theme-toggle {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--text);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s;
+    }
+
+    .theme-toggle:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .theme-toggle svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    [data-theme="dark"] .theme-toggle .icon-sun {
+      display: block;
+    }
+
+    [data-theme="dark"] .theme-toggle .icon-moon {
+      display: none;
+    }
+
+    [data-theme="light"] .theme-toggle .icon-sun {
+      display: none;
+    }
+
+    [data-theme="light"] .theme-toggle .icon-moon {
+      display: block;
+    }
+
+    .book-viewport {
+      flex: 1 1 auto;
+      min-height: 0;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 8px 52px;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    @media (max-width: 720px) {
+      .book-viewport {
+        padding: 4px;
+      }
+    }
+
+    .book {
+      width: 100%;
+      height: 100%;
+      max-width: 1400px;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+
+    .book.ready {
+      opacity: 1;
+    }
+
+    .book .page {
+      background: var(--surface);
+      overflow: hidden;
+    }
+
+    /* Página final blanca (invisible) */
+    .page.page-final {
+      background: var(--surface);
+    }
+
+    .page.page-final .page-content {
+      background: var(--surface);
+    }
+
+    .page-content {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      height: 100%;
+      padding: 24px 24px 32px;
+      position: relative;
+      overflow: hidden;
+      background: var(--surface);
+    }
+
+    @media (max-width: 640px) {
+      .page-content {
+        padding: 18px 16px 28px;
+      }
+    }
+
+    .page-header {
+      flex-shrink: 0;
+      margin-bottom: 12px;
+    }
+
+    .page-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.1rem, 2vw, 1.5rem);
+      font-weight: 900;
+      color: var(--text-strong);
+      margin-bottom: 4px;
+      line-height: 1.15;
+    }
+
+    .page-sub {
+      font-size: 0.76rem;
+      color: var(--text-muted);
+      font-weight: 500;
+      line-height: 1.4;
+    }
+
+    .flex-fill {
+      flex: 1;
+      min-height: 0;
+    }
+
+    .page-num {
+      position: absolute;
+      bottom: 8px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-family: var(--font-mono);
+      font-size: 0.58rem;
+      color: var(--text-muted);
+      font-weight: 700;
+      letter-spacing: 1px;
+      opacity: 0.7;
+      background: var(--surface);
+      padding: 2px 10px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      z-index: 4;
+    }
+
+    .flip-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 20;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: var(--surface);
+      border: 2px solid var(--accent);
+      color: var(--accent);
+      font-size: 1.4rem;
+      font-weight: 900;
+      line-height: 1;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 15px rgba(196, 71, 43, 0.22);
+      transition: all 0.2s;
+    }
+
+    .flip-arrow:hover:not(:disabled) {
+      background: var(--accent);
+      color: var(--accent-contrast);
+      transform: translateY(-50%) scale(1.08);
+    }
+
+    .flip-arrow:disabled {
+      opacity: 0.25;
+      cursor: not-allowed;
+    }
+
+    .flip-arrow.left {
+      left: 6px;
+    }
+
+    .flip-arrow.right {
+      right: 6px;
+    }
+
+    @media (max-width: 720px) {
+      .flip-arrow {
+        display: none;
+      }
+    }
+
+    .book-nav {
+      flex-shrink: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 7px;
+      padding: 8px 16px calc(10px + env(safe-area-inset-bottom));
+      position: relative;
+      z-index: 10;
+    }
+
+    .book-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--border);
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s;
+      padding: 0;
+    }
+
+    .book-dot:hover {
+      background: var(--accent-border);
+    }
+
+    .book-dot.active {
+      background: var(--accent);
+      width: 22px;
+      border-radius: 5px;
+    }
+
+    .cover-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      text-align: center;
+      padding: 4px;
+      gap: 8px;
+    }
+
+    .cover-eyebrow {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: 0.6rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--accent);
+      background: var(--accent-soft);
+      padding: 4px 12px;
+      border-radius: 20px;
+    }
+
+    .cover-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.4rem, 3.8vw, 2.2rem);
+      line-height: 1.06;
+      font-weight: 900;
+      letter-spacing: -1px;
+      color: var(--text-strong);
+    }
+
+    .cover-title em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    .cover-sub {
+      font-size: 0.86rem;
+      color: var(--text-muted);
+      max-width: 420px;
+      margin: 4px auto 0;
+      line-height: 1.5;
+      font-weight: 500;
+    }
+
+    .cover-sub strong {
+      color: var(--text-strong);
+    }
+
+    .cover-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      margin-top: 4px;
+    }
+
+    .cover-hint {
+      font-family: var(--font-mono);
+      font-size: 0.6rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      font-weight: 700;
+      margin-top: 4px;
+      opacity: 0.6;
+      animation: hintPulse 2s ease-in-out infinite;
+    }
+
+    @keyframes hintPulse {
+
+      0%,
+      100% {
+        opacity: 0.4;
+      }
+
+      50% {
+        opacity: 1;
+      }
+    }
+
+    .heart-morph {
+      position: relative;
+      width: 170px;
+      height: 170px;
+      margin: 0 auto;
+      animation: heartFloat 6s ease-in-out infinite;
+      flex-shrink: 0;
+    }
+
+    @keyframes heartFloat {
+
+      0%,
+      100% {
+        transform: translateY(0) rotate(-2deg);
+      }
+
+      50% {
+        transform: translateY(-6px) rotate(2deg);
+      }
+    }
+
+    .heart-morph svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+      overflow: visible;
+      filter: drop-shadow(0 12px 24px rgba(196, 71, 43, 0.22));
+    }
+
+    .heart-morph .heart-path {
+      fill: var(--accent-2);
+      stroke: var(--accent);
+      stroke-width: 2.2;
+      stroke-linejoin: round;
+    }
+
+    .heart-emojis {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+    }
+
+    .heart-emojis .e {
+      position: absolute;
+      line-height: 1;
+      user-select: none;
+      filter: drop-shadow(0 3px 8px rgba(0, 0, 0, 0.18));
+      animation: emojiFloat 4s ease-in-out infinite;
+      pointer-events: auto;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+
+    .heart-emojis .e:hover {
+      transform: translate(-50%, -50%) scale(1.25) rotate(0deg) !important;
+    }
+
+    @keyframes emojiFloat {
+
+      0%,
+      100% {
+        transform: translate(-50%, -50%) translateY(0) rotate(-4deg);
+      }
+
+      50% {
+        transform: translate(-50%, -50%) translateY(-8px) rotate(4deg);
+      }
+    }
+
+    .e.e1 {
+      font-size: 1.8rem;
+      top: 2%;
+      left: 50%;
+      animation-delay: 0s;
+    }
+
+    .e.e2 {
+      font-size: 1.6rem;
+      top: 22%;
+      left: 100%;
+      animation-delay: 0.5s;
+    }
+
+    .e.e3 {
+      font-size: 2rem;
+      top: 50%;
+      left: 104%;
+      animation-delay: 1s;
+    }
+
+    .e.e4 {
+      font-size: 1.6rem;
+      top: 82%;
+      left: 100%;
+      animation-delay: 1.5s;
+    }
+
+    .e.e5 {
+      font-size: 1.8rem;
+      top: 102%;
+      left: 50%;
+      animation-delay: 2s;
+    }
+
+    .e.e6 {
+      font-size: 1.6rem;
+      top: 82%;
+      left: 0%;
+      animation-delay: 2.5s;
+    }
+
+    .e.e7 {
+      font-size: 2rem;
+      top: 50%;
+      left: -4%;
+      animation-delay: 3s;
+    }
+
+    .e.e8 {
+      font-size: 1.6rem;
+      top: 22%;
+      left: 0%;
+      animation-delay: 3.5s;
+    }
+
+    @media (max-width: 640px) {
+      .heart-morph {
+        width: 140px;
+        height: 140px;
+      }
+
+      .e.e1,
+      .e.e3,
+      .e.e5,
+      .e.e7 {
+        font-size: 1.4rem;
+      }
+
+      .e.e2,
+      .e.e4,
+      .e.e6,
+      .e.e8 {
+        font-size: 1.2rem;
+      }
+    }
+
+    .btn-primary {
+      padding: 11px 20px;
+      background: var(--accent);
+      color: var(--accent-contrast);
+      font-weight: 800;
+      border-radius: 8px;
+      font-size: 0.86rem;
+      transition: all 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      border: 2px solid var(--accent);
+      min-height: 44px;
+      justify-content: center;
+      cursor: pointer;
+      font-family: inherit;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 30px var(--accent-border);
+      background: transparent;
+      color: var(--accent);
+    }
+
+    .btn-ghost {
+      padding: 11px 20px;
+      border: 2px solid var(--accent);
+      border-radius: 8px;
+      font-weight: 800;
+      font-size: 0.86rem;
+      color: var(--accent);
+      background: var(--accent-2);
+      transition: all 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      min-height: 44px;
+      justify-content: center;
+      cursor: pointer;
+      font-family: inherit;
+    }
+
+    .btn-ghost:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 30px rgba(255, 224, 200, 0.8);
+      background: var(--surface);
+    }
+
+    [data-theme="dark"] .btn-ghost {
+      color: var(--accent-contrast);
+    }
+
+    .story-mini {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      height: 100%;
+    }
+
+    .story-mini p {
+      font-size: 0.86rem;
+      line-height: 1.55;
+      color: var(--text);
+      margin-bottom: 8px;
+      font-weight: 500;
+    }
+
+    .story-mini p:first-child::first-letter {
+      font-family: var(--font-display);
+      font-size: 2.1rem;
+      float: left;
+      line-height: 0.9;
+      margin: 4px 6px 0 0;
+      color: var(--accent);
+      font-weight: 900;
+    }
+
+    .story-mini .highlight {
+      color: var(--accent);
+      font-weight: 800;
+      background: var(--accent-2);
+      padding: 1px 5px;
+      border-radius: 3px;
+    }
+
+    .story-quote-mini {
+      background: var(--accent-soft);
+      border-left: 3px solid var(--accent);
+      padding: 10px 14px;
+      border-radius: 8px;
+      margin: 8px 0;
+      font-style: italic;
+      font-family: var(--font-display);
+      font-size: 0.86rem;
+      line-height: 1.45;
+      color: var(--text-strong);
+    }
+
+    .story-quote-mini cite {
+      display: block;
+      margin-top: 4px;
+      font-family: var(--font-sans);
+      font-style: normal;
+      font-size: 0.68rem;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+
+    .story-tags {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 6px;
+      margin-top: 4px;
+    }
+
+    .story-tag {
+      background: var(--surface-2);
+      border: 1.5px solid var(--border);
+      border-radius: 8px;
+      padding: 7px 9px;
+      font-size: 0.72rem;
+      color: var(--text);
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    [data-theme="dark"] .story-tag {
+      background: var(--surface);
+    }
+
+    .moments-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-auto-rows: 1fr;
+      gap: 6px;
+      flex: 1;
+      min-height: 0;
+    }
+
+    @media (max-width: 520px) {
+      .moments-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 4px;
+      }
+    }
+
+    .moment-mini {
+      position: relative;
+      border-radius: 6px;
+      overflow: hidden;
+      border: 2px solid var(--border);
+      background: var(--surface-2);
+      cursor: pointer;
+      transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+      min-height: 0;
+    }
+
+    .moment-mini:hover {
+      transform: scale(1.03);
+      border-color: var(--accent);
+      box-shadow: 0 8px 20px rgba(196, 71, 43, 0.2);
+      z-index: 2;
+    }
+
+    .moment-mini img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s;
+      display: block;
+    }
+
+    .moment-mini:hover img {
+      transform: scale(1.08);
+    }
+
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      grid-auto-rows: 1fr;
+      gap: 8px;
+      flex: 1;
+      min-height: 0;
+    }
+
+    .video-card {
+      grid-column: span 2;
+      position: relative;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 2px solid var(--border);
+      background: var(--surface-2);
+      cursor: pointer;
+      transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+      min-height: 0;
+    }
+
+    .video-card:nth-child(4),
+    .video-card:nth-child(5) {
+      grid-column: span 3;
+    }
+
+    .video-card:hover {
+      transform: scale(1.03);
+      border-color: var(--accent);
+      box-shadow: 0 8px 20px rgba(196, 71, 43, 0.2);
+      z-index: 2;
+    }
+
+    .video-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s;
+      display: block;
+    }
+
+    .video-card:hover img {
+      transform: scale(1.06);
+    }
+
+    .video-play {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(44, 24, 16, 0.28);
+      transition: background 0.3s;
+      pointer-events: none;
+    }
+
+    .video-card:hover .video-play {
+      background: rgba(196, 71, 43, 0.45);
+    }
+
+    .video-play::before {
+      content: '▶';
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: var(--surface);
+      color: var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+      padding-left: 3px;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s;
+    }
+
+    .video-card:hover .video-play::before {
+      transform: scale(1.1);
+    }
+
+    @media (max-width: 520px) {
+      .video-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 6px;
+      }
+
+      .video-card,
+      .video-card:nth-child(4),
+      .video-card:nth-child(5) {
+        grid-column: span 1;
+      }
+
+      .video-card:nth-child(5) {
+        grid-column: 1 / -1;
+        width: 50%;
+        justify-self: center;
+      }
+
+      .video-play::before {
+        width: 34px;
+        height: 34px;
+        font-size: 0.75rem;
+      }
+    }
+
+    .donate-wrap {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      height: 100%;
+      gap: 10px;
+    }
+
+    .donate-line {
+      font-size: 0.86rem;
+      line-height: 1.5;
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    .donate-line strong {
+      color: var(--text-strong);
+    }
+
+    .donate-line .price {
+      color: var(--accent);
+      font-weight: 900;
+      font-family: var(--font-display);
+      font-size: 0.95rem;
+    }
+
+    .nequi-card {
+      background: linear-gradient(135deg, var(--accent-2) 0%, var(--surface-2) 100%);
+      border: 2.5px solid var(--accent);
+      border-radius: 12px;
+      padding: 12px 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .nequi-card::before {
+      content: '💝';
+      position: absolute;
+      top: -8px;
+      right: -6px;
+      font-size: 3rem;
+      opacity: 0.15;
+      pointer-events: none;
+    }
+
+    .nequi-card .nc-icon {
+      font-size: 1.5rem;
+      line-height: 1;
+      flex-shrink: 0;
+    }
+
+    .nequi-card .nc-info {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .nequi-card .nc-label {
+      font-family: var(--font-mono);
+      font-size: 0.58rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      margin-bottom: 2px;
+    }
+
+    .nequi-card .nc-value {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      font-weight: 900;
+      color: var(--accent);
+      letter-spacing: 0.5px;
+      line-height: 1.1;
+      word-break: break-all;
+    }
+
+    .da-copy {
+      background: var(--accent);
+      color: var(--accent-contrast);
+      border: 2px solid var(--accent);
+      cursor: pointer;
+      font-size: 0.68rem;
+      font-weight: 800;
+      padding: 6px 10px;
+      border-radius: 7px;
+      transition: all 0.2s;
+      white-space: nowrap;
+      flex-shrink: 0;
+      font-family: inherit;
+    }
+
+    .da-copy:hover {
+      background: transparent;
+      color: var(--accent);
+    }
+
+    .donate-options {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+
+    @media (max-width: 480px) {
+      .donate-options {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .donate-option {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 11px;
+      background: var(--surface-2);
+      border: 1.5px solid var(--border);
+      border-radius: 9px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--text);
+      transition: all 0.2s;
+      cursor: pointer;
+      text-align: left;
+      font-family: inherit;
+    }
+
+    .donate-option:hover {
+      border-color: var(--accent);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 15px rgba(196, 71, 43, 0.12);
+    }
+
+    .donate-option .do-emoji {
+      font-size: 1rem;
+    }
+
+    .donate-option .do-arrow {
+      margin-left: auto;
+      color: var(--accent);
+      font-weight: 900;
+    }
+
+    .qr-mini {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--surface-2);
+      border: 1.5px solid var(--border);
+      border-radius: 10px;
+      padding: 9px 11px;
+    }
+
+    .qr-mini img {
+      width: 55px;
+      height: 55px;
+      border-radius: 6px;
+      border: 2px solid var(--surface);
+      flex-shrink: 0;
+    }
+
+    .qr-mini .qr-info {
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      line-height: 1.4;
+      font-weight: 500;
+    }
+
+    .qr-mini .qr-info strong {
+      color: var(--text-strong);
+      display: block;
+      margin-bottom: 2px;
+      font-size: 0.74rem;
+    }
+
+    .help-wrapper {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      height: 100%;
+      gap: 12px;
+    }
+
+    .help-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      max-width: 520px;
+      margin: 0 auto;
+      width: 100%;
+      flex: 1;
+      min-height: 0;
+    }
+
+    .flip-card {
+      perspective: 1100px;
+      cursor: pointer;
+      min-height: 160px;
+    }
+
+    .flip-card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.75s cubic-bezier(0.4, 0, 0.2, 1);
+      transform-style: preserve-3d;
+    }
+
+    .flip-card.flipped .flip-card-inner {
+      transform: rotateY(180deg);
+    }
+
+    .flip-front,
+    .flip-back {
+      position: absolute;
+      inset: 0;
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+      border-radius: 14px;
+      padding: 16px 12px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: var(--surface-2);
+      border: 2px solid var(--border);
+      transition: border-color 0.3s;
+      text-align: center;
+    }
+
+    .flip-card:hover .flip-front,
+    .flip-card:hover .flip-back {
+      border-color: var(--accent);
+    }
+
+    .flip-front .flip-icon {
+      font-size: 2.4rem;
+      margin-bottom: 8px;
+      line-height: 1;
+    }
+
+    .flip-front h4 {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 900;
+      color: var(--text-strong);
+      line-height: 1.15;
+    }
+
+    .flip-front .flip-hint {
+      font-family: var(--font-mono);
+      font-size: 0.56rem;
+      color: var(--text-muted);
+      margin-top: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.9px;
+      font-weight: 700;
+    }
+
+    .flip-back {
+      transform: rotateY(180deg);
+      background: var(--accent);
+      color: var(--accent-contrast);
+      border-color: var(--accent);
+      align-items: flex-start;
+      text-align: left;
+      justify-content: flex-start;
+      padding-top: 14px;
+      padding-bottom: 12px;
+    }
+
+    .flip-back h4 {
+      color: var(--accent-contrast);
+      margin-bottom: 4px;
+      font-family: var(--font-display);
+      font-size: 0.9rem;
+      font-weight: 900;
+    }
+
+    .flip-back p {
+      color: var(--accent-contrast);
+      opacity: 0.95;
+      font-size: 0.72rem;
+      line-height: 1.4;
+      font-weight: 500;
+      margin-bottom: 8px;
+    }
+
+    .mini-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      background: var(--accent-contrast);
+      color: var(--accent);
+      border: 2px solid var(--accent-contrast);
+      border-radius: 6px;
+      padding: 5px 9px;
+      font-size: 0.64rem;
+      font-weight: 800;
+      cursor: pointer;
+      text-decoration: none;
+      font-family: inherit;
+      transition: all 0.2s;
+    }
+
+    .mini-btn:hover {
+      background: transparent;
+      color: var(--accent-contrast);
+    }
+
+    .help-cta {
+      font-size: 0.74rem;
+      color: var(--text-muted);
+      font-weight: 500;
+      text-align: center;
+      flex-shrink: 0;
+    }
+
+    .help-cta a {
+      color: var(--accent);
+      font-weight: 700;
+      text-decoration: underline;
+    }
+
+    .final-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      text-align: center;
+      gap: 12px;
+      padding: 8px;
+    }
+
+    .final-content h2 {
+      font-family: var(--font-display);
+      font-size: clamp(1.2rem, 2.8vw, 1.8rem);
+      font-weight: 900;
+      color: var(--text-strong);
+      line-height: 1.15;
+      max-width: 480px;
+    }
+
+    .final-content h2 em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    .final-content p {
+      font-size: 0.84rem;
+      color: var(--text-muted);
+      max-width: 400px;
+      line-height: 1.5;
+      font-weight: 500;
+    }
+
+    .footer-mini {
+      margin-top: 14px;
+      padding-top: 12px;
+      border-top: 1px solid var(--border);
+      width: 100%;
+      max-width: 440px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.66rem;
+      color: var(--text-muted);
+    }
+
+    .footer-mini .fm-brand {
+      font-family: var(--font-display);
+      font-size: 0.88rem;
+      font-weight: 900;
+      color: var(--accent);
+    }
+
+    .footer-mini .fm-brand span {
+      color: var(--text-strong);
+    }
+
+    .footer-mini .fm-links {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .footer-mini .fm-links a {
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .footer-mini .fm-links a:hover {
+      color: var(--accent);
+    }
+
+    .footer-mini .heart {
+      color: var(--accent);
+    }
+
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: var(--modal-bg);
+      backdrop-filter: blur(4px);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s, visibility 0.3s;
+    }
+
+    .modal-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .modal-content {
+      background: var(--surface);
+      border: 2px solid var(--border);
+      border-radius: 14px;
+      width: 90%;
+      max-width: 560px;
+      max-height: 85vh;
+      overflow-y: auto;
+      padding: 28px 24px;
+      position: relative;
+      transform: translateY(20px);
+      transition: transform 0.3s;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .modal-overlay.active .modal-content {
+      transform: translateY(0);
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      color: var(--text);
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 0.85rem;
+      z-index: 1;
+    }
+
+    .modal-close:hover {
+      background: var(--accent-2);
+      color: var(--accent);
+    }
+
+    .modal-content h2 {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 900;
+      color: var(--text-strong);
+      margin-bottom: 12px;
+      padding-right: 30px;
+    }
+
+    .modal-content h3 {
+      font-size: 0.92rem;
+      font-weight: 800;
+      color: var(--accent);
+      margin-top: 14px;
+      margin-bottom: 6px;
+    }
+
+    .modal-content p,
+    .modal-content li {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      line-height: 1.55;
+      margin-bottom: 8px;
+    }
+
+    .video-modal-content {
+      max-width: 900px;
+      padding: 16px;
+      background: #000;
+      border-color: var(--accent);
+    }
+
+    .video-embed-wrapper {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16/9;
+      border-radius: 8px;
+      overflow: hidden;
+      background: #000;
+    }
+
+    .video-embed-wrapper iframe,
+    .video-embed-wrapper video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(16px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .fade-up {
+      opacity: 0;
+      animation: fadeUp 0.7s ease forwards;
+    }
+
+    .fade-up.d1 {
+      animation-delay: 0.1s;
+    }
+
+    .fade-up.d2 {
+      animation-delay: 0.25s;
+    }
+
+    .fade-up.d3 {
+      animation-delay: 0.4s;
+    }
+
+    @media (max-width: 640px) {
+      .nav {
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
+    .book.fallback-mode>.page {
+      display: none;
+    }
+
+    .book.fallback-mode>.page.active {
+      display: block;
+      animation: fadeUp 0.4s ease forwards;
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav class="nav" aria-label="Navegación principal">
+    <div class="nav-inner">
+      <a href="#" class="nav-brand" aria-label="Inicio" onclick="event.preventDefault(); goToPage(0);">
+        <span class="heart-icon" aria-hidden="true">♥</span>Nadie <span>Envejece</span> Solo
+      </a>
+      <div class="nav-actions">
+        <button type="button" class="theme-toggle" id="themeToggle" aria-label="Cambiar tema" aria-pressed="false">
+          <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="4" />
+            <path
+              d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" />
+          </svg>
+          <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="book-viewport">
+    <button type="button" class="flip-arrow left" id="bookPrev" aria-label="Página anterior">‹</button>
+    <div id="book" class="book">
+
+      <div class="page" data-page="0">
+        <div class="page-content">
+          <div class="cover-content">
+            <p class="cover-eyebrow fade-up d1">Las Cruces, Bogotá</p>
+            <h1 class="cover-title warm-title fade-up d1">Nadie envejece solo.<br><em>Ni aquí, ni ahora, ni nunca.</em>
+            </h1>
+            <div class="heart-morph fade-up d2" id="heartMorph">
+              <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path class="heart-path"
+                  d="M 50 20 C 66.57 20 80 33.43 80 50 C 80 66.57 66.57 80 50 80 C 33.43 80 20 66.57 20 50 C 20 33.43 33.43 20 50 20 Z">
+                  <animate attributeName="d" dur="7s" repeatCount="indefinite" keyTimes="0; 0.45; 0.55; 1"
+                    calcMode="spline" keySplines="0.4 0 0.6 1; 0 0 1 1; 0.4 0 0.6 1" values="
+                      M 50 20 C 66.57 20 80 33.43 80 50 C 80 66.57 66.57 80 50 80 C 33.43 80 20 66.57 20 50 C 20 33.43 33.43 20 50 20 Z;
+                      M 50 20 C 38 2 6 4 6 32 C 6 52 30 68 50 90 C 70 68 94 52 94 32 C 94 4 62 2 50 20 Z;
+                      M 50 20 C 38 2 6 4 6 32 C 6 52 30 68 50 90 C 70 68 94 52 94 32 C 94 4 62 2 50 20 Z;
+                      M 50 20 C 66.57 20 80 33.43 80 50 C 80 66.57 66.57 80 50 80 C 33.43 80 20 66.57 20 50 C 20 33.43 33.43 20 50 20 Z
+                    " />
+                </path>
+              </svg>
+              <div class="heart-emojis">
+                <span class="e e1" aria-hidden="true">👵</span>
+                <span class="e e2" aria-hidden="true">👴</span>
+                <span class="e e3" aria-hidden="true">👩‍🦳</span>
+                <span class="e e4" aria-hidden="true">🧑‍🦳</span>
+                <span class="e e5" aria-hidden="true">👵</span>
+                <span class="e e6" aria-hidden="true">👴</span>
+                <span class="e e7" aria-hidden="true">💕</span>
+                <span class="e e8" aria-hidden="true">✨</span>
+              </div>
+            </div>
+            <p class="cover-sub fade-up d2">Cada semana, abuelitos en Las Cruces reciben un plato caliente, una bebida,
+              un postre y —lo más importante— <strong>alguien que los escuche</strong>.</p>
+            <div class="cover-actions fade-up d3">
+              <button type="button" class="btn-primary" data-donar onclick="goToPage(4)">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
+                  aria-hidden="true">
+                  <path
+                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+                </svg>
+                Quiero donar
+              </button>
+              <button type="button" class="btn-ghost" onclick="goToPage(5)">🤝 Ayudar</button>
+            </div>
+            <p class="cover-hint fade-up d3">Pasa la página →</p>
+          </div>
+          <div class="page-num">1 / 7</div>
+        </div>
+      </div>
+
+      <div class="page" data-page="1">
+        <div class="page-content">
+          <div class="page-header">
+            <h2 class="page-title warm-title">Empezó con un "¿cómo está?"</h2>
+            <p class="page-sub">Un matrimonio, una olla de comida y la convicción de que nadie debería envejecer solo.
+            </p>
+          </div>
+          <div class="story-mini flex-fill">
+            <p>En Las Cruces hay abuelitos que viven solos. <span class="highlight">Mario y Betsabé</span> empezaron a
+              visitarlos un día, sin proyecto ni presupuesto. Solo llevaban mercado, comida caliente y tiempo.</p>
+            <p>Hoy, cada semana, decenas de abuelitos reciben <strong>entretenimiento, almuerzo, bebida y
+                postre</strong>. No es caridad. Es <em>compañía</em>.</p>
+            <div class="story-quote-mini">"Doña Rosalba no agradece la comida. Nos agarra la mano y dice: 'Hoy sí voy a
+              tener con quién hablar'."<cite>— Mario, líder del equipo</cite></div>
+            <div class="story-tags">
+              <div class="story-tag"><span aria-hidden="true">♥</span> Presencia que dignifica</div>
+              <div class="story-tag"><span aria-hidden="true">🍲</span> Un plato caliente</div>
+              <div class="story-tag"><span aria-hidden="true">🕊️</span> Fe que sirve</div>
+              <div class="story-tag"><span aria-hidden="true">🚪</span> Puerta abierta</div>
+            </div>
+          </div>
+          <div class="page-num">2 / 7</div>
+        </div>
+      </div>
+
+      <div class="page" data-page="2">
+        <div class="page-content">
+          <div class="page-header">
+            <h2 class="page-title warm-title">Momentos que se vuelven recuerdos</h2>
+            <p class="page-sub">Cada sonrisa es un recordatorio de por qué seguimos.</p>
+          </div>
+          <div class="moments-grid flex-fill">
+            <div class="moment-mini"><img src="/img/momentos/momento-01.jpg.jpeg" alt="Momento 1" loading="lazy"></div>
+            <div class="moment-mini"><img src="/img/momentos/momento-02.jpg.jpeg" alt="Momento 2" loading="lazy"></div>
+            <div class="moment-mini"><img src="/img/momentos/momento-03.jpg.jpeg" alt="Momento 3" loading="lazy"></div>
+            <div class="moment-mini"><img src="/img/momentos/momento-04.jpg.jpeg" alt="Momento 4" loading="lazy"></div>
+            <div class="moment-mini"><img src="/img/momentos/momento-05.jpg.jpeg" alt="Momento 5" loading="lazy"></div>
+            <div class="moment-mini"><img src="/img/momentos/momento-06.jpg.jpeg" alt="Momento 6" loading="lazy"></div>
+            <div class="moment-mini"><img src="/img/momentos/momento-07.jpg.jpeg" alt="Momento 7" loading="lazy"></div>
+            <div class="moment-mini"><img src="/img/momentos/momento-08.jpg.jpeg" alt="Momento 8" loading="lazy"></div>
+            <div class="moment-mini"><img src="/img/momentos/momento-09.jpg.jpeg" alt="Momento 9" loading="lazy"></div>
+            <div class="moment-mini"><img src="/img/momentos/momento-10.jpg.jpeg" alt="Momento 10" loading="lazy"></div>
+            <div class="moment-mini"><img src="/img/momentos/momento-11.jpg.jpeg" alt="Momento 11" loading="lazy"></div>
+            <div class="moment-mini"><img src="/img/momentos/momento-12.jpg.jpeg" alt="Momento 12" loading="lazy"></div>
+            <div class="moment-mini"><img src="/img/momentos/momento-13.jpg.jpeg" alt="Momento 13" loading="lazy"></div>
+            <div class="moment-mini"><img src="/img/momentos/momento-14.jpg.jpeg" alt="Momento 14" loading="lazy"></div>
+            <div class="moment-mini"><img src="/img/momentos/momento-15.jpg.jpeg" alt="Momento 15" loading="lazy"></div>
+          </div>
+          <div class="page-num">3 / 7</div>
+        </div>
+      </div>
+
+      <div class="page" data-page="3">
+        <div class="page-content">
+          <div class="page-header">
+            <h2 class="page-title warm-title">Ellos te lo cuentan mejor</h2>
+            <p class="page-sub">Dale play, aunque sea unos segundos. Vale la pena.</p>
+          </div>
+          <div class="video-grid flex-fill">
+            <div class="video-card" data-video="/videos/video-01.mp4"><img src="/img/videos/video-01-thumb.jpg.jpeg"
+                alt="Video 1" loading="lazy">
+              <div class="video-play"></div>
+            </div>
+            <div class="video-card" data-video="/videos/video-02.mp4"><img src="/img/videos/video-02-thumb.jpg.jpeg"
+                alt="Video 2" loading="lazy">
+              <div class="video-play"></div>
+            </div>
+            <div class="video-card" data-video="/videos/video-03.mp4"><img src="/img/videos/video-03-thumb.jpg.jpeg"
+                alt="Video 3" loading="lazy">
+              <div class="video-play"></div>
+            </div>
+            <div class="video-card" data-video="/videos/video-04.mp4"><img src="/img/videos/video-04-thumb.jpg.jpeg"
+                alt="Video 4" loading="lazy">
+              <div class="video-play"></div>
+            </div>
+            <div class="video-card" data-video="/videos/video-05.mp4"><img src="/img/videos/video-05-thumb.jpg.jpeg"
+                alt="Video 5" loading="lazy">
+              <div class="video-play"></div>
+            </div>
+          </div>
+          <div class="page-num">4 / 7</div>
+        </div>
+      </div>
+
+      <div class="page" data-page="4">
+        <div class="page-content">
+          <div class="page-header">
+            <h2 class="page-title warm-title">Tu donación se vuelve un plato caliente</h2>
+            <p class="page-sub">No hay montos pequeños. Cada peso se convierte en compañía.</p>
+          </div>
+          <div class="donate-wrap flex-fill">
+            <p class="donate-line">Con <span class="price">$10.000</span> un abuelito come completo: sopa, plato fuerte,
+              bebida y postre. Con <span class="price">$50.000</span> comes cinco abuelitos.</p>
+            <div class="nequi-card">
+              <div class="nc-icon">💳</div>
+              <div class="nc-info">
+                <div class="nc-label">Nequi / Daviplata · Llave</div>
+                <div class="nc-value">@3014100913</div>
+              </div>
+              <button type="button" class="da-copy" data-copy="@3014100913" data-donar>Copiar</button>
+            </div>
+            <div class="donate-options">
+              <a href="https://wa.me/573014100913?text=Hola%2C%20quiero%20donar" target="_blank"
+                rel="noopener noreferrer" class="donate-option" data-donar><span
+                  class="do-emoji">💬</span><span>Escríbenos</span><span class="do-arrow">→</span></a>
+              <button type="button" class="donate-option" data-donar
+                onclick="document.querySelector('[data-copy]').click();"><span class="do-emoji">📋</span><span>Copiar
+                  llave</span><span class="do-arrow">→</span></button>
+            </div>
+            <div class="qr-mini">
+              <img src="/img/qr-donaciones.png" alt="QR Nequi @3014100913" loading="lazy">
+              <div class="qr-info"><strong>Escanea y dona</strong>Abre Nequi o Daviplata y escanea. O usa la llave
+                <strong>@3014100913</strong>.</div>
+            </div>
+          </div>
+          <div class="page-num">5 / 7</div>
+        </div>
+      </div>
+
+      <div class="page" data-page="5">
+        <div class="page-content">
+          <div class="page-header">
+            <h2 class="page-title warm-title">Formas de cambiar un día</h2>
+            <p class="page-sub">Toca cada tarjeta. Tu gesto se convierte en compañía.</p>
+          </div>
+          <div class="help-wrapper flex-fill">
+            <div class="help-grid">
+              <div class="flip-card" data-flip tabindex="0" role="button" aria-label="Donar">
+                <div class="flip-card-inner">
+                  <div class="flip-front">
+                    <div class="flip-icon">💝</div>
+                    <h4>Donar</h4>
+                    <div class="flip-hint">↻ Toca</div>
+                  </div>
+                  <div class="flip-back">
+                    <h4>Donar</h4>
+                    <p>$10.000 = un abuelito come completo. Nequi: @3014100913.</p><button type="button"
+                      class="mini-btn" data-copy="@3014100913" data-donar
+                      onclick="event.stopPropagation();">Copiar</button>
+                  </div>
+                </div>
+              </div>
+              <div class="flip-card" data-flip tabindex="0" role="button" aria-label="Donar y Ser voluntario">
+                <div class="flip-card-inner">
+                  <div class="flip-front">
+                    <div class="flip-icon">🤝</div>
+                    <h4>Donar + Servir</h4>
+                    <div class="flip-hint">↻ Toca</div>
+                  </div>
+                  <div class="flip-back">
+                    <h4>Donar + Servir</h4>
+                    <p>Dona y ven un sábado. Tu tiempo y tu aporte juntos cambian más.</p><a class="mini-btn"
+                      href="https://wa.me/573014100913?text=Hola%2C%20quiero%20donar%20y%20ser%20voluntario"
+                      target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation();"
+                      data-donar>Escribir</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <p class="help-cta">🤝 <a href="https://wa.me/573014100913?text=Hola%2C%20quiero%20ser%20voluntario"
+                target="_blank" rel="noopener noreferrer">Escríbenos por WhatsApp</a> y únete al equipo.</p>
+          </div>
+          <div class="page-num">6 / 7</div>
+        </div>
+      </div>
+
+      <div class="page" data-page="6">
+        <div class="page-content">
+          <div class="final-content">
+            <h2 class="warm-title">Un abuelito no debería envejecer solo. <em>Nunca más.</em></h2>
+            <p>Hoy puedes ser esa persona que toca la puerta, que sirve un plato, que dice "aquí estoy".</p>
+            <button type="button" class="btn-primary" data-donar onclick="goToPage(4)">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
+                aria-hidden="true">
+                <path
+                  d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+              </svg>
+              Quiero donar ahora
+            </button>
+            <div class="footer-mini">
+              <div class="fm-brand"><span>♥</span> Nadie <span>Envejece</span> Solo</div>
+              <div class="fm-links">
+                <a onclick="openModal('modal-privacidad')" role="button" tabindex="0">Privacidad</a>
+                <a onclick="openModal('modal-terminos')" role="button" tabindex="0">Términos</a>
+                <a onclick="openModal('modal-cookies')" role="button" tabindex="0">Cookies</a>
+              </div>
+              <div>© <span id="year"></span> Nadie Envejece Solo · Las Cruces, Bogotá · Hecho con <span
+                  class="heart">♥</span></div>
+            </div>
+          </div>
+          <div class="page-num">7 / 7</div>
+        </div>
+      </div>
+
+      <!-- PÁGINA 8: BLANCA INVISIBLE (par del spread final, hace que la transición 6→7 sea simétrica) -->
+      <div class="page page-final" data-page="7" aria-hidden="true">
+        <div class="page-content"></div>
+      </div>
+
+    </div>
+    <button type="button" class="flip-arrow right" id="bookNext" aria-label="Página siguiente">›</button>
+  </div>
+
+  <div class="book-nav" id="bookDots" aria-label="Indicador de página">
+    <button type="button" class="book-dot active" data-page="0" aria-label="Portada"></button>
+    <button type="button" class="book-dot" data-page="1" aria-label="Historia"></button>
+    <button type="button" class="book-dot" data-page="2" aria-label="Momentos"></button>
+    <button type="button" class="book-dot" data-page="3" aria-label="Videos"></button>
+    <button type="button" class="book-dot" data-page="4" aria-label="Donar"></button>
+    <button type="button" class="book-dot" data-page="5" aria-label="Ayudar"></button>
+    <button type="button" class="book-dot" data-page="6" aria-label="Cierre"></button>
+  </div>
+
+  <div class="modal-overlay" id="modal-privacidad" role="dialog" aria-modal="true">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeModal('modal-privacidad')" aria-label="Cerrar">✕</button>
+      <h2>Política de Privacidad</h2>
+      <p><strong>Última actualización:</strong> Noviembre de 2026</p>
+      <p>Respetamos tu privacidad y cumplimos la <strong>Ley 1581 de 2012</strong> de Colombia.</p>
+      <h3>Datos que recopilamos</h3>
+      <p>Solo cuando tú nos escribes por WhatsApp o email.</p>
+      <h3>Finalidad</h3>
+      <p>Coordinar donaciones, voluntariado y compartir fotos con autorización.</p>
+      <h3>Tus derechos</h3>
+      <p>Escríbenos al 301 410 0913 para conocer, actualizar o eliminar tus datos.</p>
+    </div>
+  </div>
+  <div class="modal-overlay" id="modal-terminos" role="dialog" aria-modal="true">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeModal('modal-terminos')" aria-label="Cerrar">✕</button>
+      <h2>Términos y Condiciones</h2>
+      <p><strong>Última actualización:</strong> Noviembre de 2026</p>
+      <h3>Naturaleza</h3>
+      <p>Iniciativa comunitaria sin ánimo de lucro. Las donaciones se destinan a las jornadas semanales para los
+        abuelitos.</p>
+      <h3>Transparencia</h3>
+      <p>Publicamos mensualmente un resumen de ingresos y gastos en nuestras redes.</p>
+    </div>
+  </div>
+  <div class="modal-overlay" id="modal-cookies" role="dialog" aria-modal="true">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeModal('modal-cookies')" aria-label="Cerrar">✕</button>
+      <h2>Política de Cookies</h2>
+      <p>Usamos cookies técnicas mínimas (localStorage) para recordar tu preferencia de tema. No rastreamos ni
+        compartimos datos con terceros.</p>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="modal-video" role="dialog" aria-modal="true">
+    <div class="modal-content video-modal-content">
+      <button class="modal-close" onclick="closeModal('modal-video')" aria-label="Cerrar">✕</button>
+      <div class="video-embed-wrapper" id="videoEmbedWrapper"></div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/page-flip@2.0.7/dist/js/page-flip.browser.min.js"></script>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    function spawnGiantHearts(x, y, count = 5) {
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      for (let i = 0; i < count; i++) {
+        const h = document.createElement('div');
+        h.className = 'giant-heart';
+        h.textContent = '♥';
+        h.style.left = x + 'px';
+        h.style.top = y + 'px';
+        h.style.fontSize = (28 + Math.random() * 55) + 'px';
+        h.style.setProperty('--fx', ((Math.random() - 0.5) * 180) + 'px');
+        h.style.setProperty('--fy', (-80 - Math.random() * 160) + 'px');
+        h.style.setProperty('--rot', ((Math.random() - 0.5) * 80) + 'deg');
+        h.style.animationDelay = (Math.random() * 0.18) + 's';
+        document.body.appendChild(h);
+        setTimeout(() => h.remove(), 1900);
+      }
+    }
+    function spawnGiantHeartsFromEl(el, count = 8) {
+      if (!el) return;
+      const r = el.getBoundingClientRect();
+      spawnGiantHearts(r.left + r.width / 2, r.top + r.height / 2, count);
+    }
+    function spawnSparkles(el, count = 10) {
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      if (!el) return;
+      const rect = el.getBoundingClientRect();
+      for (let i = 0; i < count; i++) {
+        const s = document.createElement('div');
+        s.className = 'magic-sparkle';
+        s.style.left = (rect.left + Math.random() * rect.width) + 'px';
+        s.style.top = (rect.top + Math.random() * rect.height) + 'px';
+        const angle = Math.random() * Math.PI * 2;
+        const dist = 40 + Math.random() * 90;
+        s.style.setProperty('--dx', Math.cos(angle) * dist + 'px');
+        s.style.setProperty('--dy', Math.sin(angle) * dist + 'px');
+        s.style.animationDelay = (Math.random() * 0.15) + 's';
+        document.body.appendChild(s);
+        setTimeout(() => s.remove(), 1300);
+      }
+    }
+
+    /* ============ LIBRO ============
+       IMPORTANTE: 8 páginas totales en StPageFlip (7 visibles + 1 blanca final)
+       Así todos los spreads son pares: 0|1, 2|3, 4|5, 6|7(blanca) */
+    let pageFlip = null;
+    let isFlipping = false;
+    let isReady = false;
+    const totalStPages = 8;       // incluye página blanca final
+    const totalVisiblePages = 7;  // para dots y navegación
+    const bookEl = document.getElementById('book');
+    const dots = Array.from(document.querySelectorAll('.book-dot'));
+    const prevBtn = document.getElementById('bookPrev');
+    const nextBtn = document.getElementById('bookNext');
+
+    function updateUI(idx) {
+      dots.forEach(d => d.classList.toggle('active', parseInt(d.dataset.page) === idx));
+      prevBtn.disabled = idx === 0;
+      nextBtn.disabled = idx === (totalVisiblePages - 1);
+    }
+
+    function activateFallback() {
+      bookEl.classList.add('fallback-mode', 'ready');
+      isReady = true;
+      const pages = Array.from(bookEl.querySelectorAll('.page'));
+      const visible = pages.filter(p => !p.classList.contains('page-final'));
+      visible.forEach((p, i) => p.classList.toggle('active', i === 0));
+      window.goToPage = function (n) {
+        if (n < 0 || n >= visible.length) return;
+        visible.forEach((p, i) => p.classList.toggle('active', i === n));
+        updateUI(n);
+      };
+      prevBtn.addEventListener('click', () => {
+        const cur = visible.findIndex(p => p.classList.contains('active'));
+        window.goToPage(Math.max(0, cur - 1));
+      });
+      nextBtn.addEventListener('click', () => {
+        const cur = visible.findIndex(p => p.classList.contains('active'));
+        window.goToPage(Math.min(visible.length - 1, cur + 1));
+      });
+      dots.forEach(d => d.addEventListener('click', () => window.goToPage(parseInt(d.dataset.page))));
+    }
+
+    function safeNext() {
+      if (!pageFlip || isFlipping) return;
+      try {
+        const idx = pageFlip.getCurrentPageIndex();
+        if (idx >= totalVisiblePages - 1) return;
+        pageFlip.turnToNextPage();
+      } catch (e) { }
+    }
+    function safePrev() {
+      if (!pageFlip || isFlipping) return;
+      try { pageFlip.turnToPrevPage(); } catch (e) { }
+    }
+    function safeGoTo(n) {
+      if (!pageFlip || isFlipping) return;
+      if (n < 0 || n >= totalVisiblePages) return;
+      try { pageFlip.turnToPage(n); } catch (e) { }
+    }
+
+    function initBook() {
+      if (typeof St === 'undefined' || !St.PageFlip) {
+        console.warn('StPageFlip no disponible, usando fallback');
+        activateFallback();
+        return;
+      }
+
+      try {
+        pageFlip = new St.PageFlip(bookEl, {
+          /* TAMAÑO: más amplio para aprovechar el espacio */
+          width: 620,
+          height: 800,
+          size: 'stretch',
+          minWidth: 320,
+          maxWidth: 700,
+          minHeight: 400,
+          maxHeight: 1000,
+          autoSize: true,
+
+          /* UNIFORMIDAD TOTAL (todas las páginas suaves, sin pasta dura) */
+          showCover: false,
+          drawShadow: true,
+          maxShadowOpacity: 0.6,
+          mobileScrollSupport: false,
+          usePortrait: false,
+
+          /* INTERACCIÓN */
+          showPageCorners: true,
+          disableFlipByClick: false,
+          clickEventForward: true,
+          useMouseEvents: true,
+
+          /* TIMING suave */
+          flippingTime: 1100,
+          swipeDistance: 40,
+
+          startZIndex: 0,
+          startPage: 0
+        });
+
+        pageFlip.loadFromHTML(bookEl.querySelectorAll('.page'));
+
+        pageFlip.on('changeState', (e) => {
+          const state = e.data;
+          isFlipping = (state === 'flipping' || state === 'user_fold' || state === 'fold_corner');
+          if (isFlipping) {
+            prevBtn.disabled = true;
+            nextBtn.disabled = true;
+          } else {
+            const idx = pageFlip.getCurrentPageIndex();
+            prevBtn.disabled = idx === 0;
+            nextBtn.disabled = idx === (totalVisiblePages - 1);
+          }
+        });
+
+        pageFlip.on('init', () => {
+          bookEl.classList.add('ready');
+          isReady = true;
+          updateUI(pageFlip.getCurrentPageIndex());
+          pageFlip.update();
+        });
+
+        pageFlip.on('flip', (e) => {
+          updateUI(e.data);
+          const dot = dots.find(d => parseInt(d.dataset.page) === e.data);
+          if (dot) spawnSparkles(dot, 6);
+        });
+
+        window.goToPage = function (n) {
+          if (!pageFlip) return;
+          if (n < 0 || n >= totalVisiblePages) return;
+          if (pageFlip.getCurrentPageIndex() === n) return;
+          if (isFlipping) return;
+          try { pageFlip.turnToPage(n); } catch (e) { }
+        };
+
+        prevBtn.addEventListener('click', () => {
+          if (isFlipping) return;
+          spawnGiantHeartsFromEl(prevBtn, 5);
+          safePrev();
+        });
+        nextBtn.addEventListener('click', () => {
+          if (isFlipping) return;
+          spawnGiantHeartsFromEl(nextBtn, 5);
+          safeNext();
+        });
+
+        dots.forEach(d => d.addEventListener('click', () => {
+          if (isFlipping) return;
+          spawnGiantHeartsFromEl(d, 5);
+          safeGoTo(parseInt(d.dataset.page));
+        }));
+
+        document.addEventListener('keydown', (e) => {
+          if (document.querySelector('.modal-overlay.active')) return;
+          if (!pageFlip || isFlipping) return;
+          if (e.key === 'ArrowRight') safeNext();
+          if (e.key === 'ArrowLeft') safePrev();
+        });
+
+        let resizeTimer;
+        window.addEventListener('resize', () => {
+          if (isFlipping) return;
+          clearTimeout(resizeTimer);
+          resizeTimer = setTimeout(() => {
+            if (!pageFlip || isFlipping) return;
+            try { pageFlip.update(); } catch (err) { }
+          }, 300);
+        });
+      } catch (err) {
+        console.warn('Error init StPageFlip, usando fallback:', err);
+        activateFallback();
+      }
+    }
+
+    function startBook() {
+      requestAnimationFrame(() => {
+        let attempts = 0;
+        const tryInit = () => {
+          if (bookEl.offsetHeight > 100 && bookEl.offsetWidth > 100) {
+            initBook();
+          } else if (attempts < 20) {
+            attempts++;
+            setTimeout(tryInit, 100);
+          } else {
+            activateFallback();
+          }
+        };
+        tryInit();
+      });
+    }
+
+    if (document.readyState === 'complete' || document.readyState === 'interactive') {
+      startBook();
+    } else {
+      window.addEventListener('DOMContentLoaded', startBook);
+    }
+
+    setTimeout(() => {
+      if (!isReady && !bookEl.classList.contains('fallback-mode')) {
+        activateFallback();
+      }
+    }, 3500);
+
+    function openVideoModal(src) {
+      const wrapper = document.getElementById('videoEmbedWrapper');
+      if (/\.(mp4|webm|ogg)$/i.test(src)) {
+        wrapper.innerHTML = '<video controls autoplay playsinline src="' + src + '"></video>';
+      } else {
+        wrapper.innerHTML = '<iframe src="' + src + '?autoplay=1&rel=0" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>';
+      }
+      openModal('modal-video');
+    }
+
+    document.querySelectorAll('.video-card').forEach(card => {
+      card.addEventListener('click', () => {
+        const src = card.getAttribute('data-video');
+        if (src) openVideoModal(src);
+      });
+    });
+
+    document.addEventListener('click', (e) => {
+      if (document.querySelector('.modal-overlay.active')) return;
+      if (e.target.closest('.theme-toggle')) return;
+      if (e.target.closest('.video-card')) return;
+
+      if (e.target.closest('[data-donar]')) {
+        spawnGiantHearts(e.clientX, e.clientY, 15);
+        return;
+      }
+      if (e.target.closest('button, a, .flip-card, .moment-mini, .book-dot')) {
+        spawnGiantHearts(e.clientX, e.clientY, 6);
+        return;
+      }
+    });
+
+    (function () {
+      const root = document.documentElement;
+      const btn = document.getElementById('themeToggle');
+      if (!btn) return;
+      const cur = () => root.getAttribute('data-theme') || 'light';
+      const apply = (t) => {
+        root.setAttribute('data-theme', t);
+        try { localStorage.setItem('nes-theme', t); } catch (e) { }
+        btn.setAttribute('aria-pressed', t === 'dark' ? 'true' : 'false');
+      };
+      btn.setAttribute('aria-pressed', cur() === 'dark' ? 'true' : 'false');
+      btn.addEventListener('click', () => apply(cur() === 'dark' ? 'light' : 'dark'));
+    })();
+
+    function openModal(id) {
+      const m = document.getElementById(id);
+      if (!m) return;
+      m.classList.add('active');
+      document.body.style.overflow = 'hidden';
+      const b = m.querySelector('button');
+      if (b) setTimeout(() => b.focus(), 50);
+    }
+    function closeModal(id) {
+      const m = document.getElementById(id);
+      if (!m) return;
+      m.classList.remove('active');
+      document.body.style.overflow = '';
+      if (id === 'modal-video') {
+        const w = document.getElementById('videoEmbedWrapper');
+        if (w) w.innerHTML = '';
+      }
+    }
+    document.querySelectorAll('.modal-overlay').forEach(o => {
+      o.addEventListener('click', e => { if (e.target === o) closeModal(o.id); });
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') document.querySelectorAll('.modal-overlay.active').forEach(m => closeModal(m.id));
+    });
+
+    document.querySelectorAll('[data-flip]').forEach(card => {
+      const toggle = () => {
+        card.classList.toggle('flipped');
+        spawnGiantHeartsFromEl(card, 8);
+      };
+      card.addEventListener('click', toggle);
+      card.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(); }
+      });
+    });
+
+    document.querySelectorAll('[data-copy]').forEach(btn => {
+      btn.addEventListener('click', async (e) => {
+        e.stopPropagation();
+        const text = btn.getAttribute('data-copy');
+        try {
+          await navigator.clipboard.writeText(text);
+          const orig = btn.textContent;
+          btn.textContent = '✓';
+          spawnGiantHearts(e.clientX, e.clientY, 10);
+          setTimeout(() => btn.textContent = orig, 1800);
+        } catch (err) { btn.textContent = '✗'; }
+      });
+    });
+
+    document.querySelectorAll('.warm-title').forEach(title => {
+      let last = 0;
+      title.addEventListener('mouseenter', () => spawnSparkles(title, 8));
+      title.addEventListener('mousemove', () => {
+        const now = Date.now();
+        if (now - last > 280) { spawnSparkles(title, 3); last = now; }
+      });
+    });
+
+    (function () {
+      const morph = document.getElementById('heartMorph');
+      if (!morph) return;
+      morph.style.cursor = 'pointer';
+      morph.addEventListener('click', (e) => spawnGiantHearts(e.clientX, e.clientY, 18));
+    })();
+  </script>
+</body>
+
+</html>
