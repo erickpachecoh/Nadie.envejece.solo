@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Canas con Dignidad | Abuelitos en Las Cruces, Bogotá</title>
   <meta name="description"
-    content="Canas con Dignidad: cada semana, abuelitos en Las Cruces reciben un plato caliente, compañía y una sonrisa. Dona por Nequi al @3014100913.">
+    content="Canas con Dignidad: cada semana, abuelitos en Las Cruces reciben un plato caliente, compañía y una sonrisa. Dona por Nequi al @ERP133.">
   <meta name="theme-color" content="#FFF8F0" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#1A0E08" media="(prefers-color-scheme: dark)">
   <meta name="color-scheme" content="light dark">
@@ -58,6 +58,8 @@
       --nav-bg: rgba(255, 248, 240, 0.92);
       --modal-bg: rgba(44, 24, 16, 0.65);
       --sparkle-color: #C4472B;
+      --fold-light: #FFFFFF;
+      --fold-mid: #F5F5F0;
     }
 
     [data-theme="dark"] {
@@ -77,6 +79,8 @@
       --nav-bg: rgba(26, 14, 8, 0.9);
       --modal-bg: rgba(0, 0, 0, 0.8);
       --sparkle-color: #F5A65B;
+      --fold-light: #E8DCC8;
+      --fold-mid: #C9BDA8;
     }
 
     :root {
@@ -273,22 +277,23 @@
       max-width: 1400px;
       width: 100%;
       margin: 0 auto;
-      padding: 0 16px;
+      padding: 0 12px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 12px;
+      gap: 10px;
     }
 
     .nav-brand {
       font-family: var(--font-display);
-      font-size: 1rem;
+      font-size: 0.95rem;
       font-weight: 900;
       color: var(--accent);
       display: flex;
       align-items: center;
-      gap: 6px;
+      gap: 5px;
       white-space: nowrap;
+      cursor: pointer;
     }
 
     .nav-brand .brand-dark {
@@ -315,7 +320,7 @@
     .nav-actions {
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 6px;
     }
 
     .theme-toggle {
@@ -363,8 +368,8 @@
       position: relative;
       display: inline-flex;
       align-items: center;
-      gap: 6px;
-      padding: 8px 14px 8px 10px;
+      gap: 5px;
+      padding: 8px 13px 8px 9px;
       background: linear-gradient(135deg, #C4472B 0%, #E85A3A 50%, #C4472B 100%);
       background-size: 200% 200%;
       color: #FFF8F0;
@@ -372,7 +377,7 @@
       border-radius: 22px;
       font-family: inherit;
       font-weight: 800;
-      font-size: 0.82rem;
+      font-size: 0.8rem;
       cursor: pointer;
       overflow: visible;
       transition: transform 0.2s, box-shadow 0.2s;
@@ -411,7 +416,7 @@
     }
 
     .nav-donate-btn .heart-icon-nav {
-      font-size: 1rem;
+      font-size: 0.95rem;
       line-height: 1;
       animation: heartBeat 1.2s ease-in-out infinite;
     }
@@ -442,7 +447,7 @@
       left: 50%;
       transform: translateX(-50%);
       width: 30px;
-      height: 50px;
+      height: 45px;
       pointer-events: none;
       overflow: visible;
       z-index: 0;
@@ -453,7 +458,7 @@
       top: -10px;
       font-style: normal;
       color: #C4472B;
-      font-size: 0.85rem;
+      font-size: 0.8rem;
       opacity: 0;
       animation: dripHeart 3s ease-in infinite;
       filter: drop-shadow(0 0 4px rgba(196, 71, 43, 0.6));
@@ -468,25 +473,25 @@
     .nav-hearts-rain i:nth-child(2) {
       left: 12px;
       animation-delay: 0.6s;
-      font-size: 0.7rem;
+      font-size: 0.65rem;
     }
 
     .nav-hearts-rain i:nth-child(3) {
       left: 6px;
       animation-delay: 1.2s;
-      font-size: 0.9rem;
+      font-size: 0.85rem;
     }
 
     .nav-hearts-rain i:nth-child(4) {
       left: 16px;
       animation-delay: 1.8s;
-      font-size: 0.75rem;
+      font-size: 0.7rem;
     }
 
     .nav-hearts-rain i:nth-child(5) {
       left: 4px;
       animation-delay: 2.4s;
-      font-size: 0.8rem;
+      font-size: 0.75rem;
     }
 
     @keyframes dripHeart {
@@ -506,11 +511,15 @@
 
       100% {
         opacity: 0;
-        transform: translateY(45px) scale(0.7) rotate(15deg);
+        transform: translateY(40px) scale(0.7) rotate(15deg);
       }
     }
 
     @media (max-width: 380px) {
+      .nav-brand {
+        font-size: 0.82rem;
+      }
+
       .nav-donate-btn .nav-donate-label {
         display: none;
       }
@@ -534,13 +543,60 @@
 
     @media (max-width: 900px) {
       .book-viewport {
-        padding: 6px 8px;
+        padding: 6px 6px;
       }
     }
 
     @media (max-width: 720px) {
       .book-viewport {
         padding: 4px;
+      }
+    }
+
+    .book-click-zones {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 15;
+      display: flex;
+      justify-content: space-between;
+      align-items: stretch;
+      padding: 8% 52px 20%;
+    }
+
+    @media (max-width: 900px) {
+      .book-click-zones {
+        padding: 6% 4px 20%;
+      }
+    }
+
+    .book-click-zones .click-zone {
+      pointer-events: auto;
+      width: 8%;
+      max-width: 60px;
+      min-width: 30px;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      transition: background 0.25s;
+      padding: 0;
+      border-radius: 8px;
+      touch-action: manipulation;
+    }
+
+    .book-click-zones .click-zone.left:hover,
+    .book-click-zones .click-zone.right:hover {
+      background: rgba(196, 71, 43, 0.06);
+    }
+
+    .book-click-zones .click-zone:active {
+      background: rgba(196, 71, 43, 0.15);
+    }
+
+    @media (max-width: 900px) {
+      .book-click-zones .click-zone {
+        min-width: 26px;
+        width: 10%;
       }
     }
 
@@ -561,46 +617,6 @@
       overflow: hidden;
     }
 
-    /* ZONAS DE CLICK EN LOS BORDES DEL LIBRO */
-    .book-click-zones {
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-      z-index: 15;
-      display: flex;
-      justify-content: space-between;
-      align-items: stretch;
-      padding: 8% 52px;
-    }
-
-    @media (max-width: 900px) {
-      .book-click-zones {
-        padding: 8% 8px;
-      }
-    }
-
-    .book-click-zones .click-zone {
-      pointer-events: auto;
-      width: 6%;
-      max-width: 55px;
-      min-width: 28px;
-      background: transparent;
-      border: none;
-      cursor: pointer;
-      transition: background 0.25s;
-      padding: 0;
-      border-radius: 8px;
-    }
-
-    .book-click-zones .click-zone.left:hover,
-    .book-click-zones .click-zone.right:hover {
-      background: rgba(196, 71, 43, 0.08);
-    }
-
-    .book-click-zones .click-zone:active {
-      background: rgba(196, 71, 43, 0.15);
-    }
-
     .page-content {
       display: flex;
       flex-direction: column;
@@ -609,12 +625,115 @@
       padding: 24px 24px 32px;
       position: relative;
       overflow: hidden;
+      overflow: clip;
+      overflow-clip-margin: 0;
       background: var(--surface);
+    }
+
+    @supports not (overflow: clip) {
+      .page-content {
+        overflow: hidden;
+      }
     }
 
     @media (max-width: 640px) {
       .page-content {
         padding: 14px 12px 24px;
+      }
+    }
+
+    /* ===== DOBLEZ DE ESQUINA EN CADA PÁGINA (bottom-right = siguiente) ===== */
+    .page-content::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 55px;
+      height: 55px;
+      background: linear-gradient(225deg,
+          transparent 0%,
+          transparent 48%,
+          rgba(0, 0, 0, 0.08) 49%,
+          rgba(0, 0, 0, 0.12) 50%,
+          var(--fold-light) 52%,
+          var(--fold-mid) 100%);
+      clip-path: polygon(100% 0, 100% 100%, 0 100%);
+      pointer-events: none;
+      z-index: 5;
+      filter: drop-shadow(-1px -1px 4px rgba(0, 0, 0, 0.18));
+      animation: foldBreatheRight 4s ease-in-out infinite;
+      transform-origin: 100% 100%;
+      will-change: transform, opacity;
+    }
+
+    /* ===== DOBLEZ DE ESQUINA EN CADA PÁGINA (bottom-left = anterior) ===== */
+    .page-content::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 55px;
+      height: 55px;
+      background: linear-gradient(135deg,
+          transparent 0%,
+          transparent 48%,
+          rgba(0, 0, 0, 0.08) 49%,
+          rgba(0, 0, 0, 0.12) 50%,
+          var(--fold-light) 52%,
+          var(--fold-mid) 100%);
+      clip-path: polygon(0 0, 100% 100%, 0 100%);
+      pointer-events: none;
+      z-index: 5;
+      filter: drop-shadow(1px -1px 4px rgba(0, 0, 0, 0.18));
+      animation: foldBreatheLeft 4s ease-in-out infinite;
+      animation-delay: 2s;
+      transform-origin: 0% 100%;
+      will-change: transform, opacity;
+    }
+
+    /* Ocultar doblez donde no aplica */
+    .page[data-page="0"] .page-content::before {
+      display: none;
+    }
+
+    .page[data-page="5"] .page-content::after {
+      display: none;
+    }
+
+    @keyframes foldBreatheRight {
+
+      0%,
+      100% {
+        transform: scale(1) rotate(0deg) skewX(0deg);
+        opacity: 0.9;
+      }
+
+      50% {
+        transform: scale(1.08) rotate(-4deg) skewX(3deg);
+        opacity: 1;
+      }
+    }
+
+    @keyframes foldBreatheLeft {
+
+      0%,
+      100% {
+        transform: scale(1) rotate(0deg) skewX(0deg);
+        opacity: 0.9;
+      }
+
+      50% {
+        transform: scale(1.08) rotate(4deg) skewX(-3deg);
+        opacity: 1;
+      }
+    }
+
+    @media (max-width: 640px) {
+
+      .page-content::after,
+      .page-content::before {
+        width: 48px;
+        height: 48px;
       }
     }
 
@@ -659,21 +778,21 @@
       padding: 2px 10px;
       border-radius: 10px;
       border: 1px solid var(--border);
-      z-index: 4;
+      z-index: 6;
     }
 
     .flip-arrow {
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
-      z-index: 20;
+      z-index: 25;
       width: 42px;
       height: 42px;
       border-radius: 50%;
       background: var(--surface);
       border: 2px solid var(--accent);
       color: var(--accent);
-      font-size: 1.4rem;
+      font-size: 1.3rem;
       font-weight: 900;
       line-height: 1;
       cursor: pointer;
@@ -682,6 +801,7 @@
       justify-content: center;
       box-shadow: 0 4px 15px rgba(196, 71, 43, 0.22);
       transition: all 0.2s;
+      touch-action: manipulation;
     }
 
     .flip-arrow:hover:not(:disabled) {
@@ -696,19 +816,19 @@
     }
 
     .flip-arrow.left {
-      left: 6px;
+      left: 4px;
     }
 
     .flip-arrow.right {
-      right: 6px;
+      right: 4px;
     }
 
     @media (max-width: 900px) {
       .flip-arrow {
-        width: 34px;
-        height: 34px;
+        width: 38px;
+        height: 38px;
         font-size: 1.1rem;
-        background: rgba(255, 255, 255, 0.9);
+        background: rgba(255, 255, 255, 0.95);
       }
 
       .flip-arrow.left {
@@ -721,7 +841,7 @@
     }
 
     [data-theme="dark"] .flip-arrow {
-      background: rgba(42, 24, 16, 0.9);
+      background: rgba(42, 24, 16, 0.95);
     }
 
     .book-nav {
@@ -729,8 +849,8 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      gap: 7px;
-      padding: 8px 16px calc(10px + env(safe-area-inset-bottom));
+      gap: 8px;
+      padding: 10px 16px calc(12px + env(safe-area-inset-bottom));
       position: relative;
       z-index: 10;
     }
@@ -744,6 +864,13 @@
       cursor: pointer;
       transition: all 0.3s;
       padding: 0;
+      position: relative;
+    }
+
+    .book-dot::before {
+      content: '';
+      position: absolute;
+      inset: -6px;
     }
 
     .book-dot:hover {
@@ -754,6 +881,22 @@
       background: var(--accent);
       width: 22px;
       border-radius: 5px;
+    }
+
+    @media (max-width: 520px) {
+      .book-dot {
+        width: 10px;
+        height: 10px;
+      }
+
+      .book-dot.active {
+        width: 24px;
+      }
+
+      .book-nav {
+        gap: 10px;
+        padding: 12px 16px calc(14px + env(safe-area-inset-bottom));
+      }
     }
 
     .cover-content {
@@ -813,6 +956,8 @@
       gap: 10px;
       justify-content: center;
       margin-top: 4px;
+      position: relative;
+      z-index: 10;
     }
 
     .cover-hint {
@@ -1001,6 +1146,9 @@
       justify-content: center;
       cursor: pointer;
       font-family: inherit;
+      touch-action: manipulation;
+      position: relative;
+      z-index: 10;
     }
 
     .btn-primary:hover {
@@ -1026,6 +1174,9 @@
       justify-content: center;
       cursor: pointer;
       font-family: inherit;
+      touch-action: manipulation;
+      position: relative;
+      z-index: 10;
     }
 
     .btn-ghost:hover {
@@ -1274,12 +1425,11 @@
       }
     }
 
-    /* DONATE CONSOLIDATED - Solo Nequi */
     .donate-consolidated {
       display: flex;
       flex-direction: column;
       justify-content: center;
-      gap: 12px;
+      gap: 10px;
       height: 100%;
     }
 
@@ -1292,25 +1442,34 @@
       max-width: 640px;
       margin: 0 auto;
       width: 100%;
+      align-content: center;
     }
 
     @media (max-width: 520px) {
       .donate-grid {
         grid-template-columns: 1fr;
+        grid-template-rows: minmax(190px, 250px) minmax(190px, 250px);
         gap: 10px;
-        max-width: 420px;
+        max-width: none;
+        align-content: center;
       }
     }
 
     .donate-card {
-      perspective: 1200px;
+      perspective: 1400px;
       cursor: pointer;
-      min-height: 300px;
+      min-height: 260px;
+      max-height: 340px;
+      -webkit-user-select: none;
+      user-select: none;
+      -webkit-touch-callout: none;
+      touch-action: manipulation;
     }
 
     @media (max-width: 520px) {
       .donate-card {
-        min-height: 280px;
+        min-height: 0;
+        max-height: none;
       }
     }
 
@@ -1320,6 +1479,7 @@
       height: 100%;
       transition: transform 0.75s cubic-bezier(0.4, 0, 0.2, 1);
       transform-style: preserve-3d;
+      will-change: transform;
     }
 
     .donate-card.flipped .flip-card-inner {
@@ -1333,7 +1493,7 @@
       backface-visibility: hidden;
       -webkit-backface-visibility: hidden;
       border-radius: 14px;
-      padding: 16px 12px;
+      padding: 14px 10px;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -1343,6 +1503,8 @@
       border: 2px solid var(--border);
       transition: border-color 0.3s;
       overflow: hidden;
+      -webkit-transform: translateZ(0.1px);
+      transform: translateZ(0.1px);
     }
 
     .donate-card:hover .flip-front,
@@ -1355,21 +1517,21 @@
     }
 
     .donate-card .flip-icon {
-      font-size: 2.6rem;
+      font-size: 2.2rem;
       line-height: 1;
       margin-bottom: 4px;
     }
 
     .donate-card .flip-front h4 {
       font-family: var(--font-display);
-      font-size: 1.15rem;
+      font-size: 1rem;
       font-weight: 900;
       color: var(--text-strong);
       line-height: 1.15;
     }
 
     .donate-card .flip-desc {
-      font-size: 0.76rem;
+      font-size: 0.7rem;
       color: var(--text-muted);
       font-weight: 500;
       line-height: 1.35;
@@ -1378,7 +1540,7 @@
 
     .donate-card .flip-hint {
       font-family: var(--font-mono);
-      font-size: 0.56rem;
+      font-size: 0.54rem;
       color: var(--accent);
       margin-top: 6px;
       letter-spacing: 0.9px;
@@ -1392,13 +1554,15 @@
       color: var(--accent-contrast);
       border-color: var(--accent);
       justify-content: flex-start;
-      padding-top: 14px;
-      gap: 6px;
+      padding-top: 12px;
+      gap: 5px;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
     }
 
     .donate-card .flip-back h5 {
       font-family: var(--font-display);
-      font-size: 0.95rem;
+      font-size: 0.88rem;
       font-weight: 900;
       color: var(--accent-contrast);
       line-height: 1.15;
@@ -1407,7 +1571,7 @@
 
     .donate-card .nequi-key {
       font-family: var(--font-mono);
-      font-size: 1.05rem;
+      font-size: 1rem;
       font-weight: 800;
       color: var(--accent-contrast);
       letter-spacing: 0.5px;
@@ -1418,24 +1582,18 @@
     }
 
     .donate-card .qr-thumb {
-      width: 85px;
-      height: 85px;
+      width: 78px;
+      height: 78px;
       border-radius: 8px;
       border: 2px solid var(--accent-contrast);
       background: #FFF;
       padding: 3px;
       cursor: zoom-in;
-    }
-
-    @media (max-width: 520px) {
-      .donate-card .qr-thumb {
-        width: 70px;
-        height: 70px;
-      }
+      flex-shrink: 0;
     }
 
     .donate-card .back-note {
-      font-size: 0.68rem;
+      font-size: 0.64rem;
       color: var(--accent-contrast);
       opacity: 0.92;
       line-height: 1.35;
@@ -1454,6 +1612,7 @@
     .donate-card .back-actions a {
       flex: 1;
       min-width: 0;
+      min-height: 32px;
       display: inline-flex;
       align-items: center;
       justify-content: center;
@@ -1463,19 +1622,72 @@
       color: var(--accent);
       border: 2px solid var(--accent-contrast);
       border-radius: 6px;
-      font-size: 0.64rem;
+      font-size: 0.62rem;
       font-weight: 800;
       cursor: pointer;
       text-decoration: none;
       font-family: inherit;
       transition: all 0.2s;
       white-space: nowrap;
+      touch-action: manipulation;
     }
 
     .donate-card .back-actions button:hover,
     .donate-card .back-actions a:hover {
       background: transparent;
       color: var(--accent-contrast);
+    }
+
+    @media (max-width: 520px) {
+      .donate-card .flip-front {
+        padding: 12px 8px;
+      }
+
+      .donate-card .flip-back {
+        padding: 10px 8px;
+        gap: 4px;
+      }
+
+      .donate-card .flip-icon {
+        font-size: 2rem;
+      }
+
+      .donate-card .flip-front h4 {
+        font-size: 0.95rem;
+      }
+
+      .donate-card .flip-desc {
+        font-size: 0.68rem;
+      }
+
+      .donate-card .flip-back h5 {
+        font-size: 0.82rem;
+      }
+
+      .donate-card .nequi-key {
+        font-size: 0.9rem;
+        padding: 5px 10px;
+      }
+
+      .donate-card .qr-thumb {
+        width: 64px;
+        height: 64px;
+      }
+
+      .donate-card .back-note {
+        font-size: 0.6rem;
+      }
+
+      .donate-card .back-actions {
+        gap: 4px;
+      }
+
+      .donate-card .back-actions button,
+      .donate-card .back-actions a {
+        font-size: 0.6rem;
+        padding: 5px 4px;
+        min-height: 30px;
+      }
     }
 
     .final-content {
@@ -1751,7 +1963,7 @@
 
   <nav class="nav" aria-label="Navegación principal">
     <div class="nav-inner">
-      <a href="#" class="nav-brand" aria-label="Inicio" onclick="event.preventDefault(); goToPage(0);">
+      <a href="#" class="nav-brand" aria-label="Inicio" data-go-to="0">
         <span class="heart-icon" aria-hidden="true">♥</span>Canas con <span class="brand-dark">Dignidad</span>
       </a>
       <div class="nav-actions">
@@ -1767,7 +1979,7 @@
             <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
           </svg>
         </button>
-        <button type="button" class="nav-donate-btn" data-donar onclick="goToPage(4)" aria-label="Donar">
+        <button type="button" class="nav-donate-btn" data-donar data-go-to="4" aria-label="Donar">
           <span class="heart-icon-nav" aria-hidden="true">♥</span>
           <span class="nav-donate-label">Donar</span>
           <span class="nav-hearts-rain" aria-hidden="true">
@@ -1781,7 +1993,6 @@
   <div class="book-viewport">
     <button type="button" class="flip-arrow left" id="bookPrev" aria-label="Página anterior">‹</button>
 
-    <!-- Zonas de borde (para volver/avanzar con click preciso en el borde) -->
     <div class="book-click-zones" aria-hidden="true">
       <button class="click-zone left" id="clickZonePrev" tabindex="-1" aria-label="Página anterior"></button>
       <button class="click-zone right" id="clickZoneNext" tabindex="-1" aria-label="Página siguiente"></button>
@@ -1789,7 +2000,6 @@
 
     <div id="book" class="book">
 
-      <!-- PÁGINA 0: PORTADA (1/6) -->
       <div class="page" data-page="0">
         <div class="page-content">
           <div class="cover-content">
@@ -1823,7 +2033,7 @@
             <p class="cover-sub fade-up d2">Cada semana, abuelitos en Las Cruces reciben un plato caliente, una bebida,
               un postre y —lo más importante— <strong>alguien que los escuche</strong>.</p>
             <div class="cover-actions fade-up d3">
-              <button type="button" class="btn-primary" data-donar onclick="goToPage(4)">
+              <button type="button" class="btn-primary" data-donar data-go-to="4">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
                   aria-hidden="true">
                   <path
@@ -1831,7 +2041,7 @@
                 </svg>
                 Quiero donar
               </button>
-              <button type="button" class="btn-ghost" onclick="goToPage(4)">Cómo ayudar →</button>
+              <button type="button" class="btn-ghost" data-go-to="4">Cómo ayudar →</button>
             </div>
             <p class="cover-hint fade-up d3">Pasa la página →</p>
           </div>
@@ -1839,7 +2049,6 @@
         </div>
       </div>
 
-      <!-- PÁGINA 1: HISTORIA (2/6) -->
       <div class="page" data-page="1">
         <div class="page-content">
           <div class="page-header">
@@ -1865,7 +2074,6 @@
         </div>
       </div>
 
-      <!-- PÁGINA 2: MOMENTOS (3/6) -->
       <div class="page" data-page="2">
         <div class="page-content">
           <div class="page-header">
@@ -1923,7 +2131,6 @@
         </div>
       </div>
 
-      <!-- PÁGINA 3: VIDEOS (4/6) -->
       <div class="page" data-page="3">
         <div class="page-content">
           <div class="page-header">
@@ -1931,29 +2138,24 @@
             <p class="page-sub">Dale play, aunque sea unos segundos. Vale la pena.</p>
           </div>
           <div class="video-grid flex-fill">
-            <div class="video-card" data-video="videos/video-01.mp4">
-              <video preload="metadata" muted playsinline poster="img/videos/video-01-thumb.jpg.jpeg"
-                src="videos/video-01.mp4#t=0.1"></video>
+            <div class="video-card" data-video="img/videos/video-01.mp4"><video preload="metadata" muted playsinline
+                poster="img/videos/video-01-thumb.jpg.jpeg" src="img/videos/video-01.mp4#t=0.1"></video>
               <div class="video-play"></div>
             </div>
-            <div class="video-card" data-video="videos/video-02.mp4">
-              <video preload="metadata" muted playsinline poster="img/videos/video-02-thumb.jpg.jpeg"
-                src="videos/video-02.mp4#t=0.1"></video>
+            <div class="video-card" data-video="img/videos/video-02.mp4"><video preload="metadata" muted playsinline
+                poster="img/videos/video-02-thumb.jpg.jpeg" src="img/videos/video-02.mp4#t=0.1"></video>
               <div class="video-play"></div>
             </div>
-            <div class="video-card" data-video="videos/video-03.mp4">
-              <video preload="metadata" muted playsinline poster="img/videos/video-03-thumb.jpg.jpeg"
-                src="videos/video-03.mp4#t=0.1"></video>
+            <div class="video-card" data-video="img/videos/video-03.mp4"><video preload="metadata" muted playsinline
+                poster="img/videos/video-03-thumb.jpg.jpeg" src="img/videos/video-03.mp4#t=0.1"></video>
               <div class="video-play"></div>
             </div>
-            <div class="video-card" data-video="videos/video-04.mp4">
-              <video preload="metadata" muted playsinline poster="img/videos/video-04-thumb.jpg.jpeg"
-                src="videos/video-04.mp4#t=0.1"></video>
+            <div class="video-card" data-video="img/videos/video-04.mp4"><video preload="metadata" muted playsinline
+                poster="img/videos/video-04-thumb.jpg.jpeg" src="img/videos/video-04.mp4#t=0.1"></video>
               <div class="video-play"></div>
             </div>
-            <div class="video-card" data-video="videos/video-05.mp4">
-              <video preload="metadata" muted playsinline poster="img/videos/video-05-thumb.jpg.jpeg"
-                src="videos/video-05.mp4#t=0.1"></video>
+            <div class="video-card" data-video="img/videos/video-05.mp4"><video preload="metadata" muted playsinline
+                poster="img/videos/video-05-thumb.jpg.jpeg" src="img/videos/video-05.mp4#t=0.1"></video>
               <div class="video-play"></div>
             </div>
           </div>
@@ -1961,7 +2163,6 @@
         </div>
       </div>
 
-      <!-- PÁGINA 4: DONAR CONSOLIDADA (5/6) - SOLO NEQUI -->
       <div class="page" data-page="4">
         <div class="page-content">
           <div class="page-header">
@@ -1981,11 +2182,11 @@
                   </div>
                   <div class="flip-back">
                     <h5>Donar por Nequi</h5>
-                    <div class="nequi-key">@3014100913</div>
+                    <div class="nequi-key">@ERP133</div>
                     <img src="img/qr-donaciones.png" onerror="this.onerror=null;this.src='img/qr-donaciones.jpg';"
-                      alt="QR Nequi @3014100913" class="qr-thumb" data-qr>
+                      alt="QR Nequi @ERP133" class="qr-thumb" data-qr>
                     <div class="back-actions">
-                      <button type="button" data-copy="@3014100913" data-donar>📋 Copiar</button>
+                      <button type="button" data-copy="@ERP133" data-donar>📋 Copiar</button>
                       <a href="https://wa.me/573014100913?text=Hola%2C%20quiero%20donar%20a%20Canas%20con%20Dignidad"
                         target="_blank" rel="noopener noreferrer" data-donar>💬 WhatsApp</a>
                     </div>
@@ -2003,10 +2204,10 @@
                   </div>
                   <div class="flip-back">
                     <h5>Dona y sirve con nosotros</h5>
-                    <div class="nequi-key">@3014100913</div>
+                    <div class="nequi-key">@ERP133</div>
                     <p class="back-note">Escribe por WhatsApp para coordinar tu visita un sábado.</p>
                     <div class="back-actions">
-                      <button type="button" data-copy="@3014100913" data-donar>📋 Copiar</button>
+                      <button type="button" data-copy="@ERP133" data-donar>📋 Copiar</button>
                       <a href="https://wa.me/573014100913?text=Hola%2C%20quiero%20donar%20y%20servir%20con%20Canas%20con%20Dignidad"
                         target="_blank" rel="noopener noreferrer" data-donar>💬 WhatsApp</a>
                     </div>
@@ -2020,13 +2221,12 @@
         </div>
       </div>
 
-      <!-- PÁGINA 5: CIERRE (6/6) -->
       <div class="page" data-page="5">
         <div class="page-content">
           <div class="final-content">
             <h2 class="warm-title">Un abuelito no debería envejecer solo. <em>Nunca más.</em></h2>
             <p>Hoy puedes ser esa persona que toca la puerta, que sirve un plato, que dice "aquí estoy".</p>
-            <button type="button" class="btn-primary" data-donar onclick="goToPage(4)">
+            <button type="button" class="btn-primary" data-donar data-go-to="4">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
                 aria-hidden="true">
                 <path
@@ -2037,9 +2237,9 @@
             <div class="footer-mini">
               <div class="fm-brand"><span>♥</span> Canas con <span>Dignidad</span></div>
               <div class="fm-links">
-                <a onclick="openModal('modal-privacidad')" role="button" tabindex="0">Privacidad</a>
-                <a onclick="openModal('modal-terminos')" role="button" tabindex="0">Términos</a>
-                <a onclick="openModal('modal-cookies')" role="button" tabindex="0">Cookies</a>
+                <a data-modal="modal-privacidad" role="button" tabindex="0">Privacidad</a>
+                <a data-modal="modal-terminos" role="button" tabindex="0">Términos</a>
+                <a data-modal="modal-cookies" role="button" tabindex="0">Cookies</a>
               </div>
               <div>© <span id="year"></span> Canas con Dignidad · Las Cruces, Bogotá · Hecho con <span
                   class="heart">♥</span></div>
@@ -2064,7 +2264,7 @@
 
   <div class="modal-overlay" id="modal-privacidad" role="dialog" aria-modal="true">
     <div class="modal-content">
-      <button class="modal-close" onclick="closeModal('modal-privacidad')" aria-label="Cerrar">✕</button>
+      <button class="modal-close" data-close-modal="modal-privacidad" aria-label="Cerrar">✕</button>
       <h2>Política de Privacidad</h2>
       <p><strong>Última actualización:</strong> Noviembre de 2026</p>
       <p>Respetamos tu privacidad y cumplimos la <strong>Ley 1581 de 2012</strong> de Colombia.</p>
@@ -2078,7 +2278,7 @@
   </div>
   <div class="modal-overlay" id="modal-terminos" role="dialog" aria-modal="true">
     <div class="modal-content">
-      <button class="modal-close" onclick="closeModal('modal-terminos')" aria-label="Cerrar">✕</button>
+      <button class="modal-close" data-close-modal="modal-terminos" aria-label="Cerrar">✕</button>
       <h2>Términos y Condiciones</h2>
       <p><strong>Última actualización:</strong> Noviembre de 2026</p>
       <h3>Naturaleza</h3>
@@ -2090,7 +2290,7 @@
   </div>
   <div class="modal-overlay" id="modal-cookies" role="dialog" aria-modal="true">
     <div class="modal-content">
-      <button class="modal-close" onclick="closeModal('modal-cookies')" aria-label="Cerrar">✕</button>
+      <button class="modal-close" data-close-modal="modal-cookies" aria-label="Cerrar">✕</button>
       <h2>Política de Cookies</h2>
       <p>Usamos cookies técnicas mínimas (localStorage) para recordar tu preferencia de tema. No rastreamos ni
         compartimos datos con terceros.</p>
@@ -2098,17 +2298,17 @@
   </div>
   <div class="modal-overlay" id="modal-video" role="dialog" aria-modal="true">
     <div class="modal-content video-modal-content">
-      <button class="modal-close" onclick="closeModal('modal-video')" aria-label="Cerrar">✕</button>
+      <button class="modal-close" data-close-modal="modal-video" aria-label="Cerrar">✕</button>
       <div class="video-embed-wrapper" id="videoEmbedWrapper"></div>
     </div>
   </div>
   <div class="modal-overlay" id="modal-qr" role="dialog" aria-modal="true">
     <div class="modal-content qr-modal-content">
-      <button class="modal-close" onclick="closeModal('modal-qr')" aria-label="Cerrar">✕</button>
+      <button class="modal-close" data-close-modal="modal-qr" aria-label="Cerrar">✕</button>
       <h2>Escanea y dona</h2>
       <img src="img/qr-donaciones.png" onerror="this.onerror=null;this.src='img/qr-donaciones.jpg';"
-        alt="QR Nequi @3014100913">
-      <p>@3014100913 · Nequi</p>
+        alt="QR Nequi @ERP133">
+      <p>@ERP133 · Nequi</p>
     </div>
   </div>
 
@@ -2117,7 +2317,9 @@
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    function spawnGiantHearts(x, y, count = 5) {
+    /* ============ SPARKLES/HEARTS ============ */
+    function spawnGiantHearts(x, y, count) {
+      count = count || 5;
       if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
       for (let i = 0; i < count; i++) {
         const h = document.createElement('div');
@@ -2134,12 +2336,13 @@
         setTimeout(() => h.remove(), 1900);
       }
     }
-    function spawnGiantHeartsFromEl(el, count = 8) {
+    function spawnGiantHeartsFromEl(el, count) {
       if (!el) return;
       const r = el.getBoundingClientRect();
-      spawnGiantHearts(r.left + r.width / 2, r.top + r.height / 2, count);
+      spawnGiantHearts(r.left + r.width / 2, r.top + r.height / 2, count || 8);
     }
-    function spawnSparkles(el, count = 10) {
+    function spawnSparkles(el, count) {
+      count = count || 10;
       if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
       if (!el) return;
       const rect = el.getBoundingClientRect();
@@ -2169,6 +2372,56 @@
     const nextBtn = document.getElementById('bookNext');
     const clickZonePrev = document.getElementById('clickZonePrev');
     const clickZoneNext = document.getElementById('clickZoneNext');
+    const pendingNav = [];
+
+    window.goToPage = function (n) {
+      n = parseInt(n);
+      if (isNaN(n) || n < 0 || n >= totalPages) return;
+      if (!isReady) { pendingNav.push(n); return; }
+      if (pageFlip) {
+        if (isFlipping) return;
+        if (pageFlip.getCurrentPageIndex() === n) return;
+        try { pageFlip.turnToPage(n); } catch (e) { }
+      } else {
+        const pages = Array.from(bookEl.querySelectorAll('.page'));
+        pages.forEach((p, i) => p.classList.toggle('active', i === n));
+        updateUI(n);
+      }
+    };
+
+    function updateUI(idx) {
+      dots.forEach(d => d.classList.toggle('active', parseInt(d.dataset.page) === idx));
+      if (prevBtn) prevBtn.disabled = idx === 0 || isFlipping;
+      if (nextBtn) nextBtn.disabled = idx === (totalPages - 1) || isFlipping;
+    }
+
+    function setFlipping(state) {
+      isFlipping = state;
+      if (state) {
+        clearTimeout(window._flipSafetyTimer);
+        window._flipSafetyTimer = setTimeout(() => {
+          isFlipping = false;
+          if (pageFlip) updateUI(pageFlip.getCurrentPageIndex());
+        }, 1500);
+      } else {
+        clearTimeout(window._flipSafetyTimer);
+      }
+    }
+
+    function safeNext() {
+      if (!pageFlip || isFlipping) return;
+      try {
+        if (pageFlip.getCurrentPageIndex() >= totalPages - 1) return;
+        pageFlip.turnToNextPage();
+      } catch (e) { }
+    }
+    function safePrev() {
+      if (!pageFlip || isFlipping) return;
+      try {
+        if (pageFlip.getCurrentPageIndex() <= 0) return;
+        pageFlip.turnToPrevPage();
+      } catch (e) { }
+    }
 
     function getBookConfig() {
       const isMobile = window.innerWidth < 900;
@@ -2178,9 +2431,7 @@
           minWidth: 280, maxWidth: 600, minHeight: 500, maxHeight: 1000,
           autoSize: true, showCover: false, drawShadow: true, maxShadowOpacity: 0.6,
           mobileScrollSupport: false, usePortrait: true,
-          showPageCorners: true,
-          disableFlipByClick: true,   /* ← CLAVE: click en contenido NO voltea página */
-          clickEventForward: false,
+          showPageCorners: true, disableFlipByClick: true, clickEventForward: false,
           useMouseEvents: true,
           flippingTime: 1100, swipeDistance: 40,
           startZIndex: 0, startPage: 0
@@ -2191,19 +2442,11 @@
         minWidth: 320, maxWidth: 700, minHeight: 400, maxHeight: 900,
         autoSize: true, showCover: false, drawShadow: true, maxShadowOpacity: 0.6,
         mobileScrollSupport: false, usePortrait: false,
-        showPageCorners: true,
-        disableFlipByClick: true,   /* ← CLAVE */
-        clickEventForward: false,
+        showPageCorners: true, disableFlipByClick: true, clickEventForward: false,
         useMouseEvents: true,
         flippingTime: 1100, swipeDistance: 40,
         startZIndex: 0, startPage: 0
       };
-    }
-
-    function updateUI(idx) {
-      dots.forEach(d => d.classList.toggle('active', parseInt(d.dataset.page) === idx));
-      prevBtn.disabled = idx === 0;
-      nextBtn.disabled = idx === (totalPages - 1);
     }
 
     function activateFallback() {
@@ -2211,71 +2454,36 @@
       isReady = true;
       const pages = Array.from(bookEl.querySelectorAll('.page'));
       pages.forEach((p, i) => p.classList.toggle('active', i === 0));
-      window.goToPage = function (n) {
-        if (n < 0 || n >= pages.length) return;
+      updateUI(0);
+      while (pendingNav.length) {
+        const n = pendingNav.shift();
         pages.forEach((p, i) => p.classList.toggle('active', i === n));
         updateUI(n);
-      };
-      prevBtn.addEventListener('click', () => {
-        const cur = pages.findIndex(p => p.classList.contains('active'));
-        window.goToPage(Math.max(0, cur - 1));
-      });
-      nextBtn.addEventListener('click', () => {
-        const cur = pages.findIndex(p => p.classList.contains('active'));
-        window.goToPage(Math.min(pages.length - 1, cur + 1));
-      });
-      dots.forEach(d => d.addEventListener('click', () => window.goToPage(parseInt(d.dataset.page))));
-    }
-
-    function safeNext() {
-      if (!pageFlip || isFlipping) return;
-      try {
-        const idx = pageFlip.getCurrentPageIndex();
-        if (idx >= totalPages - 1) return;
-        pageFlip.turnToNextPage();
-      } catch (e) { }
-    }
-    function safePrev() {
-      if (!pageFlip || isFlipping) return;
-      try {
-        const idx = pageFlip.getCurrentPageIndex();
-        if (idx <= 0) return;
-        pageFlip.turnToPrevPage();
-      } catch (e) { }
-    }
-    function safeGoTo(n) {
-      if (!pageFlip || isFlipping) return;
-      if (n < 0 || n >= totalPages) return;
-      try { pageFlip.turnToPage(n); } catch (e) { }
+      }
     }
 
     function initBook() {
-      if (typeof St === 'undefined' || !St.PageFlip) {
-        activateFallback();
-        return;
-      }
+      if (typeof St === 'undefined' || !St.PageFlip) { activateFallback(); return; }
       try {
         pageFlip = new St.PageFlip(bookEl, getBookConfig());
         pageFlip.loadFromHTML(bookEl.querySelectorAll('.page'));
 
         pageFlip.on('changeState', (e) => {
           const state = e.data;
-          isFlipping = (state === 'flipping' || state === 'user_fold' || state === 'fold_corner');
-          if (isFlipping) {
-            prevBtn.disabled = true;
-            nextBtn.disabled = true;
-          } else {
-            const idx = pageFlip.getCurrentPageIndex();
-            prevBtn.disabled = idx === 0;
-            nextBtn.disabled = idx === (totalPages - 1);
-          }
+          setFlipping(state === 'flipping' || state === 'user_fold' || state === 'fold_corner');
+          if (!isFlipping) updateUI(pageFlip.getCurrentPageIndex());
+          else { if (prevBtn) prevBtn.disabled = true; if (nextBtn) nextBtn.disabled = true; }
         });
 
         pageFlip.on('init', () => {
           bookEl.classList.add('ready');
           isReady = true;
           updateUI(pageFlip.getCurrentPageIndex());
-          pageFlip.update();
+          try { pageFlip.update(); } catch (e) { }
+          while (pendingNav.length) {
+            const n = pendingNav.shift();
+            try { pageFlip.turnToPage(n); } catch (e) { }
+          }
         });
 
         pageFlip.on('flip', (e) => {
@@ -2284,29 +2492,13 @@
           if (dot) spawnSparkles(dot, 6);
         });
 
-        window.goToPage = function (n) {
-          if (!pageFlip) return;
-          if (n < 0 || n >= totalPages) return;
-          if (pageFlip.getCurrentPageIndex() === n) return;
-          if (isFlipping) return;
-          try { pageFlip.turnToPage(n); } catch (e) { }
-        };
+        if (prevBtn) prevBtn.addEventListener('click', (e) => { e.stopPropagation(); spawnGiantHeartsFromEl(prevBtn, 5); safePrev(); });
+        if (nextBtn) nextBtn.addEventListener('click', (e) => { e.stopPropagation(); spawnGiantHeartsFromEl(nextBtn, 5); safeNext(); });
 
-        prevBtn.addEventListener('click', () => {
-          if (isFlipping) return;
-          spawnGiantHeartsFromEl(prevBtn, 5);
-          safePrev();
-        });
-        nextBtn.addEventListener('click', () => {
-          if (isFlipping) return;
-          spawnGiantHeartsFromEl(nextBtn, 5);
-          safeNext();
-        });
-
-        dots.forEach(d => d.addEventListener('click', () => {
-          if (isFlipping) return;
+        dots.forEach(d => d.addEventListener('click', (e) => {
+          e.stopPropagation();
           spawnGiantHeartsFromEl(d, 5);
-          safeGoTo(parseInt(d.dataset.page));
+          window.goToPage(parseInt(d.dataset.page));
         }));
 
         document.addEventListener('keydown', (e) => {
@@ -2331,49 +2523,147 @@
       }
     }
 
-    /* Zonas de borde: activan el MISMO flip suave que las flechas */
-    clickZonePrev.addEventListener('click', (e) => {
-      e.stopPropagation();
-      if (isFlipping) return;
-      safePrev();
-    });
-    clickZoneNext.addEventListener('click', (e) => {
-      e.stopPropagation();
-      if (isFlipping) return;
-      safeNext();
-    });
+    if (clickZonePrev) clickZonePrev.addEventListener('click', (e) => { e.stopPropagation(); safePrev(); });
+    if (clickZoneNext) clickZoneNext.addEventListener('click', (e) => { e.stopPropagation(); safeNext(); });
 
     function startBook() {
       requestAnimationFrame(() => {
         let attempts = 0;
         const tryInit = () => {
-          if (bookEl.offsetHeight > 100 && bookEl.offsetWidth > 100) {
-            initBook();
-          } else if (attempts < 20) {
-            attempts++;
-            setTimeout(tryInit, 100);
-          } else {
-            activateFallback();
-          }
+          if (bookEl.offsetHeight > 100 && bookEl.offsetWidth > 100) initBook();
+          else if (attempts < 20) { attempts++; setTimeout(tryInit, 100); }
+          else activateFallback();
         };
         tryInit();
       });
     }
 
-    if (document.readyState === 'complete' || document.readyState === 'interactive') {
-      startBook();
-    } else {
-      window.addEventListener('DOMContentLoaded', startBook);
-    }
+    if (document.readyState === 'complete' || document.readyState === 'interactive') startBook();
+    else window.addEventListener('DOMContentLoaded', startBook);
 
     setTimeout(() => {
       if (!isReady && !bookEl.classList.contains('fallback-mode')) activateFallback();
     }, 3500);
 
+    /* ============ BOTONES DE NAVEGACIÓN — POINTERDOWN CAPTURE ============ */
+    let lastNavTime = 0;
+
+    function handleGoTo(target, x, y) {
+      const n = parseInt(target.getAttribute('data-go-to'));
+      if (isNaN(n)) return false;
+      // Spawn hearts según tipo
+      if (target.closest('[data-donar]')) spawnGiantHearts(x, y, 12);
+      else spawnGiantHearts(x, y, 6);
+      window.goToPage(n);
+      return true;
+    }
+
+    document.addEventListener('pointerdown', (e) => {
+      const target = e.target.closest('[data-go-to]');
+      if (!target) return;
+      if (target.closest('[data-flip]')) return;
+      const now = Date.now();
+      if (now - lastNavTime < 250) return;
+      lastNavTime = now;
+      // CRÍTICO: preventDefault + stopPropagation ANTES que StPageFlip vea el evento
+      e.preventDefault();
+      e.stopPropagation();
+      handleGoTo(target, e.clientX, e.clientY);
+    }, true);
+
+    /* Fallback click para navegadores sin PointerEvent */
+    document.addEventListener('click', (e) => {
+      if (window.PointerEvent) return;
+      const target = e.target.closest('[data-go-to]');
+      if (!target) return;
+      if (target.closest('[data-flip]')) return;
+      const now = Date.now();
+      if (now - lastNavTime < 250) return;
+      lastNavTime = now;
+      handleGoTo(target, e.clientX, e.clientY);
+    }, true);
+
+    /* ============ MODALES ============ */
+    document.addEventListener('click', (e) => {
+      const trigger = e.target.closest('[data-modal]');
+      if (trigger) { e.preventDefault(); e.stopPropagation(); openModal(trigger.getAttribute('data-modal')); return; }
+      const closer = e.target.closest('[data-close-modal]');
+      if (closer) { e.preventDefault(); e.stopPropagation(); closeModal(closer.getAttribute('data-close-modal')); }
+    }, true);
+
+    /* ============ FLIP CARDS ============ */
+    function setupCardFlip(card) {
+      let startX = 0, startY = 0, startTime = 0, isTap = true, activeId = null, lastToggle = 0;
+
+      function doFlip(x, y) {
+        const now = Date.now();
+        if (now - lastToggle < 200) return;
+        lastToggle = now;
+        card.classList.toggle('flipped');
+        spawnGiantHearts(x, y, 8);
+      }
+
+      card.addEventListener('pointerdown', (e) => {
+        if (e.target.closest('a, button, [data-qr]')) { activeId = null; return; }
+        activeId = e.pointerId;
+        startX = e.clientX; startY = e.clientY; startTime = Date.now(); isTap = true;
+      }, { capture: true, passive: true });
+
+      card.addEventListener('pointermove', (e) => {
+        if (e.pointerId !== activeId) return;
+        if (isTap && (Math.abs(e.clientX - startX) > 25 || Math.abs(e.clientY - startY) > 25)) isTap = false;
+      }, { capture: true, passive: true });
+
+      card.addEventListener('pointerup', (e) => {
+        if (e.pointerId !== activeId) return;
+        activeId = null;
+        if (e.target.closest('a, button, [data-qr]')) return;
+        if (!isTap) return;
+        if (Date.now() - startTime > 800) return;
+        doFlip(e.clientX, e.clientY);
+      }, { capture: true, passive: true });
+
+      card.addEventListener('pointercancel', () => { activeId = null; isTap = false; }, { capture: true, passive: true });
+
+      /* Touch fallback */
+      card.addEventListener('touchstart', (e) => {
+        if (window.PointerEvent) return;
+        if (e.target.closest('a, button, [data-qr]')) return;
+        const t = e.touches[0];
+        startX = t.clientX; startY = t.clientY; startTime = Date.now(); isTap = true;
+      }, { capture: true, passive: true });
+
+      card.addEventListener('touchmove', (e) => {
+        if (window.PointerEvent) return;
+        if (!isTap) return;
+        const t = e.touches[0];
+        if (Math.abs(t.clientX - startX) > 25 || Math.abs(t.clientY - startY) > 25) isTap = false;
+      }, { capture: true, passive: true });
+
+      card.addEventListener('touchend', (e) => {
+        if (window.PointerEvent) return;
+        if (!isTap) return;
+        if (e.target.closest('a, button, [data-qr]')) return;
+        if (Date.now() - startTime > 800) return;
+        const t = e.changedTouches[0];
+        doFlip(t.clientX, t.clientY);
+      }, { capture: true, passive: true });
+
+      card.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); doFlip(0, 0); }
+      });
+    }
+    document.querySelectorAll('[data-flip]').forEach(setupCardFlip);
+
+    /* ============ VIDEO MODAL ============ */
     function openVideoModal(src) {
       const wrapper = document.getElementById('videoEmbedWrapper');
-      if (/\.(mp4|webm|ogg)$/i.test(src)) {
-        wrapper.innerHTML = '<video controls autoplay playsinline src="' + src + '"></video>';
+      if (/\.(mp4|webm|ogg)(\?|#|$)/i.test(src)) {
+        wrapper.innerHTML = '<video controls autoplay playsinline preload="auto" src="' + src + '"></video>';
+        const v = wrapper.querySelector('video');
+        v.addEventListener('error', () => {
+          wrapper.innerHTML = '<div style="color:#FFF;padding:20px;text-align:center;font-family:sans-serif;font-size:0.9rem;">No se pudo cargar el video.<br><small style="opacity:0.7;">Verifica que el archivo exista en img/videos/</small></div>';
+        });
       } else {
         wrapper.innerHTML = '<iframe src="' + src + '?autoplay=1&rel=0" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>';
       }
@@ -2381,35 +2671,32 @@
     }
 
     document.querySelectorAll('.video-card').forEach(card => {
-      card.addEventListener('click', () => {
+      card.addEventListener('click', (e) => {
+        e.stopPropagation();
         const src = card.getAttribute('data-video');
         if (src) openVideoModal(src);
       });
     });
 
-    document.querySelectorAll('[data-qr]').forEach(img => {
-      img.addEventListener('click', (e) => {
-        e.stopPropagation();
-        openModal('modal-qr');
-      });
-    });
+    /* ============ QR MODAL ============ */
+    document.addEventListener('click', (e) => {
+      const qr = e.target.closest('[data-qr]');
+      if (qr) { e.stopPropagation(); openModal('modal-qr'); }
+    }, true);
 
+    /* ============ GLOBAL CLICK → CORAZONES ============ */
     document.addEventListener('click', (e) => {
       if (document.querySelector('.modal-overlay.active')) return;
       if (e.target.closest('.theme-toggle')) return;
       if (e.target.closest('.video-card')) return;
       if (e.target.closest('[data-qr]')) return;
-
-      if (e.target.closest('[data-donar]')) {
-        spawnGiantHearts(e.clientX, e.clientY, 15);
-        return;
-      }
-      if (e.target.closest('button, a, .donate-card, .moment-mini, .book-dot')) {
-        spawnGiantHearts(e.clientX, e.clientY, 6);
-        return;
-      }
+      if (e.target.closest('[data-flip]')) return;
+      if (e.target.closest('[data-go-to]')) return;
+      if (e.target.closest('[data-donar]')) { spawnGiantHearts(e.clientX, e.clientY, 15); return; }
+      if (e.target.closest('button, a, .book-dot')) { spawnGiantHearts(e.clientX, e.clientY, 6); return; }
     });
 
+    /* ============ THEME ============ */
     (function () {
       const root = document.documentElement;
       const btn = document.getElementById('themeToggle');
@@ -2449,20 +2736,7 @@
       if (e.key === 'Escape') document.querySelectorAll('.modal-overlay.active').forEach(m => closeModal(m.id));
     });
 
-    /* FLIP CARDS: solo voltean la tarjeta, NUNCA cambian de página */
-    document.querySelectorAll('[data-flip]').forEach(card => {
-      const toggle = (e) => {
-        if (e && e.target.closest('a, button[data-copy], [data-qr]')) return;
-        e.stopPropagation();
-        card.classList.toggle('flipped');
-        spawnGiantHeartsFromEl(card, 8);
-      };
-      card.addEventListener('click', toggle);
-      card.addEventListener('keypress', (e) => {
-        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(e); }
-      });
-    });
-
+    /* ============ COPIAR ============ */
     document.querySelectorAll('[data-copy]').forEach(btn => {
       btn.addEventListener('click', async (e) => {
         e.stopPropagation();
@@ -2470,13 +2744,14 @@
         try {
           await navigator.clipboard.writeText(text);
           const orig = btn.innerHTML;
-          btn.innerHTML = '✓';
+          btn.innerHTML = '✓ Copiado';
           spawnGiantHearts(e.clientX, e.clientY, 10);
           setTimeout(() => btn.innerHTML = orig, 1800);
-        } catch (err) { btn.innerHTML = '✗'; }
+        } catch (err) { btn.innerHTML = '✗ Error'; }
       });
     });
 
+    /* ============ SPARKLES EN TÍTULOS ============ */
     document.querySelectorAll('.warm-title').forEach(title => {
       let last = 0;
       title.addEventListener('mouseenter', () => spawnSparkles(title, 8));
