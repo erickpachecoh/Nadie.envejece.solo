@@ -4,9 +4,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Nadie Envejece Solo | Abuelitos en Las Cruces, Bogotá</title>
+  <title>Canas con Dignidad | Abuelitos en Las Cruces, Bogotá</title>
   <meta name="description"
-    content="Cada semana, abuelitos en Las Cruces reciben un plato caliente, compañía y una sonrisa. Dona por Nequi al @3014100913.">
+    content="Canas con Dignidad: cada semana, abuelitos en Las Cruces reciben un plato caliente, compañía y una sonrisa. Dona por Nequi al @3014100913.">
   <meta name="theme-color" content="#FFF8F0" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#1A0E08" media="(prefers-color-scheme: dark)">
   <meta name="color-scheme" content="light dark">
@@ -112,10 +112,10 @@
       text-decoration: none;
     }
 
-    img {
+    img,
+    video {
       max-width: 100%;
       display: block;
-      height: auto;
     }
 
     button {
@@ -266,6 +266,7 @@
       display: flex;
       align-items: center;
       padding-top: env(safe-area-inset-top);
+      overflow: visible;
     }
 
     .nav-inner {
@@ -290,7 +291,7 @@
       white-space: nowrap;
     }
 
-    .nav-brand span {
+    .nav-brand .brand-dark {
       color: var(--text-strong);
     }
 
@@ -329,6 +330,7 @@
       align-items: center;
       justify-content: center;
       transition: all 0.2s;
+      flex-shrink: 0;
     }
 
     .theme-toggle:hover {
@@ -357,6 +359,167 @@
       display: block;
     }
 
+    .nav-donate-btn {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 14px 8px 10px;
+      background: linear-gradient(135deg, #C4472B 0%, #E85A3A 50%, #C4472B 100%);
+      background-size: 200% 200%;
+      color: #FFF8F0;
+      border: 2px solid #C4472B;
+      border-radius: 22px;
+      font-family: inherit;
+      font-weight: 800;
+      font-size: 0.82rem;
+      cursor: pointer;
+      overflow: visible;
+      transition: transform 0.2s, box-shadow 0.2s;
+      animation: donatePulse 2s ease-in-out infinite, donateGradient 3s ease-in-out infinite;
+      box-shadow: 0 4px 14px rgba(196, 71, 43, 0.45);
+      flex-shrink: 0;
+    }
+
+    @keyframes donatePulse {
+
+      0%,
+      100% {
+        box-shadow: 0 4px 14px rgba(196, 71, 43, 0.45);
+      }
+
+      50% {
+        box-shadow: 0 4px 20px rgba(196, 71, 43, 0.75), 0 0 30px rgba(196, 71, 43, 0.35);
+      }
+    }
+
+    @keyframes donateGradient {
+
+      0%,
+      100% {
+        background-position: 0% 50%;
+      }
+
+      50% {
+        background-position: 100% 50%;
+      }
+    }
+
+    .nav-donate-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 22px rgba(196, 71, 43, 0.65);
+    }
+
+    .nav-donate-btn .heart-icon-nav {
+      font-size: 1rem;
+      line-height: 1;
+      animation: heartBeat 1.2s ease-in-out infinite;
+    }
+
+    @keyframes heartBeat {
+
+      0%,
+      100% {
+        transform: scale(1);
+      }
+
+      15% {
+        transform: scale(1.3);
+      }
+
+      30% {
+        transform: scale(1);
+      }
+
+      45% {
+        transform: scale(1.15);
+      }
+    }
+
+    .nav-hearts-rain {
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 30px;
+      height: 50px;
+      pointer-events: none;
+      overflow: visible;
+      z-index: 0;
+    }
+
+    .nav-hearts-rain i {
+      position: absolute;
+      top: -10px;
+      font-style: normal;
+      color: #C4472B;
+      font-size: 0.85rem;
+      opacity: 0;
+      animation: dripHeart 3s ease-in infinite;
+      filter: drop-shadow(0 0 4px rgba(196, 71, 43, 0.6));
+      will-change: transform, opacity;
+    }
+
+    .nav-hearts-rain i:nth-child(1) {
+      left: 2px;
+      animation-delay: 0s;
+    }
+
+    .nav-hearts-rain i:nth-child(2) {
+      left: 12px;
+      animation-delay: 0.6s;
+      font-size: 0.7rem;
+    }
+
+    .nav-hearts-rain i:nth-child(3) {
+      left: 6px;
+      animation-delay: 1.2s;
+      font-size: 0.9rem;
+    }
+
+    .nav-hearts-rain i:nth-child(4) {
+      left: 16px;
+      animation-delay: 1.8s;
+      font-size: 0.75rem;
+    }
+
+    .nav-hearts-rain i:nth-child(5) {
+      left: 4px;
+      animation-delay: 2.4s;
+      font-size: 0.8rem;
+    }
+
+    @keyframes dripHeart {
+      0% {
+        opacity: 0;
+        transform: translateY(-8px) scale(0.5) rotate(-15deg);
+      }
+
+      15% {
+        opacity: 1;
+        transform: translateY(0) scale(1) rotate(0deg);
+      }
+
+      80% {
+        opacity: 0.9;
+      }
+
+      100% {
+        opacity: 0;
+        transform: translateY(45px) scale(0.7) rotate(15deg);
+      }
+    }
+
+    @media (max-width: 380px) {
+      .nav-donate-btn .nav-donate-label {
+        display: none;
+      }
+
+      .nav-donate-btn {
+        padding: 8px 10px;
+      }
+    }
+
     .book-viewport {
       flex: 1 1 auto;
       min-height: 0;
@@ -367,6 +530,12 @@
       padding: 8px 52px;
       overflow: hidden;
       z-index: 1;
+    }
+
+    @media (max-width: 900px) {
+      .book-viewport {
+        padding: 6px 8px;
+      }
     }
 
     @media (max-width: 720px) {
@@ -392,13 +561,44 @@
       overflow: hidden;
     }
 
-    /* Página final blanca (invisible) */
-    .page.page-final {
-      background: var(--surface);
+    /* ZONAS DE CLICK EN LOS BORDES DEL LIBRO */
+    .book-click-zones {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 15;
+      display: flex;
+      justify-content: space-between;
+      align-items: stretch;
+      padding: 8% 52px;
     }
 
-    .page.page-final .page-content {
-      background: var(--surface);
+    @media (max-width: 900px) {
+      .book-click-zones {
+        padding: 8% 8px;
+      }
+    }
+
+    .book-click-zones .click-zone {
+      pointer-events: auto;
+      width: 6%;
+      max-width: 55px;
+      min-width: 28px;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      transition: background 0.25s;
+      padding: 0;
+      border-radius: 8px;
+    }
+
+    .book-click-zones .click-zone.left:hover,
+    .book-click-zones .click-zone.right:hover {
+      background: rgba(196, 71, 43, 0.08);
+    }
+
+    .book-click-zones .click-zone:active {
+      background: rgba(196, 71, 43, 0.15);
     }
 
     .page-content {
@@ -414,18 +614,18 @@
 
     @media (max-width: 640px) {
       .page-content {
-        padding: 18px 16px 28px;
+        padding: 14px 12px 24px;
       }
     }
 
     .page-header {
       flex-shrink: 0;
-      margin-bottom: 12px;
+      margin-bottom: 10px;
     }
 
     .page-title {
       font-family: var(--font-display);
-      font-size: clamp(1.1rem, 2vw, 1.5rem);
+      font-size: clamp(1rem, 2vw, 1.4rem);
       font-weight: 900;
       color: var(--text-strong);
       margin-bottom: 4px;
@@ -433,7 +633,7 @@
     }
 
     .page-sub {
-      font-size: 0.76rem;
+      font-size: 0.74rem;
       color: var(--text-muted);
       font-weight: 500;
       line-height: 1.4;
@@ -503,10 +703,25 @@
       right: 6px;
     }
 
-    @media (max-width: 720px) {
+    @media (max-width: 900px) {
       .flip-arrow {
-        display: none;
+        width: 34px;
+        height: 34px;
+        font-size: 1.1rem;
+        background: rgba(255, 255, 255, 0.9);
       }
+
+      .flip-arrow.left {
+        left: 2px;
+      }
+
+      .flip-arrow.right {
+        right: 2px;
+      }
+    }
+
+    [data-theme="dark"] .flip-arrow {
+      background: rgba(42, 24, 16, 0.9);
     }
 
     .book-nav {
@@ -567,8 +782,8 @@
 
     .cover-title {
       font-family: var(--font-display);
-      font-size: clamp(1.4rem, 3.8vw, 2.2rem);
-      line-height: 1.06;
+      font-size: clamp(1.3rem, 3.6vw, 2.1rem);
+      line-height: 1.08;
       font-weight: 900;
       letter-spacing: -1px;
       color: var(--text-strong);
@@ -580,9 +795,9 @@
     }
 
     .cover-sub {
-      font-size: 0.86rem;
+      font-size: 0.84rem;
       color: var(--text-muted);
-      max-width: 420px;
+      max-width: 400px;
       margin: 4px auto 0;
       line-height: 1.5;
       font-weight: 500;
@@ -626,8 +841,8 @@
 
     .heart-morph {
       position: relative;
-      width: 170px;
-      height: 170px;
+      width: 160px;
+      height: 160px;
       margin: 0 auto;
       animation: heartFloat 6s ease-in-out infinite;
       flex-shrink: 0;
@@ -694,56 +909,56 @@
     }
 
     .e.e1 {
-      font-size: 1.8rem;
+      font-size: 1.7rem;
       top: 2%;
       left: 50%;
       animation-delay: 0s;
     }
 
     .e.e2 {
-      font-size: 1.6rem;
+      font-size: 1.5rem;
       top: 22%;
       left: 100%;
       animation-delay: 0.5s;
     }
 
     .e.e3 {
-      font-size: 2rem;
+      font-size: 1.9rem;
       top: 50%;
       left: 104%;
       animation-delay: 1s;
     }
 
     .e.e4 {
-      font-size: 1.6rem;
+      font-size: 1.5rem;
       top: 82%;
       left: 100%;
       animation-delay: 1.5s;
     }
 
     .e.e5 {
-      font-size: 1.8rem;
+      font-size: 1.7rem;
       top: 102%;
       left: 50%;
       animation-delay: 2s;
     }
 
     .e.e6 {
-      font-size: 1.6rem;
+      font-size: 1.5rem;
       top: 82%;
       left: 0%;
       animation-delay: 2.5s;
     }
 
     .e.e7 {
-      font-size: 2rem;
+      font-size: 1.9rem;
       top: 50%;
       left: -4%;
       animation-delay: 3s;
     }
 
     .e.e8 {
-      font-size: 1.6rem;
+      font-size: 1.5rem;
       top: 22%;
       left: 0%;
       animation-delay: 3.5s;
@@ -751,22 +966,22 @@
 
     @media (max-width: 640px) {
       .heart-morph {
-        width: 140px;
-        height: 140px;
+        width: 130px;
+        height: 130px;
       }
 
       .e.e1,
       .e.e3,
       .e.e5,
       .e.e7 {
-        font-size: 1.4rem;
+        font-size: 1.3rem;
       }
 
       .e.e2,
       .e.e4,
       .e.e6,
       .e.e8 {
-        font-size: 1.2rem;
+        font-size: 1.1rem;
       }
     }
 
@@ -831,16 +1046,16 @@
     }
 
     .story-mini p {
-      font-size: 0.86rem;
-      line-height: 1.55;
+      font-size: 0.84rem;
+      line-height: 1.5;
       color: var(--text);
-      margin-bottom: 8px;
+      margin-bottom: 6px;
       font-weight: 500;
     }
 
     .story-mini p:first-child::first-letter {
       font-family: var(--font-display);
-      font-size: 2.1rem;
+      font-size: 2rem;
       float: left;
       line-height: 0.9;
       margin: 4px 6px 0 0;
@@ -859,13 +1074,13 @@
     .story-quote-mini {
       background: var(--accent-soft);
       border-left: 3px solid var(--accent);
-      padding: 10px 14px;
+      padding: 8px 12px;
       border-radius: 8px;
-      margin: 8px 0;
+      margin: 6px 0;
       font-style: italic;
       font-family: var(--font-display);
-      font-size: 0.86rem;
-      line-height: 1.45;
+      font-size: 0.82rem;
+      line-height: 1.4;
       color: var(--text-strong);
     }
 
@@ -874,7 +1089,7 @@
       margin-top: 4px;
       font-family: var(--font-sans);
       font-style: normal;
-      font-size: 0.68rem;
+      font-size: 0.66rem;
       color: var(--text-muted);
       font-weight: 600;
     }
@@ -882,7 +1097,7 @@
     .story-tags {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 6px;
+      gap: 5px;
       margin-top: 4px;
     }
 
@@ -890,13 +1105,13 @@
       background: var(--surface-2);
       border: 1.5px solid var(--border);
       border-radius: 8px;
-      padding: 7px 9px;
-      font-size: 0.72rem;
+      padding: 6px 8px;
+      font-size: 0.7rem;
       color: var(--text);
       font-weight: 600;
       display: flex;
       align-items: center;
-      gap: 6px;
+      gap: 5px;
     }
 
     [data-theme="dark"] .story-tag {
@@ -907,7 +1122,7 @@
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       grid-auto-rows: 1fr;
-      gap: 6px;
+      gap: 5px;
       flex: 1;
       min-height: 0;
     }
@@ -953,7 +1168,7 @@
       display: grid;
       grid-template-columns: repeat(6, 1fr);
       grid-auto-rows: 1fr;
-      gap: 8px;
+      gap: 6px;
       flex: 1;
       min-height: 0;
     }
@@ -964,7 +1179,7 @@
       border-radius: 8px;
       overflow: hidden;
       border: 2px solid var(--border);
-      background: var(--surface-2);
+      background: #000;
       cursor: pointer;
       transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
       min-height: 0;
@@ -982,15 +1197,19 @@
       z-index: 2;
     }
 
-    .video-card img {
+    .video-card video {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      transition: transform 0.4s;
       display: block;
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      transition: transform 0.4s;
+      background: #000;
     }
 
-    .video-card:hover img {
+    .video-card:hover video {
       transform: scale(1.06);
     }
 
@@ -1003,6 +1222,7 @@
       background: rgba(44, 24, 16, 0.28);
       transition: background 0.3s;
       pointer-events: none;
+      z-index: 2;
     }
 
     .video-card:hover .video-play {
@@ -1032,7 +1252,7 @@
     @media (max-width: 520px) {
       .video-grid {
         grid-template-columns: repeat(2, 1fr);
-        gap: 6px;
+        gap: 5px;
       }
 
       .video-card,
@@ -1048,214 +1268,53 @@
       }
 
       .video-play::before {
-        width: 34px;
-        height: 34px;
-        font-size: 0.75rem;
+        width: 32px;
+        height: 32px;
+        font-size: 0.7rem;
       }
     }
 
-    .donate-wrap {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-evenly;
-      height: 100%;
-      gap: 10px;
-    }
-
-    .donate-line {
-      font-size: 0.86rem;
-      line-height: 1.5;
-      color: var(--text);
-      font-weight: 500;
-    }
-
-    .donate-line strong {
-      color: var(--text-strong);
-    }
-
-    .donate-line .price {
-      color: var(--accent);
-      font-weight: 900;
-      font-family: var(--font-display);
-      font-size: 0.95rem;
-    }
-
-    .nequi-card {
-      background: linear-gradient(135deg, var(--accent-2) 0%, var(--surface-2) 100%);
-      border: 2.5px solid var(--accent);
-      border-radius: 12px;
-      padding: 12px 14px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .nequi-card::before {
-      content: '💝';
-      position: absolute;
-      top: -8px;
-      right: -6px;
-      font-size: 3rem;
-      opacity: 0.15;
-      pointer-events: none;
-    }
-
-    .nequi-card .nc-icon {
-      font-size: 1.5rem;
-      line-height: 1;
-      flex-shrink: 0;
-    }
-
-    .nequi-card .nc-info {
-      flex: 1;
-      min-width: 0;
-    }
-
-    .nequi-card .nc-label {
-      font-family: var(--font-mono);
-      font-size: 0.58rem;
-      font-weight: 700;
-      color: var(--text-muted);
-      text-transform: uppercase;
-      letter-spacing: 1.2px;
-      margin-bottom: 2px;
-    }
-
-    .nequi-card .nc-value {
-      font-family: var(--font-display);
-      font-size: 1.1rem;
-      font-weight: 900;
-      color: var(--accent);
-      letter-spacing: 0.5px;
-      line-height: 1.1;
-      word-break: break-all;
-    }
-
-    .da-copy {
-      background: var(--accent);
-      color: var(--accent-contrast);
-      border: 2px solid var(--accent);
-      cursor: pointer;
-      font-size: 0.68rem;
-      font-weight: 800;
-      padding: 6px 10px;
-      border-radius: 7px;
-      transition: all 0.2s;
-      white-space: nowrap;
-      flex-shrink: 0;
-      font-family: inherit;
-    }
-
-    .da-copy:hover {
-      background: transparent;
-      color: var(--accent);
-    }
-
-    .donate-options {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 8px;
-    }
-
-    @media (max-width: 480px) {
-      .donate-options {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    .donate-option {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      padding: 9px 11px;
-      background: var(--surface-2);
-      border: 1.5px solid var(--border);
-      border-radius: 9px;
-      font-size: 0.72rem;
-      font-weight: 700;
-      color: var(--text);
-      transition: all 0.2s;
-      cursor: pointer;
-      text-align: left;
-      font-family: inherit;
-    }
-
-    .donate-option:hover {
-      border-color: var(--accent);
-      transform: translateY(-2px);
-      box-shadow: 0 6px 15px rgba(196, 71, 43, 0.12);
-    }
-
-    .donate-option .do-emoji {
-      font-size: 1rem;
-    }
-
-    .donate-option .do-arrow {
-      margin-left: auto;
-      color: var(--accent);
-      font-weight: 900;
-    }
-
-    .qr-mini {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      background: var(--surface-2);
-      border: 1.5px solid var(--border);
-      border-radius: 10px;
-      padding: 9px 11px;
-    }
-
-    .qr-mini img {
-      width: 55px;
-      height: 55px;
-      border-radius: 6px;
-      border: 2px solid var(--surface);
-      flex-shrink: 0;
-    }
-
-    .qr-mini .qr-info {
-      font-size: 0.7rem;
-      color: var(--text-muted);
-      line-height: 1.4;
-      font-weight: 500;
-    }
-
-    .qr-mini .qr-info strong {
-      color: var(--text-strong);
-      display: block;
-      margin-bottom: 2px;
-      font-size: 0.74rem;
-    }
-
-    .help-wrapper {
+    /* DONATE CONSOLIDATED - Solo Nequi */
+    .donate-consolidated {
       display: flex;
       flex-direction: column;
       justify-content: center;
-      height: 100%;
       gap: 12px;
+      height: 100%;
     }
 
-    .help-grid {
+    .donate-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 12px;
-      max-width: 520px;
-      margin: 0 auto;
-      width: 100%;
       flex: 1;
       min-height: 0;
+      max-width: 640px;
+      margin: 0 auto;
+      width: 100%;
     }
 
-    .flip-card {
-      perspective: 1100px;
+    @media (max-width: 520px) {
+      .donate-grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
+        max-width: 420px;
+      }
+    }
+
+    .donate-card {
+      perspective: 1200px;
       cursor: pointer;
-      min-height: 160px;
+      min-height: 300px;
     }
 
-    .flip-card-inner {
+    @media (max-width: 520px) {
+      .donate-card {
+        min-height: 280px;
+      }
+    }
+
+    .donate-card .flip-card-inner {
       position: relative;
       width: 100%;
       height: 100%;
@@ -1263,12 +1322,12 @@
       transform-style: preserve-3d;
     }
 
-    .flip-card.flipped .flip-card-inner {
+    .donate-card.flipped .flip-card-inner {
       transform: rotateY(180deg);
     }
 
-    .flip-front,
-    .flip-back {
+    .donate-card .flip-front,
+    .donate-card .flip-back {
       position: absolute;
       inset: 0;
       backface-visibility: hidden;
@@ -1277,106 +1336,146 @@
       padding: 16px 12px;
       display: flex;
       flex-direction: column;
-      justify-content: center;
       align-items: center;
+      text-align: center;
+      gap: 4px;
       background: var(--surface-2);
       border: 2px solid var(--border);
       transition: border-color 0.3s;
-      text-align: center;
+      overflow: hidden;
     }
 
-    .flip-card:hover .flip-front,
-    .flip-card:hover .flip-back {
+    .donate-card:hover .flip-front,
+    .donate-card:hover .flip-back {
       border-color: var(--accent);
     }
 
-    .flip-front .flip-icon {
-      font-size: 2.4rem;
-      margin-bottom: 8px;
-      line-height: 1;
+    .donate-card .flip-front {
+      justify-content: center;
     }
 
-    .flip-front h4 {
+    .donate-card .flip-icon {
+      font-size: 2.6rem;
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+
+    .donate-card .flip-front h4 {
       font-family: var(--font-display);
-      font-size: 1rem;
+      font-size: 1.15rem;
       font-weight: 900;
       color: var(--text-strong);
       line-height: 1.15;
     }
 
-    .flip-front .flip-hint {
-      font-family: var(--font-mono);
-      font-size: 0.56rem;
+    .donate-card .flip-desc {
+      font-size: 0.76rem;
       color: var(--text-muted);
-      margin-top: 10px;
-      text-transform: uppercase;
-      letter-spacing: 0.9px;
-      font-weight: 700;
+      font-weight: 500;
+      line-height: 1.35;
+      padding: 0 4px;
     }
 
-    .flip-back {
+    .donate-card .flip-hint {
+      font-family: var(--font-mono);
+      font-size: 0.56rem;
+      color: var(--accent);
+      margin-top: 6px;
+      letter-spacing: 0.9px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .donate-card .flip-back {
       transform: rotateY(180deg);
       background: var(--accent);
       color: var(--accent-contrast);
       border-color: var(--accent);
-      align-items: flex-start;
-      text-align: left;
       justify-content: flex-start;
       padding-top: 14px;
-      padding-bottom: 12px;
+      gap: 6px;
     }
 
-    .flip-back h4 {
-      color: var(--accent-contrast);
-      margin-bottom: 4px;
+    .donate-card .flip-back h5 {
       font-family: var(--font-display);
-      font-size: 0.9rem;
+      font-size: 0.95rem;
       font-weight: 900;
-    }
-
-    .flip-back p {
       color: var(--accent-contrast);
-      opacity: 0.95;
-      font-size: 0.72rem;
-      line-height: 1.4;
-      font-weight: 500;
-      margin-bottom: 8px;
+      line-height: 1.15;
+      margin-bottom: 2px;
     }
 
-    .mini-btn {
+    .donate-card .nequi-key {
+      font-family: var(--font-mono);
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: var(--accent-contrast);
+      letter-spacing: 0.5px;
+      padding: 6px 12px;
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: 8px;
+      border: 1.5px solid rgba(255, 255, 255, 0.35);
+    }
+
+    .donate-card .qr-thumb {
+      width: 85px;
+      height: 85px;
+      border-radius: 8px;
+      border: 2px solid var(--accent-contrast);
+      background: #FFF;
+      padding: 3px;
+      cursor: zoom-in;
+    }
+
+    @media (max-width: 520px) {
+      .donate-card .qr-thumb {
+        width: 70px;
+        height: 70px;
+      }
+    }
+
+    .donate-card .back-note {
+      font-size: 0.68rem;
+      color: var(--accent-contrast);
+      opacity: 0.92;
+      line-height: 1.35;
+      padding: 0 4px;
+    }
+
+    .donate-card .back-actions {
+      display: flex;
+      gap: 5px;
+      width: 100%;
+      margin-top: auto;
+      flex-wrap: wrap;
+    }
+
+    .donate-card .back-actions button,
+    .donate-card .back-actions a {
+      flex: 1;
+      min-width: 0;
       display: inline-flex;
       align-items: center;
-      gap: 4px;
+      justify-content: center;
+      gap: 3px;
+      padding: 6px 6px;
       background: var(--accent-contrast);
       color: var(--accent);
       border: 2px solid var(--accent-contrast);
       border-radius: 6px;
-      padding: 5px 9px;
       font-size: 0.64rem;
       font-weight: 800;
       cursor: pointer;
       text-decoration: none;
       font-family: inherit;
       transition: all 0.2s;
+      white-space: nowrap;
     }
 
-    .mini-btn:hover {
+    .donate-card .back-actions button:hover,
+    .donate-card .back-actions a:hover {
       background: transparent;
       color: var(--accent-contrast);
-    }
-
-    .help-cta {
-      font-size: 0.74rem;
-      color: var(--text-muted);
-      font-weight: 500;
-      text-align: center;
-      flex-shrink: 0;
-    }
-
-    .help-cta a {
-      color: var(--accent);
-      font-weight: 700;
-      text-decoration: underline;
     }
 
     .final-content {
@@ -1386,17 +1485,17 @@
       justify-content: center;
       height: 100%;
       text-align: center;
-      gap: 12px;
+      gap: 10px;
       padding: 8px;
     }
 
     .final-content h2 {
       font-family: var(--font-display);
-      font-size: clamp(1.2rem, 2.8vw, 1.8rem);
+      font-size: clamp(1.1rem, 2.6vw, 1.6rem);
       font-weight: 900;
       color: var(--text-strong);
       line-height: 1.15;
-      max-width: 480px;
+      max-width: 440px;
     }
 
     .final-content h2 em {
@@ -1405,30 +1504,30 @@
     }
 
     .final-content p {
-      font-size: 0.84rem;
+      font-size: 0.82rem;
       color: var(--text-muted);
-      max-width: 400px;
-      line-height: 1.5;
+      max-width: 380px;
+      line-height: 1.45;
       font-weight: 500;
     }
 
     .footer-mini {
-      margin-top: 14px;
-      padding-top: 12px;
+      margin-top: 12px;
+      padding-top: 10px;
       border-top: 1px solid var(--border);
       width: 100%;
-      max-width: 440px;
+      max-width: 420px;
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 8px;
-      font-size: 0.66rem;
+      gap: 6px;
+      font-size: 0.64rem;
       color: var(--text-muted);
     }
 
     .footer-mini .fm-brand {
       font-family: var(--font-display);
-      font-size: 0.88rem;
+      font-size: 0.86rem;
       font-weight: 900;
       color: var(--accent);
     }
@@ -1439,7 +1538,7 @@
 
     .footer-mini .fm-links {
       display: flex;
-      gap: 12px;
+      gap: 10px;
       flex-wrap: wrap;
       justify-content: center;
     }
@@ -1568,6 +1667,29 @@
       border: none;
     }
 
+    .qr-modal-content {
+      max-width: 420px;
+      text-align: center;
+    }
+
+    .qr-modal-content img {
+      width: 260px;
+      max-width: 100%;
+      margin: 16px auto;
+      border-radius: 12px;
+      border: 3px solid var(--border);
+      background: #FFF;
+      padding: 8px;
+    }
+
+    .qr-modal-content p {
+      font-family: var(--font-mono);
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: var(--accent);
+      margin-top: 8px;
+    }
+
     @keyframes fadeUp {
       from {
         opacity: 0;
@@ -1630,7 +1752,7 @@
   <nav class="nav" aria-label="Navegación principal">
     <div class="nav-inner">
       <a href="#" class="nav-brand" aria-label="Inicio" onclick="event.preventDefault(); goToPage(0);">
-        <span class="heart-icon" aria-hidden="true">♥</span>Nadie <span>Envejece</span> Solo
+        <span class="heart-icon" aria-hidden="true">♥</span>Canas con <span class="brand-dark">Dignidad</span>
       </a>
       <div class="nav-actions">
         <button type="button" class="theme-toggle" id="themeToggle" aria-label="Cambiar tema" aria-pressed="false">
@@ -1645,19 +1767,34 @@
             <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
           </svg>
         </button>
+        <button type="button" class="nav-donate-btn" data-donar onclick="goToPage(4)" aria-label="Donar">
+          <span class="heart-icon-nav" aria-hidden="true">♥</span>
+          <span class="nav-donate-label">Donar</span>
+          <span class="nav-hearts-rain" aria-hidden="true">
+            <i>♥</i><i>♥</i><i>♥</i><i>♥</i><i>♥</i>
+          </span>
+        </button>
       </div>
     </div>
   </nav>
 
   <div class="book-viewport">
     <button type="button" class="flip-arrow left" id="bookPrev" aria-label="Página anterior">‹</button>
+
+    <!-- Zonas de borde (para volver/avanzar con click preciso en el borde) -->
+    <div class="book-click-zones" aria-hidden="true">
+      <button class="click-zone left" id="clickZonePrev" tabindex="-1" aria-label="Página anterior"></button>
+      <button class="click-zone right" id="clickZoneNext" tabindex="-1" aria-label="Página siguiente"></button>
+    </div>
+
     <div id="book" class="book">
 
+      <!-- PÁGINA 0: PORTADA (1/6) -->
       <div class="page" data-page="0">
         <div class="page-content">
           <div class="cover-content">
             <p class="cover-eyebrow fade-up d1">Las Cruces, Bogotá</p>
-            <h1 class="cover-title warm-title fade-up d1">Nadie envejece solo.<br><em>Ni aquí, ni ahora, ni nunca.</em>
+            <h1 class="cover-title warm-title fade-up d1">Canas con dignidad.<br><em>Ni aquí, ni ahora, ni nunca.</em>
             </h1>
             <div class="heart-morph fade-up d2" id="heartMorph">
               <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -1694,14 +1831,15 @@
                 </svg>
                 Quiero donar
               </button>
-              <button type="button" class="btn-ghost" onclick="goToPage(5)">🤝 Ayudar</button>
+              <button type="button" class="btn-ghost" onclick="goToPage(4)">Cómo ayudar →</button>
             </div>
             <p class="cover-hint fade-up d3">Pasa la página →</p>
           </div>
-          <div class="page-num">1 / 7</div>
+          <div class="page-num">1 / 6</div>
         </div>
       </div>
 
+      <!-- PÁGINA 1: HISTORIA (2/6) -->
       <div class="page" data-page="1">
         <div class="page-content">
           <div class="page-header">
@@ -1723,10 +1861,11 @@
               <div class="story-tag"><span aria-hidden="true">🚪</span> Puerta abierta</div>
             </div>
           </div>
-          <div class="page-num">2 / 7</div>
+          <div class="page-num">2 / 6</div>
         </div>
       </div>
 
+      <!-- PÁGINA 2: MOMENTOS (3/6) -->
       <div class="page" data-page="2">
         <div class="page-content">
           <div class="page-header">
@@ -1734,26 +1873,57 @@
             <p class="page-sub">Cada sonrisa es un recordatorio de por qué seguimos.</p>
           </div>
           <div class="moments-grid flex-fill">
-            <div class="moment-mini"><img src="/img/momentos/momento-01.jpg.jpeg" alt="Momento 1" loading="lazy"></div>
-            <div class="moment-mini"><img src="/img/momentos/momento-02.jpg.jpeg" alt="Momento 2" loading="lazy"></div>
-            <div class="moment-mini"><img src="/img/momentos/momento-03.jpg.jpeg" alt="Momento 3" loading="lazy"></div>
-            <div class="moment-mini"><img src="/img/momentos/momento-04.jpg.jpeg" alt="Momento 4" loading="lazy"></div>
-            <div class="moment-mini"><img src="/img/momentos/momento-05.jpg.jpeg" alt="Momento 5" loading="lazy"></div>
-            <div class="moment-mini"><img src="/img/momentos/momento-06.jpg.jpeg" alt="Momento 6" loading="lazy"></div>
-            <div class="moment-mini"><img src="/img/momentos/momento-07.jpg.jpeg" alt="Momento 7" loading="lazy"></div>
-            <div class="moment-mini"><img src="/img/momentos/momento-08.jpg.jpeg" alt="Momento 8" loading="lazy"></div>
-            <div class="moment-mini"><img src="/img/momentos/momento-09.jpg.jpeg" alt="Momento 9" loading="lazy"></div>
-            <div class="moment-mini"><img src="/img/momentos/momento-10.jpg.jpeg" alt="Momento 10" loading="lazy"></div>
-            <div class="moment-mini"><img src="/img/momentos/momento-11.jpg.jpeg" alt="Momento 11" loading="lazy"></div>
-            <div class="moment-mini"><img src="/img/momentos/momento-12.jpg.jpeg" alt="Momento 12" loading="lazy"></div>
-            <div class="moment-mini"><img src="/img/momentos/momento-13.jpg.jpeg" alt="Momento 13" loading="lazy"></div>
-            <div class="moment-mini"><img src="/img/momentos/momento-14.jpg.jpeg" alt="Momento 14" loading="lazy"></div>
-            <div class="moment-mini"><img src="/img/momentos/momento-15.jpg.jpeg" alt="Momento 15" loading="lazy"></div>
+            <div class="moment-mini"><img src="img/momentos/momento-01.jpg.jpeg"
+                onerror="this.onerror=null;this.src='img/momentos/momento-01.jpg';" alt="Momento 1" loading="lazy">
+            </div>
+            <div class="moment-mini"><img src="img/momentos/momento-02.jpg.jpeg"
+                onerror="this.onerror=null;this.src='img/momentos/momento-02.jpg';" alt="Momento 2" loading="lazy">
+            </div>
+            <div class="moment-mini"><img src="img/momentos/momento-03.jpg.jpeg"
+                onerror="this.onerror=null;this.src='img/momentos/momento-03.jpg';" alt="Momento 3" loading="lazy">
+            </div>
+            <div class="moment-mini"><img src="img/momentos/momento-04.jpg.jpeg"
+                onerror="this.onerror=null;this.src='img/momentos/momento-04.jpg';" alt="Momento 4" loading="lazy">
+            </div>
+            <div class="moment-mini"><img src="img/momentos/momento-05.jpg.jpeg"
+                onerror="this.onerror=null;this.src='img/momentos/momento-05.jpg';" alt="Momento 5" loading="lazy">
+            </div>
+            <div class="moment-mini"><img src="img/momentos/momento-06.jpg.jpeg"
+                onerror="this.onerror=null;this.src='img/momentos/momento-06.jpg';" alt="Momento 6" loading="lazy">
+            </div>
+            <div class="moment-mini"><img src="img/momentos/momento-07.jpg.jpeg"
+                onerror="this.onerror=null;this.src='img/momentos/momento-07.jpg';" alt="Momento 7" loading="lazy">
+            </div>
+            <div class="moment-mini"><img src="img/momentos/momento-08.jpg.jpeg"
+                onerror="this.onerror=null;this.src='img/momentos/momento-08.jpg';" alt="Momento 8" loading="lazy">
+            </div>
+            <div class="moment-mini"><img src="img/momentos/momento-09.jpg.jpeg"
+                onerror="this.onerror=null;this.src='img/momentos/momento-09.jpg';" alt="Momento 9" loading="lazy">
+            </div>
+            <div class="moment-mini"><img src="img/momentos/momento-10.jpg.jpeg"
+                onerror="this.onerror=null;this.src='img/momentos/momento-10.jpg';" alt="Momento 10" loading="lazy">
+            </div>
+            <div class="moment-mini"><img src="img/momentos/momento-11.jpg.jpeg"
+                onerror="this.onerror=null;this.src='img/momentos/momento-11.jpg';" alt="Momento 11" loading="lazy">
+            </div>
+            <div class="moment-mini"><img src="img/momentos/momento-12.jpg.jpeg"
+                onerror="this.onerror=null;this.src='img/momentos/momento-12.jpg';" alt="Momento 12" loading="lazy">
+            </div>
+            <div class="moment-mini"><img src="img/momentos/momento-13.jpg.jpeg"
+                onerror="this.onerror=null;this.src='img/momentos/momento-13.jpg';" alt="Momento 13" loading="lazy">
+            </div>
+            <div class="moment-mini"><img src="img/momentos/momento-14.jpg.jpeg"
+                onerror="this.onerror=null;this.src='img/momentos/momento-14.jpg';" alt="Momento 14" loading="lazy">
+            </div>
+            <div class="moment-mini"><img src="img/momentos/momento-15.jpg.jpeg"
+                onerror="this.onerror=null;this.src='img/momentos/momento-15.jpg';" alt="Momento 15" loading="lazy">
+            </div>
           </div>
-          <div class="page-num">3 / 7</div>
+          <div class="page-num">3 / 6</div>
         </div>
       </div>
 
+      <!-- PÁGINA 3: VIDEOS (4/6) -->
       <div class="page" data-page="3">
         <div class="page-content">
           <div class="page-header">
@@ -1761,114 +1931,97 @@
             <p class="page-sub">Dale play, aunque sea unos segundos. Vale la pena.</p>
           </div>
           <div class="video-grid flex-fill">
-            <div class="video-card" data-video="/videos/video-01.mp4"><img src="/img/videos/video-01-thumb.jpg.jpeg"
-                alt="Video 1" loading="lazy">
+            <div class="video-card" data-video="videos/video-01.mp4">
+              <video preload="metadata" muted playsinline poster="img/videos/video-01-thumb.jpg.jpeg"
+                src="videos/video-01.mp4#t=0.1"></video>
               <div class="video-play"></div>
             </div>
-            <div class="video-card" data-video="/videos/video-02.mp4"><img src="/img/videos/video-02-thumb.jpg.jpeg"
-                alt="Video 2" loading="lazy">
+            <div class="video-card" data-video="videos/video-02.mp4">
+              <video preload="metadata" muted playsinline poster="img/videos/video-02-thumb.jpg.jpeg"
+                src="videos/video-02.mp4#t=0.1"></video>
               <div class="video-play"></div>
             </div>
-            <div class="video-card" data-video="/videos/video-03.mp4"><img src="/img/videos/video-03-thumb.jpg.jpeg"
-                alt="Video 3" loading="lazy">
+            <div class="video-card" data-video="videos/video-03.mp4">
+              <video preload="metadata" muted playsinline poster="img/videos/video-03-thumb.jpg.jpeg"
+                src="videos/video-03.mp4#t=0.1"></video>
               <div class="video-play"></div>
             </div>
-            <div class="video-card" data-video="/videos/video-04.mp4"><img src="/img/videos/video-04-thumb.jpg.jpeg"
-                alt="Video 4" loading="lazy">
+            <div class="video-card" data-video="videos/video-04.mp4">
+              <video preload="metadata" muted playsinline poster="img/videos/video-04-thumb.jpg.jpeg"
+                src="videos/video-04.mp4#t=0.1"></video>
               <div class="video-play"></div>
             </div>
-            <div class="video-card" data-video="/videos/video-05.mp4"><img src="/img/videos/video-05-thumb.jpg.jpeg"
-                alt="Video 5" loading="lazy">
+            <div class="video-card" data-video="videos/video-05.mp4">
+              <video preload="metadata" muted playsinline poster="img/videos/video-05-thumb.jpg.jpeg"
+                src="videos/video-05.mp4#t=0.1"></video>
               <div class="video-play"></div>
             </div>
           </div>
-          <div class="page-num">4 / 7</div>
+          <div class="page-num">4 / 6</div>
         </div>
       </div>
 
+      <!-- PÁGINA 4: DONAR CONSOLIDADA (5/6) - SOLO NEQUI -->
       <div class="page" data-page="4">
         <div class="page-content">
           <div class="page-header">
             <h2 class="page-title warm-title">Tu donación se vuelve un plato caliente</h2>
-            <p class="page-sub">No hay montos pequeños. Cada peso se convierte en compañía.</p>
+            <p class="page-sub">Cada peso es compañía. Elige cómo quieres sumarte.</p>
           </div>
-          <div class="donate-wrap flex-fill">
-            <p class="donate-line">Con <span class="price">$10.000</span> un abuelito come completo: sopa, plato fuerte,
-              bebida y postre. Con <span class="price">$50.000</span> comes cinco abuelitos.</p>
-            <div class="nequi-card">
-              <div class="nc-icon">💳</div>
-              <div class="nc-info">
-                <div class="nc-label">Nequi / Daviplata · Llave</div>
-                <div class="nc-value">@3014100913</div>
-              </div>
-              <button type="button" class="da-copy" data-copy="@3014100913" data-donar>Copiar</button>
-            </div>
-            <div class="donate-options">
-              <a href="https://wa.me/573014100913?text=Hola%2C%20quiero%20donar" target="_blank"
-                rel="noopener noreferrer" class="donate-option" data-donar><span
-                  class="do-emoji">💬</span><span>Escríbenos</span><span class="do-arrow">→</span></a>
-              <button type="button" class="donate-option" data-donar
-                onclick="document.querySelector('[data-copy]').click();"><span class="do-emoji">📋</span><span>Copiar
-                  llave</span><span class="do-arrow">→</span></button>
-            </div>
-            <div class="qr-mini">
-              <img src="/img/qr-donaciones.png" alt="QR Nequi @3014100913" loading="lazy">
-              <div class="qr-info"><strong>Escanea y dona</strong>Abre Nequi o Daviplata y escanea. O usa la llave
-                <strong>@3014100913</strong>.</div>
-            </div>
-          </div>
-          <div class="page-num">5 / 7</div>
-        </div>
-      </div>
+          <div class="donate-consolidated flex-fill">
+            <div class="donate-grid">
 
-      <div class="page" data-page="5">
-        <div class="page-content">
-          <div class="page-header">
-            <h2 class="page-title warm-title">Formas de cambiar un día</h2>
-            <p class="page-sub">Toca cada tarjeta. Tu gesto se convierte en compañía.</p>
-          </div>
-          <div class="help-wrapper flex-fill">
-            <div class="help-grid">
-              <div class="flip-card" data-flip tabindex="0" role="button" aria-label="Donar">
+              <div class="donate-card" data-flip tabindex="0" role="button" aria-label="Donar">
                 <div class="flip-card-inner">
                   <div class="flip-front">
                     <div class="flip-icon">💝</div>
                     <h4>Donar</h4>
-                    <div class="flip-hint">↻ Toca</div>
+                    <p class="flip-desc">$10.000 = un plato completo<br>$50.000 = cinco abuelitos</p>
+                    <span class="flip-hint">↻ Toca para ver cómo</span>
                   </div>
                   <div class="flip-back">
-                    <h4>Donar</h4>
-                    <p>$10.000 = un abuelito come completo. Nequi: @3014100913.</p><button type="button"
-                      class="mini-btn" data-copy="@3014100913" data-donar
-                      onclick="event.stopPropagation();">Copiar</button>
+                    <h5>Donar por Nequi</h5>
+                    <div class="nequi-key">@3014100913</div>
+                    <img src="img/qr-donaciones.png" onerror="this.onerror=null;this.src='img/qr-donaciones.jpg';"
+                      alt="QR Nequi @3014100913" class="qr-thumb" data-qr>
+                    <div class="back-actions">
+                      <button type="button" data-copy="@3014100913" data-donar>📋 Copiar</button>
+                      <a href="https://wa.me/573014100913?text=Hola%2C%20quiero%20donar%20a%20Canas%20con%20Dignidad"
+                        target="_blank" rel="noopener noreferrer" data-donar>💬 WhatsApp</a>
+                    </div>
                   </div>
                 </div>
               </div>
-              <div class="flip-card" data-flip tabindex="0" role="button" aria-label="Donar y Ser voluntario">
+
+              <div class="donate-card" data-flip tabindex="0" role="button" aria-label="Donar y servir">
                 <div class="flip-card-inner">
                   <div class="flip-front">
                     <div class="flip-icon">🤝</div>
                     <h4>Donar + Servir</h4>
-                    <div class="flip-hint">↻ Toca</div>
+                    <p class="flip-desc">Dona y ven un sábado<br>a servir el almuerzo</p>
+                    <span class="flip-hint">↻ Toca para ver cómo</span>
                   </div>
                   <div class="flip-back">
-                    <h4>Donar + Servir</h4>
-                    <p>Dona y ven un sábado. Tu tiempo y tu aporte juntos cambian más.</p><a class="mini-btn"
-                      href="https://wa.me/573014100913?text=Hola%2C%20quiero%20donar%20y%20ser%20voluntario"
-                      target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation();"
-                      data-donar>Escribir</a>
+                    <h5>Dona y sirve con nosotros</h5>
+                    <div class="nequi-key">@3014100913</div>
+                    <p class="back-note">Escribe por WhatsApp para coordinar tu visita un sábado.</p>
+                    <div class="back-actions">
+                      <button type="button" data-copy="@3014100913" data-donar>📋 Copiar</button>
+                      <a href="https://wa.me/573014100913?text=Hola%2C%20quiero%20donar%20y%20servir%20con%20Canas%20con%20Dignidad"
+                        target="_blank" rel="noopener noreferrer" data-donar>💬 WhatsApp</a>
+                    </div>
                   </div>
                 </div>
               </div>
+
             </div>
-            <p class="help-cta">🤝 <a href="https://wa.me/573014100913?text=Hola%2C%20quiero%20ser%20voluntario"
-                target="_blank" rel="noopener noreferrer">Escríbenos por WhatsApp</a> y únete al equipo.</p>
           </div>
-          <div class="page-num">6 / 7</div>
+          <div class="page-num">5 / 6</div>
         </div>
       </div>
 
-      <div class="page" data-page="6">
+      <!-- PÁGINA 5: CIERRE (6/6) -->
+      <div class="page" data-page="5">
         <div class="page-content">
           <div class="final-content">
             <h2 class="warm-title">Un abuelito no debería envejecer solo. <em>Nunca más.</em></h2>
@@ -1882,23 +2035,18 @@
               Quiero donar ahora
             </button>
             <div class="footer-mini">
-              <div class="fm-brand"><span>♥</span> Nadie <span>Envejece</span> Solo</div>
+              <div class="fm-brand"><span>♥</span> Canas con <span>Dignidad</span></div>
               <div class="fm-links">
                 <a onclick="openModal('modal-privacidad')" role="button" tabindex="0">Privacidad</a>
                 <a onclick="openModal('modal-terminos')" role="button" tabindex="0">Términos</a>
                 <a onclick="openModal('modal-cookies')" role="button" tabindex="0">Cookies</a>
               </div>
-              <div>© <span id="year"></span> Nadie Envejece Solo · Las Cruces, Bogotá · Hecho con <span
+              <div>© <span id="year"></span> Canas con Dignidad · Las Cruces, Bogotá · Hecho con <span
                   class="heart">♥</span></div>
             </div>
           </div>
-          <div class="page-num">7 / 7</div>
+          <div class="page-num">6 / 6</div>
         </div>
-      </div>
-
-      <!-- PÁGINA 8: BLANCA INVISIBLE (par del spread final, hace que la transición 6→7 sea simétrica) -->
-      <div class="page page-final" data-page="7" aria-hidden="true">
-        <div class="page-content"></div>
       </div>
 
     </div>
@@ -1911,8 +2059,7 @@
     <button type="button" class="book-dot" data-page="2" aria-label="Momentos"></button>
     <button type="button" class="book-dot" data-page="3" aria-label="Videos"></button>
     <button type="button" class="book-dot" data-page="4" aria-label="Donar"></button>
-    <button type="button" class="book-dot" data-page="5" aria-label="Ayudar"></button>
-    <button type="button" class="book-dot" data-page="6" aria-label="Cierre"></button>
+    <button type="button" class="book-dot" data-page="5" aria-label="Cierre"></button>
   </div>
 
   <div class="modal-overlay" id="modal-privacidad" role="dialog" aria-modal="true">
@@ -1949,11 +2096,19 @@
         compartimos datos con terceros.</p>
     </div>
   </div>
-
   <div class="modal-overlay" id="modal-video" role="dialog" aria-modal="true">
     <div class="modal-content video-modal-content">
       <button class="modal-close" onclick="closeModal('modal-video')" aria-label="Cerrar">✕</button>
       <div class="video-embed-wrapper" id="videoEmbedWrapper"></div>
+    </div>
+  </div>
+  <div class="modal-overlay" id="modal-qr" role="dialog" aria-modal="true">
+    <div class="modal-content qr-modal-content">
+      <button class="modal-close" onclick="closeModal('modal-qr')" aria-label="Cerrar">✕</button>
+      <h2>Escanea y dona</h2>
+      <img src="img/qr-donaciones.png" onerror="this.onerror=null;this.src='img/qr-donaciones.jpg';"
+        alt="QR Nequi @3014100913">
+      <p>@3014100913 · Nequi</p>
     </div>
   </div>
 
@@ -2003,43 +2158,71 @@
       }
     }
 
-    /* ============ LIBRO ============
-       IMPORTANTE: 8 páginas totales en StPageFlip (7 visibles + 1 blanca final)
-       Así todos los spreads son pares: 0|1, 2|3, 4|5, 6|7(blanca) */
+    /* ============ LIBRO ============ */
     let pageFlip = null;
     let isFlipping = false;
     let isReady = false;
-    const totalStPages = 8;       // incluye página blanca final
-    const totalVisiblePages = 7;  // para dots y navegación
+    const totalPages = 6;
     const bookEl = document.getElementById('book');
     const dots = Array.from(document.querySelectorAll('.book-dot'));
     const prevBtn = document.getElementById('bookPrev');
     const nextBtn = document.getElementById('bookNext');
+    const clickZonePrev = document.getElementById('clickZonePrev');
+    const clickZoneNext = document.getElementById('clickZoneNext');
+
+    function getBookConfig() {
+      const isMobile = window.innerWidth < 900;
+      if (isMobile) {
+        return {
+          width: 500, height: 850, size: 'stretch',
+          minWidth: 280, maxWidth: 600, minHeight: 500, maxHeight: 1000,
+          autoSize: true, showCover: false, drawShadow: true, maxShadowOpacity: 0.6,
+          mobileScrollSupport: false, usePortrait: true,
+          showPageCorners: true,
+          disableFlipByClick: true,   /* ← CLAVE: click en contenido NO voltea página */
+          clickEventForward: false,
+          useMouseEvents: true,
+          flippingTime: 1100, swipeDistance: 40,
+          startZIndex: 0, startPage: 0
+        };
+      }
+      return {
+        width: 620, height: 800, size: 'stretch',
+        minWidth: 320, maxWidth: 700, minHeight: 400, maxHeight: 900,
+        autoSize: true, showCover: false, drawShadow: true, maxShadowOpacity: 0.6,
+        mobileScrollSupport: false, usePortrait: false,
+        showPageCorners: true,
+        disableFlipByClick: true,   /* ← CLAVE */
+        clickEventForward: false,
+        useMouseEvents: true,
+        flippingTime: 1100, swipeDistance: 40,
+        startZIndex: 0, startPage: 0
+      };
+    }
 
     function updateUI(idx) {
       dots.forEach(d => d.classList.toggle('active', parseInt(d.dataset.page) === idx));
       prevBtn.disabled = idx === 0;
-      nextBtn.disabled = idx === (totalVisiblePages - 1);
+      nextBtn.disabled = idx === (totalPages - 1);
     }
 
     function activateFallback() {
       bookEl.classList.add('fallback-mode', 'ready');
       isReady = true;
       const pages = Array.from(bookEl.querySelectorAll('.page'));
-      const visible = pages.filter(p => !p.classList.contains('page-final'));
-      visible.forEach((p, i) => p.classList.toggle('active', i === 0));
+      pages.forEach((p, i) => p.classList.toggle('active', i === 0));
       window.goToPage = function (n) {
-        if (n < 0 || n >= visible.length) return;
-        visible.forEach((p, i) => p.classList.toggle('active', i === n));
+        if (n < 0 || n >= pages.length) return;
+        pages.forEach((p, i) => p.classList.toggle('active', i === n));
         updateUI(n);
       };
       prevBtn.addEventListener('click', () => {
-        const cur = visible.findIndex(p => p.classList.contains('active'));
+        const cur = pages.findIndex(p => p.classList.contains('active'));
         window.goToPage(Math.max(0, cur - 1));
       });
       nextBtn.addEventListener('click', () => {
-        const cur = visible.findIndex(p => p.classList.contains('active'));
-        window.goToPage(Math.min(visible.length - 1, cur + 1));
+        const cur = pages.findIndex(p => p.classList.contains('active'));
+        window.goToPage(Math.min(pages.length - 1, cur + 1));
       });
       dots.forEach(d => d.addEventListener('click', () => window.goToPage(parseInt(d.dataset.page))));
     }
@@ -2048,60 +2231,31 @@
       if (!pageFlip || isFlipping) return;
       try {
         const idx = pageFlip.getCurrentPageIndex();
-        if (idx >= totalVisiblePages - 1) return;
+        if (idx >= totalPages - 1) return;
         pageFlip.turnToNextPage();
       } catch (e) { }
     }
     function safePrev() {
       if (!pageFlip || isFlipping) return;
-      try { pageFlip.turnToPrevPage(); } catch (e) { }
+      try {
+        const idx = pageFlip.getCurrentPageIndex();
+        if (idx <= 0) return;
+        pageFlip.turnToPrevPage();
+      } catch (e) { }
     }
     function safeGoTo(n) {
       if (!pageFlip || isFlipping) return;
-      if (n < 0 || n >= totalVisiblePages) return;
+      if (n < 0 || n >= totalPages) return;
       try { pageFlip.turnToPage(n); } catch (e) { }
     }
 
     function initBook() {
       if (typeof St === 'undefined' || !St.PageFlip) {
-        console.warn('StPageFlip no disponible, usando fallback');
         activateFallback();
         return;
       }
-
       try {
-        pageFlip = new St.PageFlip(bookEl, {
-          /* TAMAÑO: más amplio para aprovechar el espacio */
-          width: 620,
-          height: 800,
-          size: 'stretch',
-          minWidth: 320,
-          maxWidth: 700,
-          minHeight: 400,
-          maxHeight: 1000,
-          autoSize: true,
-
-          /* UNIFORMIDAD TOTAL (todas las páginas suaves, sin pasta dura) */
-          showCover: false,
-          drawShadow: true,
-          maxShadowOpacity: 0.6,
-          mobileScrollSupport: false,
-          usePortrait: false,
-
-          /* INTERACCIÓN */
-          showPageCorners: true,
-          disableFlipByClick: false,
-          clickEventForward: true,
-          useMouseEvents: true,
-
-          /* TIMING suave */
-          flippingTime: 1100,
-          swipeDistance: 40,
-
-          startZIndex: 0,
-          startPage: 0
-        });
-
+        pageFlip = new St.PageFlip(bookEl, getBookConfig());
         pageFlip.loadFromHTML(bookEl.querySelectorAll('.page'));
 
         pageFlip.on('changeState', (e) => {
@@ -2113,7 +2267,7 @@
           } else {
             const idx = pageFlip.getCurrentPageIndex();
             prevBtn.disabled = idx === 0;
-            nextBtn.disabled = idx === (totalVisiblePages - 1);
+            nextBtn.disabled = idx === (totalPages - 1);
           }
         });
 
@@ -2132,7 +2286,7 @@
 
         window.goToPage = function (n) {
           if (!pageFlip) return;
-          if (n < 0 || n >= totalVisiblePages) return;
+          if (n < 0 || n >= totalPages) return;
           if (pageFlip.getCurrentPageIndex() === n) return;
           if (isFlipping) return;
           try { pageFlip.turnToPage(n); } catch (e) { }
@@ -2172,10 +2326,22 @@
           }, 300);
         });
       } catch (err) {
-        console.warn('Error init StPageFlip, usando fallback:', err);
+        console.warn('Error init StPageFlip:', err);
         activateFallback();
       }
     }
+
+    /* Zonas de borde: activan el MISMO flip suave que las flechas */
+    clickZonePrev.addEventListener('click', (e) => {
+      e.stopPropagation();
+      if (isFlipping) return;
+      safePrev();
+    });
+    clickZoneNext.addEventListener('click', (e) => {
+      e.stopPropagation();
+      if (isFlipping) return;
+      safeNext();
+    });
 
     function startBook() {
       requestAnimationFrame(() => {
@@ -2201,9 +2367,7 @@
     }
 
     setTimeout(() => {
-      if (!isReady && !bookEl.classList.contains('fallback-mode')) {
-        activateFallback();
-      }
+      if (!isReady && !bookEl.classList.contains('fallback-mode')) activateFallback();
     }, 3500);
 
     function openVideoModal(src) {
@@ -2223,16 +2387,24 @@
       });
     });
 
+    document.querySelectorAll('[data-qr]').forEach(img => {
+      img.addEventListener('click', (e) => {
+        e.stopPropagation();
+        openModal('modal-qr');
+      });
+    });
+
     document.addEventListener('click', (e) => {
       if (document.querySelector('.modal-overlay.active')) return;
       if (e.target.closest('.theme-toggle')) return;
       if (e.target.closest('.video-card')) return;
+      if (e.target.closest('[data-qr]')) return;
 
       if (e.target.closest('[data-donar]')) {
         spawnGiantHearts(e.clientX, e.clientY, 15);
         return;
       }
-      if (e.target.closest('button, a, .flip-card, .moment-mini, .book-dot')) {
+      if (e.target.closest('button, a, .donate-card, .moment-mini, .book-dot')) {
         spawnGiantHearts(e.clientX, e.clientY, 6);
         return;
       }
@@ -2277,14 +2449,17 @@
       if (e.key === 'Escape') document.querySelectorAll('.modal-overlay.active').forEach(m => closeModal(m.id));
     });
 
+    /* FLIP CARDS: solo voltean la tarjeta, NUNCA cambian de página */
     document.querySelectorAll('[data-flip]').forEach(card => {
-      const toggle = () => {
+      const toggle = (e) => {
+        if (e && e.target.closest('a, button[data-copy], [data-qr]')) return;
+        e.stopPropagation();
         card.classList.toggle('flipped');
         spawnGiantHeartsFromEl(card, 8);
       };
       card.addEventListener('click', toggle);
       card.addEventListener('keypress', (e) => {
-        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(); }
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(e); }
       });
     });
 
@@ -2294,11 +2469,11 @@
         const text = btn.getAttribute('data-copy');
         try {
           await navigator.clipboard.writeText(text);
-          const orig = btn.textContent;
-          btn.textContent = '✓';
+          const orig = btn.innerHTML;
+          btn.innerHTML = '✓';
           spawnGiantHearts(e.clientX, e.clientY, 10);
-          setTimeout(() => btn.textContent = orig, 1800);
-        } catch (err) { btn.textContent = '✗'; }
+          setTimeout(() => btn.innerHTML = orig, 1800);
+        } catch (err) { btn.innerHTML = '✗'; }
       });
     });
 
