@@ -2382,23 +2382,27 @@
       }
     };
 
-    /* FIX CRÍTICO: los botones solo se deshabilitan por ÍNDICE de página,
-       NUNCA por estado de flip (evita el bug de "se bloquean para siempre") */
     function updateUI(idx) {
       if (prevBtn) prevBtn.disabled = (idx === 0);
       if (nextBtn) nextBtn.disabled = (idx === totalPages - 1);
     }
 
-    /* Toggle de clase para pausar animaciones CSS durante el flip (solo perf, no bloquea nada) */
     function setFlippingClass(state) {
       bookEl.classList.toggle('is-flipping', state);
     }
 
-    /* flipNext/flipPrev('bottom') = animación de curl garantizada */
+    /* ============ FIX FLECHA ATRÁS ============ */
+    /* Next: 'bottom' (esquina inferior derecha — agarra la hoja siguiente)
+       Prev: 'left'   (esquina inferior izquierda — agarra la hoja anterior)
+       Lock de 400ms evita taps apilados que cancelan la animación */
+    let _flipLock = 0;
     function safeNext() {
       if (!pageFlip) return;
+      const now = Date.now();
+      if (now - _flipLock < 400) return;
       const idx = pageFlip.getCurrentPageIndex();
       if (idx >= totalPages - 1) return;
+      _flipLock = now;
       try {
         pageFlip.flipNext('bottom');
       } catch (e) {
@@ -2407,10 +2411,13 @@
     }
     function safePrev() {
       if (!pageFlip) return;
+      const now = Date.now();
+      if (now - _flipLock < 400) return;
       const idx = pageFlip.getCurrentPageIndex();
       if (idx <= 0) return;
+      _flipLock = now;
       try {
-        pageFlip.flipPrev('bottom');
+        pageFlip.flipPrev('left');
       } catch (e) {
         try { pageFlip.turnToPrevPage(); } catch (e2) { console.warn('Prev failed:', e2); }
       }
@@ -2646,7 +2653,7 @@
     }
     document.querySelectorAll('[data-flip]').forEach(setupCardFlip);
 
-    /* ============ VIDEO MODAL — con play() forzado + errores detallados ============ */
+    /* ============ VIDEO MODAL ============ */
     function openVideoModal(src) {
       const wrapper = document.getElementById('videoEmbedWrapper');
       if (!wrapper) return;
@@ -2662,20 +2669,16 @@
         const v = wrapper.querySelector('video');
         let errorCount = 0;
 
-        /* iOS a veces ignora el autoplay hasta que llamamos play() explícitamente */
         v.addEventListener('loadeddata', () => {
           const p = v.play();
           if (p && p.catch) {
-            p.catch(() => {
-              /* Autoplay bloqueado - mostrar controles para que el usuario toque */
-              v.controls = true;
-            });
+            p.catch(() => { v.controls = true; });
           }
         });
 
         v.addEventListener('error', () => {
           errorCount++;
-          if (errorCount < 2) return; /* el navegador intenta el siguiente <source> automáticamente */
+          if (errorCount < 2) return;
 
           const err = v.error;
           let reason = 'No se pudo cargar el video';
@@ -2699,7 +2702,6 @@
             '</div>';
         }, true);
 
-        /* Forzar play tras un tick (por si el navegador ignora autoplay) */
         setTimeout(() => { const p = v.play(); if (p && p.catch) p.catch(() => { }); }, 100);
       } else {
         wrapper.innerHTML = '<iframe src="' + src + '?autoplay=1&rel=0" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>';
@@ -2707,7 +2709,6 @@
       openModal('modal-video');
     }
 
-    /* Click en video con doble protección: pointerup + click con dedupe */
     document.querySelectorAll('.video-card').forEach(card => {
       let startX = 0, startY = 0, startTime = 0, activeId = null, handled = false;
 
@@ -2725,7 +2726,7 @@
         const dx = Math.abs(e.clientX - startX);
         const dy = Math.abs(e.clientY - startY);
         const dt = Date.now() - startTime;
-        if (dx > 20 || dy > 20 || dt > 800) return; /* fue drag, no tap */
+        if (dx > 20 || dy > 20 || dt > 800) return;
         handled = true;
         e.stopPropagation();
         const src = card.getAttribute('data-video');
@@ -2734,7 +2735,6 @@
 
       card.addEventListener('pointercancel', () => { activeId = null; handled = false; }, { capture: true, passive: true });
 
-      /* Fallback click (si pointer events no disparan por algún motivo) */
       card.addEventListener('click', (e) => {
         e.stopPropagation();
         if (handled) { handled = false; return; }
