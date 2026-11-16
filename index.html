@@ -194,6 +194,15 @@
       }
     }
 
+    .book.is-flipping .warm-title::after,
+    .book.is-flipping .page-content::before,
+    .book.is-flipping .page-content::after,
+    .book.is-flipping .heart-morph,
+    .book.is-flipping .heart-emojis .e,
+    .book.is-flipping .nav-hearts-rain i {
+      animation-play-state: paused !important;
+    }
+
     .magic-sparkle {
       position: fixed;
       width: 10px;
@@ -461,7 +470,6 @@
       font-size: 0.8rem;
       opacity: 0;
       animation: dripHeart 3s ease-in infinite;
-      filter: drop-shadow(0 0 4px rgba(196, 71, 43, 0.6));
       will-change: transform, opacity;
     }
 
@@ -566,7 +574,7 @@
 
     @media (max-width: 900px) {
       .book-click-zones {
-        padding: 6% 4px 15%;
+        display: none;
       }
     }
 
@@ -591,13 +599,6 @@
 
     .book-click-zones .click-zone:active {
       background: rgba(196, 71, 43, 0.15);
-    }
-
-    @media (max-width: 900px) {
-      .book-click-zones .click-zone {
-        min-width: 26px;
-        width: 10%;
-      }
     }
 
     .book {
@@ -651,18 +652,17 @@
       height: 60px;
       background: linear-gradient(225deg,
           transparent 0%,
-          transparent 46%,
-          rgba(0, 0, 0, 0.10) 47%,
-          rgba(0, 0, 0, 0.16) 50%,
-          var(--fold-light) 53%,
+          transparent 45%,
+          rgba(0, 0, 0, 0.12) 46%,
+          rgba(0, 0, 0, 0.20) 50%,
+          var(--fold-light) 54%,
           var(--fold-mid) 100%);
       clip-path: polygon(100% 0, 100% 100%, 0 100%);
       pointer-events: none;
       z-index: 5;
-      filter: drop-shadow(-2px -2px 6px rgba(0, 0, 0, 0.22));
-      animation: foldBreatheRight 3.2s ease-in-out infinite;
+      animation: foldBreatheRight 4.5s ease-in-out infinite;
       transform-origin: 100% 100%;
-      will-change: transform, opacity;
+      will-change: transform;
     }
 
     .page-content::before {
@@ -674,19 +674,18 @@
       height: 60px;
       background: linear-gradient(135deg,
           transparent 0%,
-          transparent 46%,
-          rgba(0, 0, 0, 0.10) 47%,
-          rgba(0, 0, 0, 0.16) 50%,
-          var(--fold-light) 53%,
+          transparent 45%,
+          rgba(0, 0, 0, 0.12) 46%,
+          rgba(0, 0, 0, 0.20) 50%,
+          var(--fold-light) 54%,
           var(--fold-mid) 100%);
       clip-path: polygon(0 0, 100% 100%, 0 100%);
       pointer-events: none;
       z-index: 5;
-      filter: drop-shadow(2px -2px 6px rgba(0, 0, 0, 0.22));
-      animation: foldBreatheLeft 3.2s ease-in-out infinite;
-      animation-delay: 1.6s;
+      animation: foldBreatheLeft 4.5s ease-in-out infinite;
+      animation-delay: 2.25s;
       transform-origin: 0% 100%;
-      will-change: transform, opacity;
+      will-change: transform;
     }
 
     .page[data-page="0"] .page-content::before {
@@ -701,13 +700,11 @@
 
       0%,
       100% {
-        transform: scale(1) rotate(0deg) skewX(0deg);
-        opacity: 0.9;
+        transform: scale(1) rotate(0deg);
       }
 
       50% {
-        transform: scale(1.12) rotate(-6deg) skewX(4deg);
-        opacity: 1;
+        transform: scale(1.1) rotate(-5deg);
       }
     }
 
@@ -715,13 +712,11 @@
 
       0%,
       100% {
-        transform: scale(1) rotate(0deg) skewX(0deg);
-        opacity: 0.9;
+        transform: scale(1) rotate(0deg);
       }
 
       50% {
-        transform: scale(1.12) rotate(6deg) skewX(-4deg);
-        opacity: 1;
+        transform: scale(1.1) rotate(5deg);
       }
     }
 
@@ -791,13 +786,13 @@
     }
 
     .flip-arrow {
-      width: 42px;
-      height: 42px;
+      width: 46px;
+      height: 46px;
       border-radius: 50%;
       background: var(--surface);
       border: 2px solid var(--accent);
       color: var(--accent);
-      font-size: 1.3rem;
+      font-size: 1.4rem;
       font-weight: 900;
       line-height: 1;
       cursor: pointer;
@@ -805,14 +800,24 @@
       align-items: center;
       justify-content: center;
       box-shadow: 0 4px 15px rgba(196, 71, 43, 0.22);
-      transition: all 0.2s;
+      transition: transform 0.15s, background 0.15s, color 0.15s, box-shadow 0.15s;
       touch-action: manipulation;
+      -webkit-tap-highlight-color: transparent;
+      -webkit-user-select: none;
+      user-select: none;
     }
 
     .flip-arrow:hover:not(:disabled) {
       background: var(--accent);
       color: var(--accent-contrast);
       transform: scale(1.08);
+    }
+
+    .flip-arrow:active:not(:disabled) {
+      transform: scale(0.92);
+      background: var(--accent);
+      color: var(--accent-contrast);
+      box-shadow: 0 2px 8px rgba(196, 71, 43, 0.4);
     }
 
     .flip-arrow:disabled {
@@ -822,14 +827,14 @@
 
     @media (max-width: 900px) {
       .flip-arrow {
-        width: 38px;
-        height: 38px;
-        font-size: 1.1rem;
-        background: rgba(255, 255, 255, 0.95);
+        width: 44px;
+        height: 44px;
+        font-size: 1.2rem;
+        background: rgba(255, 255, 255, 0.98);
       }
 
       .flip-arrows-bottom {
-        gap: 14px;
+        gap: 20px;
         bottom: 6px;
       }
     }
@@ -846,7 +851,7 @@
       height: 100%;
       text-align: center;
       padding: 4px;
-      gap: 8px;
+      gap: 10px;
     }
 
     .cover-eyebrow {
@@ -864,24 +869,19 @@
 
     .cover-title {
       font-family: var(--font-display);
-      font-size: clamp(1.3rem, 3.6vw, 2.1rem);
+      font-size: clamp(1.6rem, 5vw, 2.6rem);
       line-height: 1.08;
       font-weight: 900;
       letter-spacing: -1px;
       color: var(--text-strong);
     }
 
-    .cover-title em {
-      font-style: italic;
-      color: var(--accent);
-    }
-
     .cover-sub {
-      font-size: 0.84rem;
+      font-size: 0.86rem;
       color: var(--text-muted);
       max-width: 400px;
       margin: 4px auto 0;
-      line-height: 1.5;
+      line-height: 1.55;
       font-weight: 500;
     }
 
@@ -894,7 +894,7 @@
       flex-wrap: wrap;
       gap: 10px;
       justify-content: center;
-      margin-top: 4px;
+      margin-top: 6px;
       position: relative;
       z-index: 10;
     }
@@ -925,8 +925,8 @@
 
     .heart-morph {
       position: relative;
-      width: 160px;
-      height: 160px;
+      width: 170px;
+      height: 170px;
       margin: 0 auto;
       animation: heartFloat 6s ease-in-out infinite;
       flex-shrink: 0;
@@ -1050,8 +1050,8 @@
 
     @media (max-width: 640px) {
       .heart-morph {
-        width: 130px;
-        height: 130px;
+        width: 140px;
+        height: 140px;
       }
 
       .e.e1,
@@ -1070,18 +1070,18 @@
     }
 
     .btn-primary {
-      padding: 11px 20px;
+      padding: 12px 22px;
       background: var(--accent);
       color: var(--accent-contrast);
       font-weight: 800;
       border-radius: 8px;
-      font-size: 0.86rem;
+      font-size: 0.9rem;
       transition: all 0.2s;
       display: inline-flex;
       align-items: center;
       gap: 6px;
       border: 2px solid var(--accent);
-      min-height: 44px;
+      min-height: 46px;
       justify-content: center;
       cursor: pointer;
       font-family: inherit;
@@ -1097,19 +1097,23 @@
       color: var(--accent);
     }
 
+    .btn-primary:active {
+      transform: scale(0.96);
+    }
+
     .btn-ghost {
-      padding: 11px 20px;
+      padding: 12px 22px;
       border: 2px solid var(--accent);
       border-radius: 8px;
       font-weight: 800;
-      font-size: 0.86rem;
+      font-size: 0.9rem;
       color: var(--accent);
       background: var(--accent-2);
       transition: all 0.2s;
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      min-height: 44px;
+      min-height: 46px;
       justify-content: center;
       cursor: pointer;
       font-family: inherit;
@@ -1122,6 +1126,10 @@
       transform: translateY(-3px);
       box-shadow: 0 12px 30px rgba(255, 224, 200, 0.8);
       background: var(--surface);
+    }
+
+    .btn-ghost:active {
+      transform: scale(0.96);
     }
 
     [data-theme="dark"] .btn-ghost {
@@ -1286,6 +1294,7 @@
       cursor: pointer;
       transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
       min-height: 0;
+      touch-action: manipulation;
     }
 
     .video-card:nth-child(4),
@@ -1429,16 +1438,14 @@
       position: relative;
       width: 100%;
       height: 100%;
-      transition: transform 0.75s cubic-bezier(0.4, 0, 0.2, 1);
+      transition: transform 0.65s cubic-bezier(0.4, 0, 0.2, 1);
       transform-style: preserve-3d;
-      will-change: transform;
     }
 
     .donate-card.flipped .flip-card-inner {
       transform: rotateY(180deg);
     }
 
-    /* FIX: Sin translateZ, sin transform-style flat. Toggle pointer-events para clicks */
     .donate-card .flip-front,
     .donate-card .flip-back {
       position: absolute;
@@ -1984,8 +1991,7 @@
         <div class="page-content">
           <div class="cover-content">
             <p class="cover-eyebrow fade-up d1">Las Cruces, Bogotá</p>
-            <h1 class="cover-title warm-title fade-up d1">Canas con dignidad.<br><em>Ni aquí, ni ahora, ni nunca.</em>
-            </h1>
+            <h1 class="cover-title warm-title fade-up d1">Canas con dignidad.</h1>
             <div class="heart-morph fade-up d2" id="heartMorph">
               <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                 <path class="heart-path"
@@ -2353,7 +2359,6 @@
 
     /* ============ LIBRO ============ */
     let pageFlip = null;
-    let isFlipping = false;
     let isReady = false;
     const totalPages = 6;
     const bookEl = document.getElementById('book');
@@ -2368,7 +2373,6 @@
       if (isNaN(n) || n < 0 || n >= totalPages) return;
       if (!isReady) { pendingNav.push(n); return; }
       if (pageFlip) {
-        if (isFlipping) return;
         if (pageFlip.getCurrentPageIndex() === n) return;
         try { pageFlip.turnToPage(n); } catch (e) { }
       } else {
@@ -2378,39 +2382,34 @@
       }
     };
 
+    /* FIX CRÍTICO: los botones solo se deshabilitan por ÍNDICE de página,
+       NUNCA por estado de flip (evita el bug de "se bloquean para siempre") */
     function updateUI(idx) {
-      if (prevBtn) prevBtn.disabled = idx === 0 || isFlipping;
-      if (nextBtn) nextBtn.disabled = idx === (totalPages - 1) || isFlipping;
+      if (prevBtn) prevBtn.disabled = (idx === 0);
+      if (nextBtn) nextBtn.disabled = (idx === totalPages - 1);
     }
 
-    function setFlipping(state) {
-      isFlipping = state;
-      if (state) {
-        clearTimeout(window._flipSafetyTimer);
-        window._flipSafetyTimer = setTimeout(() => {
-          isFlipping = false;
-          if (pageFlip) updateUI(pageFlip.getCurrentPageIndex());
-        }, 2000);
-      } else {
-        clearTimeout(window._flipSafetyTimer);
-      }
+    /* Toggle de clase para pausar animaciones CSS durante el flip (solo perf, no bloquea nada) */
+    function setFlippingClass(state) {
+      bookEl.classList.toggle('is-flipping', state);
     }
 
-    /* FIX: Usar flipNext/flipPrev que FUERZAN animación de canvas.
-       Fallback a turnToNextPage/turnToPrevPage si falla. */
+    /* flipNext/flipPrev('bottom') = animación de curl garantizada */
     function safeNext() {
-      if (!pageFlip || isFlipping) return;
+      if (!pageFlip) return;
+      const idx = pageFlip.getCurrentPageIndex();
+      if (idx >= totalPages - 1) return;
       try {
-        if (pageFlip.getCurrentPageIndex() >= totalPages - 1) return;
         pageFlip.flipNext('bottom');
       } catch (e) {
         try { pageFlip.turnToNextPage(); } catch (e2) { console.warn('Next failed:', e2); }
       }
     }
     function safePrev() {
-      if (!pageFlip || isFlipping) return;
+      if (!pageFlip) return;
+      const idx = pageFlip.getCurrentPageIndex();
+      if (idx <= 0) return;
       try {
-        if (pageFlip.getCurrentPageIndex() <= 0) return;
         pageFlip.flipPrev('bottom');
       } catch (e) {
         try { pageFlip.turnToPrevPage(); } catch (e2) { console.warn('Prev failed:', e2); }
@@ -2423,24 +2422,26 @@
         return {
           width: 500, height: 850, size: 'stretch',
           minWidth: 280, maxWidth: 600, minHeight: 500, maxHeight: 1000,
-          autoSize: true, showCover: false, drawShadow: true, maxShadowOpacity: 0.6,
+          autoSize: true, showCover: false, drawShadow: true,
+          maxShadowOpacity: 0.55,
           mobileScrollSupport: false, usePortrait: true,
           showPageCorners: true, disableFlipByClick: true, clickEventForward: false,
-          useMouseEvents: true,
-          flippingTime: 1100,
-          swipeDistance: 10,
+          useMouseEvents: false,
+          flippingTime: 1000,
+          swipeDistance: 15,
           startZIndex: 0, startPage: 0
         };
       }
       return {
         width: 620, height: 800, size: 'stretch',
         minWidth: 320, maxWidth: 700, minHeight: 400, maxHeight: 900,
-        autoSize: true, showCover: false, drawShadow: true, maxShadowOpacity: 0.6,
+        autoSize: true, showCover: false, drawShadow: true,
+        maxShadowOpacity: 0.65,
         mobileScrollSupport: false, usePortrait: false,
         showPageCorners: true, disableFlipByClick: true, clickEventForward: false,
         useMouseEvents: true,
         flippingTime: 1100,
-        swipeDistance: 10,
+        swipeDistance: 20,
         startZIndex: 0, startPage: 0
       };
     }
@@ -2466,9 +2467,7 @@
 
         pageFlip.on('changeState', (e) => {
           const state = e.data;
-          setFlipping(state === 'flipping' || state === 'user_fold' || state === 'fold_corner');
-          if (!isFlipping) updateUI(pageFlip.getCurrentPageIndex());
-          else { if (prevBtn) prevBtn.disabled = true; if (nextBtn) nextBtn.disabled = true; }
+          setFlippingClass(state === 'flipping' || state === 'user_fold' || state === 'fold_corner');
         });
 
         pageFlip.on('init', () => {
@@ -2486,22 +2485,21 @@
           updateUI(e.data);
         });
 
-        if (prevBtn) prevBtn.addEventListener('click', (e) => { e.stopPropagation(); spawnGiantHeartsFromEl(prevBtn, 5); safePrev(); });
-        if (nextBtn) nextBtn.addEventListener('click', (e) => { e.stopPropagation(); spawnGiantHeartsFromEl(nextBtn, 5); safeNext(); });
+        if (prevBtn) prevBtn.addEventListener('click', (e) => { e.stopPropagation(); spawnGiantHeartsFromEl(prevBtn, 4); safePrev(); });
+        if (nextBtn) nextBtn.addEventListener('click', (e) => { e.stopPropagation(); spawnGiantHeartsFromEl(nextBtn, 4); safeNext(); });
 
         document.addEventListener('keydown', (e) => {
           if (document.querySelector('.modal-overlay.active')) return;
-          if (!pageFlip || isFlipping) return;
+          if (!pageFlip) return;
           if (e.key === 'ArrowRight') safeNext();
           if (e.key === 'ArrowLeft') safePrev();
         });
 
         let resizeTimer;
         window.addEventListener('resize', () => {
-          if (isFlipping) return;
           clearTimeout(resizeTimer);
           resizeTimer = setTimeout(() => {
-            if (!pageFlip || isFlipping) return;
+            if (!pageFlip) return;
             try { pageFlip.update(); } catch (err) { }
           }, 300);
         });
@@ -2585,7 +2583,7 @@
       if (closer) { e.preventDefault(); e.stopPropagation(); closeModal(closer.getAttribute('data-close-modal')); }
     }, true);
 
-    /* ============ FLIP CARDS (tarjetas de donación) ============ */
+    /* ============ FLIP CARDS ============ */
     function setupCardFlip(card) {
       let startX = 0, startY = 0, startTime = 0, isTap = true, activeId = null, lastToggle = 0;
 
@@ -2648,50 +2646,98 @@
     }
     document.querySelectorAll('[data-flip]').forEach(setupCardFlip);
 
-    /* ============ VIDEO MODAL (con diagnóstico mejorado) ============ */
+    /* ============ VIDEO MODAL — con play() forzado + errores detallados ============ */
     function openVideoModal(src) {
       const wrapper = document.getElementById('videoEmbedWrapper');
+      if (!wrapper) return;
+
       if (/\.(mp4|webm|ogg)(\?|#|$)/i.test(src)) {
         const fallbackSrc = src.startsWith('videos/') ? src.replace('videos/', 'img/videos/') : src;
         wrapper.innerHTML =
-          '<video controls autoplay muted playsinline preload="auto" style="background:#000;">' +
+          '<video controls autoplay muted playsinline preload="auto" style="background:#000;width:100%;height:100%;">' +
           '<source src="' + src + '" type="video/mp4">' +
           '<source src="' + fallbackSrc + '" type="video/mp4">' +
-          'Tu navegador no soporta video.' +
           '</video>';
+
         const v = wrapper.querySelector('video');
+        let errorCount = 0;
+
+        /* iOS a veces ignora el autoplay hasta que llamamos play() explícitamente */
+        v.addEventListener('loadeddata', () => {
+          const p = v.play();
+          if (p && p.catch) {
+            p.catch(() => {
+              /* Autoplay bloqueado - mostrar controles para que el usuario toque */
+              v.controls = true;
+            });
+          }
+        });
+
         v.addEventListener('error', () => {
+          errorCount++;
+          if (errorCount < 2) return; /* el navegador intenta el siguiente <source> automáticamente */
+
           const err = v.error;
-          let reason = '';
-          let hint = '';
+          let reason = 'No se pudo cargar el video';
           if (err) {
             switch (err.code) {
-              case 1: reason = 'Carga abortada'; break;
-              case 2: reason = 'Error de red - el archivo no se encontró'; break;
-              case 3: reason = 'Error de decodificación - códec no soportado (necesita H.264)'; break;
-              case 4: reason = 'Archivo no encontrado o formato no soportado'; break;
-              default: reason = 'Error desconocido';
+              case 2: reason = 'Archivo no encontrado (404)'; break;
+              case 3: reason = 'Códec no soportado — el video debe ser H.264'; break;
+              case 4: reason = 'Formato no soportado'; break;
             }
           }
+          let hint;
           if (location.protocol === 'file:') {
-            hint = 'Estás abriendo el HTML con file://. Los videos NO cargan así por seguridad del navegador. Subí la página a un servidor (Netlify, live-server, etc.) o usá "npx serve" en la terminal.';
+            hint = '⚠ Estás abriendo con file:// — los navegadores bloquean videos así. Subí la página a Netlify o usá "npx serve" en la terminal.';
           } else {
-            hint = 'Rutas intentadas: ' + src + ' y ' + fallbackSrc + '. Verificá que el archivo exista y sea MP4 con códec H.264.';
+            hint = 'Rutas intentadas: <code>' + src + '</code> y <code>' + fallbackSrc + '</code>. Verificá que el archivo exista y sea H.264.';
           }
-          wrapper.innerHTML = '<div style="color:#FFF;padding:20px;text-align:center;font-family:sans-serif;font-size:0.85rem;line-height:1.5;">' +
-            '<strong style="display:block;margin-bottom:8px;">⚠ ' + reason + '</strong>' +
+          wrapper.innerHTML = '<div style="color:#FFF;padding:24px;text-align:center;font-family:sans-serif;font-size:0.9rem;line-height:1.6;">' +
+            '<div style="font-size:2rem;margin-bottom:8px;">⚠</div>' +
+            '<strong style="display:block;margin-bottom:12px;font-size:1rem;">' + reason + '</strong>' +
             '<span style="opacity:0.85;">' + hint + '</span>' +
             '</div>';
         }, true);
+
+        /* Forzar play tras un tick (por si el navegador ignora autoplay) */
+        setTimeout(() => { const p = v.play(); if (p && p.catch) p.catch(() => { }); }, 100);
       } else {
         wrapper.innerHTML = '<iframe src="' + src + '?autoplay=1&rel=0" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>';
       }
       openModal('modal-video');
     }
 
+    /* Click en video con doble protección: pointerup + click con dedupe */
     document.querySelectorAll('.video-card').forEach(card => {
+      let startX = 0, startY = 0, startTime = 0, activeId = null, handled = false;
+
+      card.addEventListener('pointerdown', (e) => {
+        activeId = e.pointerId;
+        startX = e.clientX;
+        startY = e.clientY;
+        startTime = Date.now();
+        handled = false;
+      }, { capture: true, passive: true });
+
+      card.addEventListener('pointerup', (e) => {
+        if (e.pointerId !== activeId) return;
+        activeId = null;
+        const dx = Math.abs(e.clientX - startX);
+        const dy = Math.abs(e.clientY - startY);
+        const dt = Date.now() - startTime;
+        if (dx > 20 || dy > 20 || dt > 800) return; /* fue drag, no tap */
+        handled = true;
+        e.stopPropagation();
+        const src = card.getAttribute('data-video');
+        if (src) openVideoModal(src);
+      }, { capture: true, passive: true });
+
+      card.addEventListener('pointercancel', () => { activeId = null; handled = false; }, { capture: true, passive: true });
+
+      /* Fallback click (si pointer events no disparan por algún motivo) */
       card.addEventListener('click', (e) => {
         e.stopPropagation();
+        if (handled) { handled = false; return; }
         const src = card.getAttribute('data-video');
         if (src) openVideoModal(src);
       });
@@ -2747,7 +2793,11 @@
       document.body.style.overflow = '';
       if (id === 'modal-video') {
         const w = document.getElementById('videoEmbedWrapper');
-        if (w) w.innerHTML = '';
+        if (w) {
+          const vid = w.querySelector('video');
+          if (vid) { try { vid.pause(); } catch (e) { } }
+          w.innerHTML = '';
+        }
       }
     }
     document.querySelectorAll('.modal-overlay').forEach(o => {
