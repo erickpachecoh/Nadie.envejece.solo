@@ -58,8 +58,6 @@
       --nav-bg: rgba(255, 248, 240, 0.92);
       --modal-bg: rgba(44, 24, 16, 0.65);
       --sparkle-color: #C4472B;
-      --fold-light: #FFFFFF;
-      --fold-mid: #E8E2D6;
     }
 
     [data-theme="dark"] {
@@ -79,8 +77,6 @@
       --nav-bg: rgba(26, 14, 8, 0.9);
       --modal-bg: rgba(0, 0, 0, 0.8);
       --sparkle-color: #F5A65B;
-      --fold-light: #D8CCB8;
-      --fold-mid: #8A7A66;
     }
 
     :root {
@@ -195,8 +191,6 @@
     }
 
     .book.is-flipping .warm-title::after,
-    .book.is-flipping .page-content::before,
-    .book.is-flipping .page-content::after,
     .book.is-flipping .heart-morph,
     .book.is-flipping .heart-emojis .e,
     .book.is-flipping .nav-hearts-rain i {
@@ -640,92 +634,6 @@
     @media (max-width: 640px) {
       .page-content {
         padding: 14px 12px 28px;
-      }
-    }
-
-    .page-content::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      right: 0;
-      width: 60px;
-      height: 60px;
-      background: linear-gradient(225deg,
-          transparent 0%,
-          transparent 45%,
-          rgba(0, 0, 0, 0.12) 46%,
-          rgba(0, 0, 0, 0.20) 50%,
-          var(--fold-light) 54%,
-          var(--fold-mid) 100%);
-      clip-path: polygon(100% 0, 100% 100%, 0 100%);
-      pointer-events: none;
-      z-index: 5;
-      animation: foldBreatheRight 4.5s ease-in-out infinite;
-      transform-origin: 100% 100%;
-      will-change: transform;
-    }
-
-    .page-content::before {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 60px;
-      height: 60px;
-      background: linear-gradient(135deg,
-          transparent 0%,
-          transparent 45%,
-          rgba(0, 0, 0, 0.12) 46%,
-          rgba(0, 0, 0, 0.20) 50%,
-          var(--fold-light) 54%,
-          var(--fold-mid) 100%);
-      clip-path: polygon(0 0, 100% 100%, 0 100%);
-      pointer-events: none;
-      z-index: 5;
-      animation: foldBreatheLeft 4.5s ease-in-out infinite;
-      animation-delay: 2.25s;
-      transform-origin: 0% 100%;
-      will-change: transform;
-    }
-
-    .page[data-page="0"] .page-content::before {
-      display: none;
-    }
-
-    .page[data-page="5"] .page-content::after {
-      display: none;
-    }
-
-    @keyframes foldBreatheRight {
-
-      0%,
-      100% {
-        transform: scale(1) rotate(0deg);
-      }
-
-      50% {
-        transform: scale(1.1) rotate(-5deg);
-      }
-    }
-
-    @keyframes foldBreatheLeft {
-
-      0%,
-      100% {
-        transform: scale(1) rotate(0deg);
-      }
-
-      50% {
-        transform: scale(1.1) rotate(5deg);
-      }
-    }
-
-    @media (max-width: 640px) {
-
-      .page-content::after,
-      .page-content::before {
-        width: 52px;
-        height: 52px;
       }
     }
 
@@ -2391,10 +2299,10 @@
       bookEl.classList.toggle('is-flipping', state);
     }
 
-    /* ============ FIX FLECHA ATRÁS ============ */
-    /* Next: 'bottom' (esquina inferior derecha — agarra la hoja siguiente)
-       Prev: 'left'   (esquina inferior izquierda — agarra la hoja anterior)
-       Lock de 400ms evita taps apilados que cancelan la animación */
+    /* ============ FLECHAS ============
+       - NEXT: flipNext('bottom') → animación de papel
+       - PREV: turnToPrevPage()    → único método que retrocede animado
+       - Lock 400ms evita taps apilados */
     let _flipLock = 0;
     function safeNext() {
       if (!pageFlip) return;
@@ -2417,10 +2325,8 @@
       if (idx <= 0) return;
       _flipLock = now;
       try {
-        pageFlip.flipPrev('left');
-      } catch (e) {
-        try { pageFlip.turnToPrevPage(); } catch (e2) { console.warn('Prev failed:', e2); }
-      }
+        pageFlip.turnToPrevPage();
+      } catch (e) { console.warn('Prev failed:', e); }
     }
 
     function getBookConfig() {
